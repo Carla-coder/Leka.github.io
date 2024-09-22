@@ -1,190 +1,258 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AprendeOnline - Cursos Disponíveis</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <style>
-      body {
-        font-family: "Roboto", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
-      }
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-      .header {
-        background-color: #2c3e50;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        border-radius: 8px 8px 0 0;
-      }
-      .course-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-      }
-      .course-card {
-        background-color: white;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-      }
-      .course-card:hover {
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursos - Aprende Online Educação</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.5.1/dist/socket.io.min.js"></script>
+<style>
+body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f8f9fa;
+    }
+    .navbar-brand {
+        font-weight: bold;
+        color: #007bff !important;
+    }
+    .course-card {
+        transition: transform 0.3s ease-in-out;
+    }
+    .course-card:hover {
         transform: translateY(-5px);
-      }
-      .btn {
-        background-color: #3498db;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      .btn:hover {
-        background-color: #2980b9;
-      }
-      .course-image {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 10px;
-      }
-      .course-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 10px;
-      }
-      .course-rating {
-        color: #f39c12;
-      }
-    </style>
-  </head>
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+    .filter-section {
+        background-color: #e9ecef;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
 
-  <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <header class="header">
-        <h1>Cursos Disponíveis</h1>
-      </header>
-      <main class="course-list">
-        <div class="course-card">
-          <img
-            src="https://aprendeonline.com.br/images/programacao.jpg"
-            alt="Introdução à Programação"
-            class="course-image"
-          />
-          <h3>Introdução à Programação</h3>
-          <p>
-            Aprenda os fundamentos da programação e inicie sua jornada no mundo
-            do desenvolvimento de software.
-          </p>
-          <div class="course-info">
-            <span>Instrutor: Ana Silva</span>
-            <span class="course-rating">★★★★☆</span>
-          </div>
-          <button class="btn">Inscrever-se</button>
+        <a class="navbar-brand" href="home2.html">Aprende Online Educação</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="cursos.html">Cursos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="instrutores.html">Instrutores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sobre.html">Sobre Nós</a>
+                </li>
+                <a class="nav-item">
+                    <a class="nav-link" href="contato.html">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cadastro.html">Cadastre-se</a>
+                </li>
+            </ul>
         </div>
-        <div class="course-card">
-          <img
-            src="https://aprendeonline.com.br/images/marketing-digital.jpg"
-            alt="Marketing Digital"
-            class="course-image"
-          />
-          <h3>Marketing Digital</h3>
-          <p>
-            Domine as estratégias de marketing online e aumente a visibilidade
-            do seu negócio na internet.
-          </p>
-          <div class="course-info">
-            <span>Instrutor: Carlos Santos</span>
-            <span class="course-rating">★★★★★</span>
-          </div>
-          <button class="btn">Inscrever-se</button>
-        </div>
-        <div class="course-card">
-          <img
-            src="https://aprendeonline.com.br/images/fotografia.jpg"
-            alt="Fotografia para Iniciantes"
-            class="course-image"
-          />
-          <h3>Fotografia para Iniciantes</h3>
-          <p>
-            Aprenda técnicas essenciais de fotografia e comece a capturar
-            imagens incríveis.
-          </p>
-          <div class="course-info">
-            <span>Instrutor: Julia Oliveira</span>
-            <span class="course-rating">★★★★☆</span>
-          </div>
-          <button class="btn">Inscrever-se</button>
-        </div>
-        <div class="course-card">
-          <img
-            src="https://aprendeonline.com.br/images/design-grafico.jpg"
-            alt="Design Gráfico Básico"
-            class="course-image"
-          />
-          <h3>Design Gráfico Básico</h3>
-          <p>
-            Explore os princípios do design gráfico e crie peças visuais
-            impactantes.
-          </p>
-          <div class="course-info">
-            <span>Instrutor: Ricardo Mendes</span>
-            <span class="course-rating">★★★★☆</span>
-          </div>
-          <button class="btn">Inscrever-se</button>
-        </div>
-        <div class="course-card">
-          <img
-            src="https://aprendeonline.com.br/images/idiomas.jpg"
-            alt="Inglês para Negócios"
-            class="course-image"
-          />
-          <h3>Inglês para Negócios</h3>
-          <p>
-            Desenvolva suas habilidades em inglês voltadas para o ambiente
-            corporativo e profissional.
-          </p>
-          <div class="course-info">
-            <span>Instrutor: Maria Eduarda</span>
-            <span class="course-rating">★★★★★</span>
-          </div>
-          <button class="btn">Inscrever-se</button>
-        </div>
-        <div class="course-card">
-          <img
-            src="https://aprendeonline.com.br/images/financas.jpg"
-            alt="Finanças Pessoais"
-            class="course-image"
-          />
-          <h3>Finanças Pessoais</h3>
-          <p>
-            Aprenda a gerenciar seu dinheiro, criar orçamentos e investir de
-            forma inteligente.
-          </p>
-          <div class="course-info">
-            <span>Instrutor: Fernando Alves</span>
-            <span class="course-rating">★★★★☆</span>
-          </div>
-          <button class="btn">Inscrever-se</button>
-        </div>
-      </main>
     </div>
-  </body>
+</nav>
+
+<main class="container mt-5">
+    <h1 class="mb-4">Explore Nossos Cursos</h1>
+
+    <section class="filter-section">
+        <h2 class="h4 mb-3">Filtros</h2>
+        <form id="filter-form">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label for="category" class="form-label">Categoria</label>
+                    <select class="form-select" id="category">
+                        <option value="">Todas</option>
+                        <option value="tecnologia">Tecnologia</option>
+                        <option value="negocios">Negócios</option>
+                        <option value="design">Design</option>
+                        <option value="saude">Saúde</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="level" class="form-label">Nível</label>
+                    <select class="form-select" id="level">
+                        <option value="">Todos</option>
+                        <option value="iniciante">Iniciante</option>
+                        <option value="intermediario">Intermediário</option>
+                        <option value="avancado">Avançado</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="price" class="form-label">Preço</label>
+                    <select class="form-select" id="price">
+                        <option value="">Todos</option>
+                        <option value="gratis">Grátis</option>
+                        <option value="pago">Pago</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="search" class="form-label">Buscar</label>
+                    <input type="text" class="form-control" id="search" placeholder="Digite palavras-chave">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
+        </form>
+    </section>
+
+    <section id="courses-container" class="row">
+        <!-- Os cursos serão inseridos aqui dinamicamente -->
+    </section>
+
+    <nav aria-label="Paginação de cursos" class="mt-4">
+        <ul class="pagination justify-content-center" id="pagination">
+            <!-- Paginação será inserida aqui dinamicamente -->
+        </ul>
+    </nav>
+</main>
+
+<footer class="bg-light mt-5 py-3">
+    <div class="container text-center">
+        <p>&copy; 2024 Aprende Online Educação - Plataforma de Aprendizagem. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script>
+// JavaScript para a página de cursos
+
+// Função para criar um card de curso
+function createCourseCard(course) {
+    return `
+        <div class="col-md-4 mb-4">
+            <div class="card course-card">
+                <img src="${course.image}" class="card-img-top" alt="${course.title}">
+                <div class="card-body">
+                    <h5 class="card-title">${course.title}</h5>
+                    <p class="card-text">${course.description}</p>
+                    <p class="card-text"><small class="text-muted">Instrutor: ${course.instructor}</small></p>
+                    <p class="card-text"><small class="text-muted">Nível: ${course.level}</small></p>
+                    <p class="card-text"><strong>Preço: ${course.price}</strong></p>
+                    <a href="/curso/${course.id}" class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Função para criar links de paginação
+function createPaginationLinks(totalPages, currentPage) {
+    let links = '';
+    for (let i = 1; i <= totalPages; i++) {
+        links += `
+            <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <a class="page-link" href="#" data-page="${i}">${i}</a>
+            </li>
+        `;
+    }
+    return links;
+}
+
+// Dados simulados para cursos
+const courses = [
+    { id: 1, title: "Introdução ao JavaScript", description: "Aprenda os fundamentos do JavaScript e comece a programar!", image: "https://websim.edu/images/courses/js-intro.jpg", instructor: "Carlos Ferreira", level: "Iniciante", price: "R$ 99,90", category: "tecnologia" },
+    { id: 2, title: "Marketing Digital", description: "Domine as estratégias de marketing digital para impulsionar seu negócio.", image: "https://websim.edu/images/courses/digital-marketing.jpg", instructor: "Ana Silva", level: "Intermediário", price: "R$ 149,90", category: "negocios" },
+    { id: 3, title: "Design UX/UI", description: "Crie interfaces incríveis e melhore a experiência do usuário.", image: "https://websim.edu/images/courses/uxui-design.jpg", instructor: "Mariana Costa", level: "Avançado", price: "R$ 199,90", category: "design" },
+    { id: 4, title: "Python para Ciência de Dados", description: "Explore o mundo da ciência de dados com Python.", image: "https://websim.edu/images/courses/python-data-science.jpg", instructor: "Roberto Alves", level: "Intermediário", price: "R$ 179,90", category: "tecnologia" },
+    { id: 5, title: "Gestão de Projetos", description: "Aprenda a gerenciar projetos de forma eficiente e eficaz.", image: "https://websim.edu/images/courses/project-management.jpg", instructor: "Juliana Santos", level: "Avançado", price: "R$ 229,90", category: "negocios" },
+    { id: 6, title: "Introdução à Nutrição", description: "Entenda os princípios básicos da nutrição e alimentação saudável.", image: "https://websim.edu/images/courses/nutrition-intro.jpg", instructor: "Dr. Paulo Mendes", level: "Iniciante", price: "Grátis", category: "saude" }
+];
+
+// Função para filtrar e exibir cursos
+function displayCourses(filteredCourses, page = 1) {
+    const coursesPerPage = 6;
+    const startIndex = (page - 1) * coursesPerPage;
+    const endIndex = startIndex + coursesPerPage;
+    const coursesToShow = filteredCourses.slice(startIndex, endIndex);
+
+    const coursesContainer = document.getElementById('courses-container');
+    coursesContainer.innerHTML = '';
+    coursesToShow.forEach(course => {
+        coursesContainer.innerHTML += createCourseCard(course);
+    });
+
+    // Atualizar paginação
+    const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
+    const paginationContainer = document.getElementById('pagination');
+    paginationContainer.innerHTML = createPaginationLinks(totalPages, page);
+
+    // Adicionar event listeners para links de paginação
+    paginationContainer.querySelectorAll('.page-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const newPage = parseInt(e.target.dataset.page);
+            displayCourses(filteredCourses, newPage);
+        });
+    });
+}
+
+// Event listener para o formulário de filtro
+document.getElementById('filter-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const category = document.getElementById('category').value;
+    const level = document.getElementById('level').value;
+    const price = document.getElementById('price').value;
+    const search = document.getElementById('search').value.toLowerCase();
+
+    const filteredCourses = courses.filter(course => {
+        return (!category || course.category === category) &&
+               (!level || course.level.toLowerCase() === level) &&
+               (!price || (price === 'gratis' && course.price === 'Grátis') || (price === 'pago' && course.price !== 'Grátis')) &&
+               (!search || course.title.toLowerCase().includes(search) || course.description.toLowerCase().includes(search));
+    });
+
+    displayCourses(filteredCourses);
+});
+
+// Exibir todos os cursos inicialmente
+displayCourses(courses);
+
+// Conexão WebSocket para atualizações em tempo real
+const socket = io('https://aprendeonline.com');
+
+socket.on('newCourse', (newCourse) => {
+    console.log('Novo curso adicionado:', newCourse);
+    courses.push(newCourse);
+    displayCourses(courses);
+});
+
+socket.on('courseUpdated', (updatedCourse) => {
+    console.log('Curso atualizado:', updatedCourse);
+    const index = courses.findIndex(course => course.id === updatedCourse.id);
+    if (index !== -1) {
+        courses[index] = updatedCourse;
+        displayCourses(courses);
+    }
+});
+
+socket.on('courseDeleted', (deletedCourseId) => {
+    console.log('Curso removido:', deletedCourseId);
+    const index = courses.findIndex(course => course.id === deletedCourseId);
+    if (index !== -1) {
+        courses.splice(index, 1);
+        displayCourses(courses);
+    }
+});
+
+</script>
+</body>
 </html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Aprende Online Educação</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f8f9fa;
+      }
+      .navbar-brand {
+        font-weight: bold;
+        color: #007bff !important;
+      }
+      .login-container {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+      .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="home2.html">Aprende Online Educação</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="cursos.htm">Cursos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="instrutores.html">Instrutores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sobre.html">Sobre Nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cadastro.html">Cadastre-se</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="login-container">
+        <h2 class="text-center mb-4">Login</h2>
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              required
+            />
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="rememberMe" />
+            <label class="form-check-label" for="rememberMe">Lembrar-me</label>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        </form>
+        <div class="mt-3 text-center">
+          <a href="/esqueci-senha">Esqueceu a senha?</a>
+        </div>
+        <hr />
+        <div class="text-center">
+          <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-light mt-5 py-3">
+      <div class="container text-center">
+        <p>&copy; 2024 Aprende Online Educação - Plataforma de Aprendizagem. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const rememberMe = document.getElementById("rememberMe").checked;
+
+          // Aqui você faria a chamada para o backend para autenticar o usuário
+          // Por enquanto, vamos simular uma autenticação bem-sucedida
+
+          fetch("https://aprendeonline.com/api/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password, rememberMe }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                // Autenticação bem-sucedida
+                localStorage.setItem("token", data.token);
+                alert("Login realizado com sucesso!");
+                window.location.href = "/home2";
+              } else {
+                // Autenticação falhou
+                alert("Falha no login. Por favor, verifique suas credenciais.");
+              }
+            })
+            .catch((error) => {
+              console.error("Erro:", error);
+              alert(
+                "Ocorreu um erro ao tentar fazer login. Por favor, tente novamente mais tarde."
+              );
+            });
+        });
+    </script>
+  </body>
+</html>

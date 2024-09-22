@@ -1,181 +1,293 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AprendeOnline - Perfil do Usuário</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-  
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil do Usuário - Aprende Online Educação</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.5.1/dist/socket.io.min.js"></script>
 <style>
-  body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  .header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px 8px 0 0;
-  }
-  .nav {
-    background-color: #34495e;
-    padding: 10px;
-    border-radius: 0 0 8px 8px;
-  }
-  .nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-around;
-  }
-  .nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-  }
-  .profile-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  .profile-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  .profile-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #3498db;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    color: white;
-    margin-right: 20px;
-  }
-  .profile-info h2 {
-    margin: 0;
-    color: #2c3e50;
-  }
-  .profile-info p {
-    margin: 5px 0;
-    color: #7f8c8d;
-  }
-  .section {
-    margin-top: 30px;
-  }
-  .section h3 {
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    color: #2c3e50;
-  }
-  .course-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  .course-item {
-    background-color: #ecf0f1;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .course-title {
-    font-weight: bold;
-  }
-  .course-progress {
-    color: #27ae60;
-  }
-  .btn {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  .btn:hover {
-    background-color: #2980b9;
-  }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f8f9fa;
+    }
+    .navbar-brand {
+        font-weight: bold;
+        color: #007bff !important;
+    }
+    .profile-header {
+        background-color: #007bff;
+        color: white;
+        padding: 2rem 0;
+    }
+    .profile-img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid white;
+    }
+    .progress {
+        height: 10px;
+    }
+    .card {
+        transition: transform 0.3s ease-in-out;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .badge-custom {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
+    }
 </style>
 </head>
-
 <body>
 
-<div class="container">
-  <header class="header">
-    <h1>AprendeOnline</h1>
-  </header>
-  <nav class="nav">
-    <ul>
-      <li><a href="#cursos">Cursos</a></li>
-      <li><a href="#meuscursos">Meus Cursos</a></li>
-      <li><a href="#perfil">Perfil</a></li>
-    </ul>
-  </nav>
-  <main class="profile-content">
-    <div class="profile-header">
-      <div class="profile-avatar">
-        JA
-      </div>
-      <div class="profile-info">
-        <h2>João Aluno</h2>
-        <p>joao.aluno@email.com</p>
-        <p>Estudante</p>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">Aprende Online Educação</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/cursos">Cursos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/instrutores">Instrutores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/perfil">Meu Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Sair</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="section">
-      <h3>Meus Cursos</h3>
-      <ul class="course-list">
-        <li class="course-item">
-          <span class="course-title">Introdução à Programação</span>
-          <span class="course-progress">Progresso: 60%</span>
-        </li>
-        <li class="course-item">
-          <span class="course-title">Marketing Digital</span>
-          <span class="course-progress">Progresso: 30%</span>
-        </li>
-      </ul>
+</nav>
+
+<header class="profile-header">
+    <div class="container text-center">
+        <img src="https://aprendeonline.com/images/users/maria-silva.jpg" alt="Foto de perfil de Maria Silva" class="profile-img mb-3">
+        <h1>Maria Silva</h1>
+        <p>Estudante de Desenvolvimento Web</p>
     </div>
-    <div class="section">
-      <h3>Conquistas</h3>
-      <p>Você completou 2 cursos e ganhou 3 certificados!</p>
+</header>
+
+<main class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Informações Pessoais</h5>
+                    <p><strong>Email:</strong> maria.silva@email.com</p>
+                    <p><strong>Localização:</strong> São Paulo, SP</p>
+                    <p><strong>Membro desde:</strong> Janeiro 2023</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Editar Perfil</button>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Conquistas</h5>
+                    <div class="d-flex flex-wrap">
+                        <span class="badge bg-primary badge-custom m-1">Primeira Aula</span>
+                        <span class="badge bg-success badge-custom m-1">Curso Concluído</span>
+                        <span class="badge bg-info badge-custom m-1">Ajudante</span>
+                        <span class="badge bg-warning badge-custom m-1">Maratonista</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Progresso dos Cursos</h5>
+                    <div class="mb-3">
+                        <p>HTML & CSS Fundamentos</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p>JavaScript Avançado</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <p>React para Iniciantes</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Estatísticas de Aprendizado</h5>
+                    <canvas id="learningStats"></canvas>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Próximas Aulas</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            CSS Grid Layout
+                            <span class="badge bg-primary rounded-pill">Amanhã, 14:00</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            JavaScript Promises
+                            <span class="badge bg-primary rounded-pill">Quinta, 10:00</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Introdução ao React Hooks
+                            <span class="badge bg-primary rounded-pill">Sexta, 16:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="section">
-      <h3>Configurações da Conta</h3>
-      <button class="btn">Editar Perfil</button>
-      <button class="btn">Alterar Senha</button>
+</main>
+
+<!-- Modal para edição de perfil -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProfileModalLabel">Editar Perfil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editProfileForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="name" value="Maria Silva">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" value="maria.silva@email.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Localização</label>
+                        <input type="text" class="form-control" id="location" value="São Paulo, SP">
+                    </div>
+                    <div class="mb-3">
+                        <label for="bio" class="form-label">Biografia</label>
+                        <textarea class="form-control" id="bio" rows="3">Estudante de Desenvolvimento Web apaixonada por criar experiências digitais incríveis.</textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" id="saveProfileChanges">Salvar Mudanças</button>
+            </div>
+        </div>
     </div>
-  </main>
 </div>
 
-<script>
-  // Aqui poderíamos adicionar interatividade com JavaScript
-  // Por exemplo, para manipular as ações dos botões ou carregar dados dinamicamente
-  document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function() {
-      alert('Esta funcionalidade será implementada em breve!');
-    });
-  });
-</script>
+<footer class="bg-light mt-5 py-3">
+    <div class="container text-center">
+        <p>&copy; 2024 Aprende Online Educação - Plataforma de Aprendizagem. Todos os direitos reservados.</p>
+    </div>
+</footer>
 
-</body>
-</html>
+<script>
+// Gráfico de estatísticas de aprendizado
+const ctx = document.getElementById('learningStats').getContext('2d');
+const learningStats = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+        datasets: [{
+            label: 'Horas de Estudo',
+            data: [2, 3, 2.5, 4, 3.5, 1, 0.5],
+            backgroundColor: 'rgba(0, 123, 255, 0.5)',
+            borderColor: 'rgba(0, 123, 255, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Horas'
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    }
+});
+
+// Conexão WebSocket para atualizações em tempo real
+const socket = io('https://aprendeonline.com');
+
+socket.on('progressUpdate', (data) => {
+    console.log('Progresso atualizado:', data);
+    // Atualizar a barra de progresso do curso correspondente
+    const progressBar = document.querySelector(`[data-course-id="${data.courseId}"] .progress-bar`);
+    if (progressBar) {
+        progressBar.style.width = `${data.progress}%`;
+        progressBar.setAttribute('aria-valuenow', data.progress);
+        progressBar.textContent = `${data.progress}%`;
+    }
+});
+
+socket.on('newAchievement', (achievement) => {
+    console.log('Nova conquista desbloqueada:', achievement);
+    // Adicionar nova conquista à lista
+    const achievementsContainer = document.querySelector('.card-body:nth-child(2) .d-flex');
+    const newAchievement = document.createElement('span');
+    newAchievement.classList.add('badge', 'bg-success', 'badge-custom', 'm-1');
+    newAchievement.textContent = achievement.name;
+    achievementsContainer.appendChild(newAchievement);
+});
+
+// Lógica para salvar mudanças no perfil
+document.getElementById('saveProfileChanges').addEventListener('click', function() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const location = document.getElementById('location').value;
+    const bio = document.getElementById('bio').value;
+
+    // Aqui você enviaria essas informações para o servidor
+    console.log('Perfil atualizado:', { name, email, location, bio });
+
+    // Simular uma atualização bem-sucedida
+    alert('Perfil atualizado com sucesso!');
+    
+    // Fechar o modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('editProfileModal'));
+    modal.hide();
+
+    // Atualizar as informações na página
+    document.querySelector('.profile-header h1').textContent = name;
+    document.querySelector('.card-body p:nth-child(2)').innerHTML = `<strong>Email:</strong> ${email}`;
+    document.querySelector('.card-body p:nth-child(3)').innerHTML = `<strong>Localização:</strong> ${location}`;
+});
+
+// Função para atualizar o gráfico de estatísticas de aprendizado
+function updateLearningStats(newData) {
+    learningStats.data.datasets[0].data = newData;
+    learningStats.update();
+}
+
+// Simular atualizações periódicas das estatísticas de aprendizado
+setInterval(() => {
+    const newData = [2, 3, 2.5, 4, 3.5, 1, 0.5].map(hour => hour + Math.random() * 0.5 - 0.25);
+    updateLearningStats(newData);
+}, 5000);
+
+</script>
+</body></html>

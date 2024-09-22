@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato - Aprende Online Educação</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.prod.js"></script>
+    <script src="https://unpkg.com/vue-google-maps-location-selector"></script>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f8f9fa;
+      }
+      .navbar-brand {
+        font-weight: bold;
+        color: #4a90e2 !important;
+      }
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("../images/contact-hero.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0;
+      }
+      .contact-form {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+      }
+      .btn-primary {
+        background-color: #4a90e2;
+        border-color: #4a90e2;
+      }
+      .btn-primary:hover {
+        background-color: #3a7bc8;
+        border-color: #3a7bc8;
+      }
+      .contact-info {
+        background-color: #4a90e2;
+        color: white;
+        border-radius: 8px;
+        padding: 30px;
+      }
+      .contact-info a {
+        color: white;
+        text-decoration: none;
+      }
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+      #map {
+        height: 300px;
+        width: 100%;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="home2.html">Aprende Online Educação</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="cursos.html">Cursos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="instrutores.html">Instrutores</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="sobre.html">Sobre Nós</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-primary text-white" href="cadastro.html"
+                  >Cadastre-se</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <header class="hero text-center">
+        <div class="container">
+          <h1 class="display-4">Entre em Contato</h1>
+          <p class="lead">
+            Estamos aqui para ajudar. Entre em contato conosco para qualquer
+            dúvida ou sugestão.
+          </p>
+        </div>
+      </header>
+
+      <main class="container mt-5">
+        <div class="row">
+          <div class="col-lg-7 mb-4">
+            <div class="contact-form">
+              <h2 class="mb-4">Envie-nos uma mensagem</h2>
+              <form @submit.prevent="submitForm">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    v-model="form.name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    v-model="form.email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="subject" class="form-label">Assunto</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="subject"
+                    v-model="form.subject"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Mensagem</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="5"
+                    v-model="form.message"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Enviar Mensagem
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="contact-info">
+              <h2 class="mb-4">Informações de Contato</h2>
+              <p>
+                <strong>Endereço:</strong><br />
+                Av. Paulista, 1000 - Bela Vista, São Paulo - SP, 01310-100
+              </p>
+              <p>
+                <strong>Telefone:</strong><br />
+                <a href="tel:+551198765-4321">+55 (11) 98765-4321</a>
+              </p>
+              <p>
+                <strong>E-mail:</strong><br />
+                <a href="mailto:contato@aprendeonline.com"
+                  >contato@aprendeonline.com</a
+                >
+              </p>
+              <p>
+                <strong>Horário de Atendimento:</strong><br />
+                Segunda a Sexta: 9h às 18h
+              </p>
+            </div>
+            <div id="map" class="mt-4"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="bg-light py-4 mt-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 mb-3 mb-md-0">
+              <h5>Aprende Online Educação</h5>
+              <p>
+                Transformando vidas através da educação online de qualidade.
+              </p>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+              <h5>Links Rápidos</h5>
+              <ul class="list-unstyled">
+                <li><a href="cursos.html" title="Veja nossos cursos">Cursos</a></li>
+                <li><a href="instrutores.html" title="Conheça nossos instrutores">Instrutores</a></li>
+                <li><a href="sobre.html" title="Saiba mais sobre nós">Sobre Nós</a></li>
+                <li><a href="contato.html" title="Entre em contato">Contato</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5>Siga-nos</h5>
+              <a href="#" class="text-decoration-none me-2">
+                <img
+                  src="../images/facebook-icon.svg"
+                  alt="Facebook"
+                  width="24"
+                  height="24"
+                />
+              </a>
+              
+              <a href="#" class="text-decoration-none me-2">
+                <img
+                  src="../images/instagram-icon.svg"
+                  alt="Instagram"
+                  width="24"
+                  height="24"
+                />
+              </a>
+              <a href="#" class="text-decoration-none">
+                <img
+                  src="../images/linkedin-icon.svg"
+                  alt="LinkedIn"
+                  width="24"
+                  height="24"
+                />
+              </a>
+            </div>
+          </div>
+          <hr />
+          <div class="text-center">
+            <p>
+              &copy; 2024 Aprende Online Educação - Plataforma de Aprendizagem. Todos os direitos reservados.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            form: {
+              name: "",
+              email: "",
+              subject: "",
+              message: "",
+            },
+          };
+        },
+        methods: {
+          submitForm() {
+            // Aqui você pode implementar a lógica para enviar o formulário
+            console.log("Formulário enviado:", this.form);
+            // Limpar o formulário após o envio
+            this.form = { name: "", email: "", subject: "", message: "" };
+            alert(
+              "Mensagem enviada com sucesso! Entraremos em contato em breve."
+            );
+          },
+        },
+        mounted() {
+          // Inicializar o mapa
+          const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -23.5617, lng: -46.6601 }, // Coordenadas de São Paulo
+            zoom: 15,
+          });
+
+          // Adicionar um marcador para a localização da empresa
+          new google.maps.Marker({
+            position: { lat: -23.5617, lng: -46.6601 },
+            map: map,
+            title: "Aprende Online Educação",
+          });
+        },
+      }).mount("#app");
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+  </body>
+</html>
