@@ -17,11 +17,11 @@
       }
       .navbar-brand {
         font-weight: bold;
-        color: #4a90e2 !important;
+        color: #4a90e2;
       }
       .hero {
         background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-          url("images/hero-background.jpg");
+          url("../images/hero-background.jpg");
         background-size: cover;
         background-position: center;
         color: white;
@@ -57,7 +57,9 @@
     <div id="app">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand" href="home.html">Learn World</a>
+          <a class="navbar-brand" href="home.html">
+            <img src="../images/logo.png" alt="Learn World Logo" width="300" height="300"/>
+          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -275,21 +277,21 @@
                 title: "Desenvolvimento Web Full Stack",
                 description:
                   "Aprenda a criar aplicações web completas com as tecnologias mais modernas do mercado.",
-                image: "images/courses/web-development.jpg",
+                image: "../images/web-development.jpg",
               },
               {
                 id: 2,
                 title: "Ciência de Dados e Machine Learning",
                 description:
                   "Domine as técnicas de análise de dados e crie modelos de aprendizado de máquina.",
-                image: "images/courses/data-science.jpg",
+                image: "../images/data-science.jpg",
               },
               {
                 id: 3,
                 title: "Design UX/UI Avançado",
                 description:
                   "Aprenda a criar interfaces incríveis e melhorar a experiência do usuário em aplicativos e sites.",
-                image: "images/courses/uxui-design.jpg",
+                image: "../images/uxui-design.jpg",
               },
             ],
             testimonials: [
