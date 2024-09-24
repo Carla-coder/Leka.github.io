@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.16">
+  <diagram name="Página-1" id="sWXCCBxQRusOVvBbiYni">
+    <mxGraphModel dx="1434" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-1" value="&lt;font color=&quot;#ffffff&quot; face=&quot;Comic Sans MS&quot; style=&quot;font-size: 20px;&quot;&gt;Matriz SWOT - Learn World&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#994C00;gradientColor=#854200;" vertex="1" parent="1">
+          <mxGeometry x="310" y="60" width="276" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-3" value="&lt;font style=&quot;font-size: 15px;&quot; color=&quot;#ffffff&quot;&gt;Forças (Strengths)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#6c8ebf;gradientColor=default;" vertex="1" parent="1">
+          <mxGeometry x="148" y="150" width="308" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-5" value="&lt;font style=&quot;font-size: 15px;&quot; color=&quot;#ffffff&quot;&gt;Fraquezas (Weaknesses)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CC99FF;strokeColor=#9673a6;gradientColor=default;" vertex="1" parent="1">
+          <mxGeometry x="450" y="150" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-6" value="- Compatibilidade com Dispositivos Móveis: A plataforma é acessível em dispositivos&amp;nbsp; móveis permitindo aos usuários aprenderem em qualquer lugar." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="148" y="390" width="302" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-7" value="- Baixo Engajamento inicial: Pode ser desafiador manter o engajamento contínuo dos usuários no início, antes de consolidar uma base fiel de alunos." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E5CCFF;strokeColor=#9673a6;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="450" y="390" width="290" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-14" value="&lt;font style=&quot;font-size: 15px;&quot; color=&quot;#ffffff&quot;&gt;Oportunidades (Oportunities)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4B9600;strokeColor=#326300;gradientColor=#003300;" vertex="1" parent="1">
+          <mxGeometry x="150" y="470" width="310" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-15" value="- Aumento da demanda por Educação Online: O crescimento da educação online, especialmente pós-pandemia, oferece uma oportunidade significativa de mercado." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B9E0A5;strokeColor=#468C00;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="150" y="510" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-16" value="- Concorrência: Grandes plataformas de educação online, como Coursera, Udemy e Alura, podem dificultar a conquista de uma fatia significativa do mercado." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#FFD966;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="451" y="510" width="291" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-17" value="- Parcerias com Instituições: Colaboradores com universidades e empresas para criação de contéudo pode aumentar a visibilidade e credibilidade da plataforma." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B9E0A5;strokeColor=#468C00;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="150" y="580" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-18" value="- Evolução Tecnológica rápida: Mudanças tecnológicas podem exigir constantes atualizações na plataforma, demandando mais tempo e recursos." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#FFD966;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="451" y="580" width="291" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-19" value="- Tendência de Cursos Personalizados: Implementação de recursos de personalização de aprendizado ( ex: trilhas de cursos sugeridas) pode atrair mais usuários." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B9E0A5;strokeColor=#468C00;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="150" y="650" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-20" value="- Saturação do Mercado: A alta oferta de cursos online pode dificultar a diferenciação do Learn World e a captação de alunos.&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#FFD966;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="451" y="650" width="291" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-23" value="- Acessibilidade: A plataforma oferece cursos online que podem ser acessados de qualquer lugar, a qualquer momento, permitindo flexibilidade para os usuários." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="148" y="190" width="302" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-24" value="- Falta de Reconhecimento da Marca: Como um projeto novo, pode demorar para ganhar a confiança dos usuários e competir com grandes plataformas já estabelecidas no mercado.&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E5CCFF;strokeColor=#9673a6;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="450" y="190" width="290" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-25" value="- Diversidade de cursos: Abrange várias áreas de conhecimento, como tecnologia, negócios, designs, artes, atraindo um público amplo e diversificado." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="148" y="260" width="302" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-26" value="- Dependência de Recursos Tecnológicos: Problemas técnicos ou limitações à internet podem impactar negativamente a experiência do usuário." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E5CCFF;strokeColor=#9673a6;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="450" y="260" width="290" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-27" value="- Cerificação: Oferecimento de certificados após a conclusão dos cursos, o que pode ser um diferencial competitivo.&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="148" y="320" width="302" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-28" value="- Escalabilidade inicial: O projeto pode enfrentar dificuldades para crescer rapidamente em termos de infraestrutura e atendimento à demanda de usuários e conteúdos." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E5CCFF;strokeColor=#9673a6;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="450" y="320" width="290" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-30" value="&lt;font style=&quot;font-size: 15px;&quot; color=&quot;#ffffff&quot;&gt;Ameaças (Threats)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E6C35C;strokeColor=#E6C35C;gradientColor=#FF8000;" vertex="1" parent="1">
+          <mxGeometry x="450" y="470" width="292" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-31" value="- Integração com ferramentas de Empregabilidade: Criar parcerias com empresas para facilitar a inserção dos alunos no mercado de trabalho após a conclusão dos cursos." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B9E0A5;strokeColor=#468C00;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="150" y="710" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rpqJSeDnChMmfFpXgO3O-32" value="- Regulamentação Governamental: Mudanças nas regulamentações sobre educação online e proteção de dados podem impactar o funcionamento da plataforma." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#FFD966;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="451" y="710" width="291" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
