@@ -12,6 +12,9 @@ O Learn World é uma plataforma de educação online inovadora, desenvolvida com
 | Cor exemplo       | ![#264979](https://via.placeholder.com/10/264979?text=+) #264979 |
 | Cor exemplo       | ![#ffb222](https://via.placeholder.com/10/ffb222?text=+) #ffb222 |
 
+## Protótipo Figma:
+
+- https://www.figma.com/design/vNF6LvUEYgvdTpbMOl3252/Learn-World?node-id=1-2&t=Agtl94mHtGdULyC5-1
 
 
 ## Apêndice
