@@ -4,6 +4,7 @@
 
 O Learn World é uma plataforma de educação online inovadora, desenvolvida com o objetivo de fornecer cursos acessíveis e de alta qualidade para pessoas que desejam aprimorar suas habilidades profissionais e pessoais. A plataforma oferece uma experiência de aprendizado fácil e flexível, permitindo que os usuários estudem no seu próprio ritmo e acessem conteúdos atualizados de diversas áreas, como tecnologia, negócios, design, artes e muito mais.Com uma interface moderna e interativa, o Learn World possibilita que os alunos se conectem com instrutores especializados. Além disso, a plataforma oferece uma ampla gama de funcionalidades, como a gestão de progresso dos cursos, certificação ao final dos módulos, e suporte para dispositivos móveis, garantindo que o aprendizado seja acessível a qualquer momento e lugar. O projeto visa transformar o cenário da educação online, promovendo a democratização do conhecimento e capacitando os usuários a alcançarem seus objetivos profissionais.
 
+
 ## Documentação de cores:
 
 | Cor               | Hexadecimal                                                |
@@ -14,7 +15,7 @@ O Learn World é uma plataforma de educação online inovadora, desenvolvida com
 
 ## Protótipo Figma:
 
-- https://www.figma.com/design/vNF6LvUEYgvdTpbMOl3252/Learn-World?node-id=1-2&t=Agtl94mHtGdULyC5-1
+- https://www.figma.com/proto/cZvd8e7pldJwZpo4MfblZy/Untitled?node-id=5-132&t=HPE90CoGtKrFPVrY-1
 
 
 ## Apêndice
