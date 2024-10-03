@@ -1,9 +1,9 @@
 
-# Learn World - Education Center
+# Leka - Aprenda Jogando
+
 ## Projeto final TCC Escola Senai - Curso desenvolvimento de Sistemas FullStack
 
-O Learn World é uma plataforma de educação online inovadora, desenvolvida com o objetivo de fornecer cursos acessíveis e de alta qualidade para pessoas que desejam aprimorar suas habilidades profissionais e pessoais. A plataforma oferece uma experiência de aprendizado fácil e flexível, permitindo que os usuários estudem no seu próprio ritmo e acessem conteúdos atualizados de diversas áreas, como tecnologia, negócios, design, artes e muito mais.Com uma interface moderna e interativa, o Learn World possibilita que os alunos se conectem com instrutores especializados. Além disso, a plataforma oferece uma ampla gama de funcionalidades, como a gestão de progresso dos cursos, certificação ao final dos módulos, e suporte para dispositivos móveis, garantindo que o aprendizado seja acessível a qualquer momento e lugar. O projeto visa transformar o cenário da educação online, promovendo a democratização do conhecimento e capacitando os usuários a alcançarem seus objetivos profissionais.
-
+O aplicativo Leka visa promover o aprendizado de habilidades de programação de forma gamificada e personalizada. Ele utiliza questionários iniciais para entender os objetivos do usuário, como razões para o aprendizado (profissional, diversão etc.) e nível de experiência. Com base nas respostas, o aplicativo sugere trajetórias de aprendizado adaptadas, estabelecendo metas diárias e acompanhando o progresso através de etapas interativas. Além disso, Leka incentiva a competição saudável, permitindo que os usuários convidem amigos para participar. O aplicativo também oferece funcionalidades para criar resumos personalizados das aulas e acompanhar o progresso, certificados e recordes, tudo dentro de um ambiente interativo e envolvente.
 
 ## Documentação de cores:
 
