@@ -1,0 +1,93 @@
+// Definindo o provedor do banco de dados
+datasource db {
+  provider = "mysql" // Ou "postgresql" se estiver usando PostgreSQL
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Modelo de Usuário
+model Usuario {
+  id             Int       @id @default(autoincrement())
+  nome           String
+  email          String    @unique
+  senha          String
+  tipo           UsuarioTipo
+  progresso      Progresso[]
+  respostasAluno RespostaAluno[]
+  atividades     Atividade[] @relation("ProfessorAtividade")
+  salas          Sala[]      @relation("ProfessorSala")
+}
+
+// Tipo de Usuário (Professor ou Aluno)
+enum UsuarioTipo {
+  PROFESSOR
+  ALUNO
+}
+
+// Modelo de Progresso (Trackear progresso do aluno)
+model Progresso {
+  id        Int       @id @default(autoincrement())
+  progresso Int
+  usuario   Usuario   @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+}
+
+// Modelo de Certificado
+model Certificado {
+  id        Int       @id @default(autoincrement())
+  titulo    String
+  usuario   Usuario   @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+}
+
+// Modelo de Record (Salvamento de recordes no app)
+model Record {
+  id        Int       @id @default(autoincrement())
+  recorde   String
+  usuario   Usuario   @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+}
+
+// Modelo de Sala (Criada por um professor)
+model Sala {
+  id           Int           @id @default(autoincrement())
+  nomeSala     String
+  codigoSala   String         @unique
+  dataCriacao  DateTime       @default(now())
+  professor    Usuario        @relation("ProfessorSala", fields: [professorId], references: [id])
+  professorId  Int
+  perguntas    Pergunta[]
+}
+
+// Modelo de Pergunta (Adicionada em uma sala)
+model Pergunta {
+  id           Int           @id @default(autoincrement())
+  perguntaTexto String
+  respostaCorreta String
+  sala         Sala          @relation(fields: [salaId], references: [id])
+  salaId       Int
+  respostasAluno RespostaAluno[]
+}
+
+// Modelo de Resposta do Aluno (Respostas dos alunos nas perguntas)
+model RespostaAluno {
+  id             Int       @id @default(autoincrement())
+  respostaAluno  String
+  acerto         Boolean
+  pergunta       Pergunta  @relation(fields: [perguntaId], references: [id])
+  perguntaId     Int
+  aluno          Usuario   @relation(fields: [alunoId], references: [id])
+  alunoId        Int
+}
+
+// Modelo de Atividade (Criada pelo professor)
+model Atividade {
+  id           Int           @id @default(autoincrement())
+  descricao    String
+  dataCriacao  DateTime       @default(now())
+  professor    Usuario        @relation("ProfessorAtividade", fields: [professorId], references: [id])
+  professorId  Int
+}
