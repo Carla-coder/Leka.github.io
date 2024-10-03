@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id              Int         @id @default(autoincrement())
+  nome            String      @db.VarChar(100)
+  email           String      @unique @db.VarChar(100)
+  senha           String      @db.VarChar(100)
+  data_criacao    DateTime    @default(now())
+  nivel           NivelExperiencia
+  progresso       Progresso[]
+  questionarios   Questionario[]
+  resumos         Resumo[]
+  atividades      Atividade[]
+  amigos          Amigo[]     @relation("UsuarioAmigos")
+  conquistas      Conquista[]
+  salas           Sala[]
+}
+
+model Progresso {
+  id                  Int      @id @default(autoincrement())
+  usuario_id          Int
+  etapa_atual         Int
+  metas_diarias       String?  @db.VarChar(100)
+  progresso_percentual Int      @default(0)
+  data_atualizacao    DateTime  @default(now())
+  usuario             Usuario   @relation(fields: [usuario_id], references: [id])
+}
+
+model Questionario {
+  id                    Int      @id @default(autoincrement())
+  usuario_id            Int
+  motivo_aprendizado    MotivoAprendizado
+  categoria_educacional CategoriaEducacional
+  aspecto_favorito     AspectoFavorito
+  data_resposta         DateTime  @default(now())
+  usuario               Usuario   @relation(fields: [usuario_id], references: [id])
+}
+
+model Atividade {
+  id             Int      @id @default(autoincrement())
+  descricao      String   @db.Text
+  data_cadastro  DateTime @default(now())
+  data_execucao  DateTime?
+  etapa_numero   Int
+  usuario_id     Int
+  usuario        Usuario  @relation(fields: [usuario_id], references: [id])
+}
+
+model Resumo {
+  id              Int      @id @default(autoincrement())
+  usuario_id      Int
+  conteudo_resumo String    @db.Text
+  data_criacao    DateTime  @default(now())
+  usuario         Usuario   @relation(fields: [usuario_id], references: [id])
+}
+
+model Amigo {
+  id          Int      @id @default(autoincrement())
+  usuario_id  Int
+  amigo_id    Int
+  amigo       Usuario  @relation("UsuarioAmigos", fields: [amigo_id], references: [id])
+}
+
+model Conquista {
+  id             Int      @id @default(autoincrement())
+  usuario_id     Int
+  descricao      String   @db.Text
+  data_conquista DateTime @default(now())
+  usuario        Usuario  @relation(fields: [usuario_id], references: [id])
+}
+
+model Sala {
+  id          Int      @id @default(autoincrement())
+  professor_id Int
+  codigo_sala String   @unique @db.VarChar(20)
+  data_criacao DateTime @default(now())
+  nome_sala   String   @db.VarChar(100)
+  professor   Usuario  @relation(fields: [professor_id], references: [id])
+  perguntas   Pergunta[]
+}
+
+model Pergunta {
+  id              Int      @id @default(autoincrement())
+  sala_id         Int
+  pergunta_texto  String   @db.Text
+  resposta_correta String   @db.VarChar(100)
+  sala            Sala     @relation(fields: [sala_id], references: [id])
+  respostas       RespostaAluno[]
+}
+
+model RespostaAluno {
+  id            Int      @id @default(autoincrement())
+  aluno_id      Int
+  pergunta_id    Int
+  resposta_aluno String   @db.VarChar(100)
+  acerto        Boolean
+  pergunta      Pergunta  @relation(fields: [pergunta_id], references: [id])
+}
+
+enum NivelExperiencia {
+  iniciante
+  medio
+  avancado
+}
+
+enum MotivoAprendizado {
+  profissional
+  diversao
+  trabalho
+  outro
+}
+
+enum CategoriaEducacional {
+  ensino_medio
+  universitario
+  empregado
+  nenhuma
+}
+
+enum AspectoFavorito {
+  aparencia
+  logico
+  ambos
+}
