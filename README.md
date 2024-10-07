@@ -43,11 +43,11 @@ O aplicativo Leka visa promover o aprendizado de habilidades de programação de
 - [x] Fazer uma análise de Risco - Matriz SWOT
 - [x] Desenvolver um Cronograma - Gantt
 - [x] Traçar o caminho crítico - PERT/CPM
-- [ ] EAP - Estrutura Analítica do Projeto
-    - [ ] Criar o Documento de Requisitos
-    - [ ] Diagrama de Caso de Uso
+- [x] EAP - Estrutura Analítica do Projeto
+    - [x] Criar o Documento de Requisitos
+    - [x] Diagrama de Caso de Uso
 - [ ] Criar o Documento de Arquitetura
-    - [ ] Diagrama de Classes
+    - [x] Diagrama de Classes
     - [ ] Diagrama de Atividades
     - [ ] DER - Diagrama de Entidade Relacionamento<br>[Exemplo](https://github.com/wellifabio/projetofullexemplo/tree/main/docs/projeto)
 
