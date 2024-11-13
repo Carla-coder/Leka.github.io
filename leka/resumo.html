@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .title {
+      color: #f7e1c9;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      color: #fff;
+      font-size: 16px;
+      margin: 0 20px;
+      text-align: center;
+    }
+
+    .button {
+      margin-top: 20px;
+      background-color: #4d1948;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .buttonText {
+      color: #f7e1c9;
+      font-size: 16px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="title">Resumo</h1>
+    <p class="content">Aqui está o resumo do seu progresso e estatísticas.</p>
+    <div class="button" onclick="goBack()">
+      <span class="buttonText">Voltar</span>
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back(); // Volta para a página anterior
+    }
+  </script>
+
+</body>
+</html>

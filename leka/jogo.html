@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+    }
+
+    .header {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 30px;
+      display: flex;
+    }
+
+    .lives, .score {
+      flex-direction: row;
+      align-items: center;
+      background-color: #f7e1c9;
+      padding: 10px;
+      width: 120px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    .header-text {
+      color: #4d1948;
+      font-weight: bold;
+      font-size: 18px;
+      margin-left: 23px;
+    }
+
+    .course-path {
+      align-items: center;
+      margin-top: 20px;
+      flex: 1;
+      top: -20px;
+    }
+
+    .course-title {
+      display: block;
+      margin: 0 auto;
+      color: #4d1948;
+      font-size: 24px;
+      background-color: #f7e1c9;
+      width: 340px;
+      height: 50px;
+      text-align: center;
+      border-radius: 15px;
+      font-weight: bold;
+      padding-top: 8px;
+    }
+
+    .phase-scroll {
+      flex: 1;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .phase-wrapper {
+      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      align-items: center;
+      width: 90%;
+    }
+
+    .left-phase {
+      align-self: flex-start;
+      margin-left: 50px;
+    }
+
+    .right-phase {
+      align-self: flex-end;
+      margin-right: 50px;
+    }
+
+    .phase-circle {
+      width: 90px;
+      height: 70px;
+      border-radius: 25px;
+      background-color: #a469aa;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+
+    .phase-text {
+      color: #fff;
+      font-size: 22px;
+    }
+
+    .diagonal-line {
+      position: absolute;
+      width: 3px;
+      height: 118px;
+      background-color: #fff;
+    }
+
+    .left-line {
+      left: 185px;
+      transform: rotate(240deg);
+      top: -80px;
+    }
+
+    .right-line {
+      right: 180px;
+      transform: rotate(-235deg);
+      top: -80px;
+    }
+
+    .extra-space {
+      height: 20px;
+    }
+
+    .bottom-menu {
+      display: flex;
+      justify-content: space-around;
+      background-color: #f7e1c9;
+      padding: 10px;
+      position: absolute;
+      position: static;
+      width: 100%;
+    }
+
+    .menu-item {
+      display: flex;
+      flex-direction: column; /* Alinha o texto abaixo do ícone */
+      align-items: center; /* Centraliza o ícone e o texto */
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .menu-text {
+      color: #4d1948;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .menu-item i {
+      font-size: 30px;
+      color: #4d1948;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <div class="lives">
+        <span class="header-text">❤️ 5</span>
+      </div>
+      <div class="score">
+        <span class="header-text">🎯 200</span>
+      </div>
+    </div>
+
+    <!-- Course Path Section -->
+    <div class="course-path">
+      <div class="course-title">🏆 Progresso 0%</div>
+      <div class="phase-scroll">
+        <div class="phase-wrapper">
+          <div class="extra-space"></div>
+          <!-- Generating phases dynamically -->
+          <div id="phases"></div>
+          <div class="extra-space"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-menu">
+      <a href="jogo.html" class="menu-item">
+        <i class="material-icons">games</i>
+        <span class="menu-text">Jogo</span>
+      </a>
+      <a href="resumo.html" class="menu-item">
+        <i class="material-icons">description</i>
+        <span class="menu-text">Resumo</span>
+      </a>
+      <a href="amigos.html" class="menu-item">
+        <i class="material-icons">group</i>
+        <span class="menu-text">Amigos</span>
+      </a>
+      <a href="perfil.html" class="menu-item">
+        <i class="material-icons">person</i>
+        <span class="menu-text">Perfil</span>
+      </a>
+    </div>
+
+  <script>
+    // Function to navigate based on phase
+    function goToGame(phase) {
+      const screenMap = {
+        0: 'Pergunta', 
+        1: 'Jogo1',    
+        2: 'Jogo2',    
+        3: 'Jogo3',    
+        4: 'Jogo4',    
+        5: 'Jogo5',    
+        6: 'Jogo6',    
+        7: 'Jogo7',    
+        8: 'Jogo8',    
+        9: 'Jogo9',
+      };
+
+      const targetScreen = screenMap[phase];
+      if (targetScreen) {
+        alert("Navegando para: " + targetScreen); // Simulating navigation
+      }
+    }
+
+    // Function to dynamically generate the phases
+    function generatePhases() {
+      const phasesContainer = document.getElementById('phases');
+      for (let phase = 0; phase < 10; phase++) {
+        const phaseWrapper = document.createElement('div');
+        phaseWrapper.classList.add('phase-wrapper');
+
+        if (phase > 0) {
+          const line = document.createElement('div');
+          line.classList.add('diagonal-line');
+          line.classList.add(phase % 2 === 0 ? 'left-line' : 'right-line');
+          phaseWrapper.appendChild(line);
+        }
+
+        const phaseCircle = document.createElement('div');
+        phaseCircle.classList.add('phase-circle');
+        phaseCircle.classList.add(phase % 2 === 0 ? 'left-phase' : 'right-phase');
+        phaseCircle.onclick = () => goToGame(phase);
+
+        const phaseText = document.createElement('span');
+        phaseText.classList.add('phase-text');
+        phaseText.textContent = phase + 1;
+
+        phaseCircle.appendChild(phaseText);
+        phaseWrapper.appendChild(phaseCircle);
+        phasesContainer.appendChild(phaseWrapper);
+      }
+    }
+
+    // Function to simulate navigation in the bottom menu
+    function navigateToPage(page) {
+      alert("Navegando para " + page); // Simulating page navigation
+    }
+
+    // Call the function to generate phases when the page loads
+    generatePhases();
+  </script>
+</body>
+</html>

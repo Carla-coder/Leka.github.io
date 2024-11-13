@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Path</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .description {
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .module {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 8px;
+        }
+        .module-title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .module-description {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .interactive-step {
+            margin-bottom: 20px;
+        }
+        .step-instruction {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .example-code {
+            background-color: #f7e1c9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #666;
+        }
+        .hint {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ccc;
+        }
+        .next-button {
+            padding: 15px;
+            background-color: #b03892;
+            border-radius: 25px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+        .quiz-container {
+            margin-top: 40px;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .quiz-title {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .option {
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #f7e1c9;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+        }
+        .selected-option {
+            background-color: #b03892;
+            color: white;
+        }
+        .calculate-button {
+            padding: 15px;
+            background-color: #b03892;
+            border-radius: 25px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title" id="learning-path-title"></div>
+        <div class="description" id="learning-path-description"></div>
+
+        <div id="module-container"></div>
+
+        <div id="quiz-container"></div>
+
+    </div>
+
+    <script>
+        const learningPathData = {
+            learningPath: {
+                title: "Caminho de Aprendizado",
+                description: "Explore o básico de HTML, CSS e JavaScript.",
+                modules: [
+                    {
+                        id: 1,
+                        title: "1. HTML: Estruturas de Texto",
+                        description: "Aprenda a usar as tags HTML para formatar texto.",
+                        interactiveContent: [
+                            {
+                                step: 1,
+                                instruction: "Crie um parágrafo com um link.",
+                                exampleCode: "<p>Visite <a href='https://www.exemplo.com'>nosso site</a> para mais informações.</p>",
+                                hint: "Use a tag <a> para criar links.",
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        title: "2. CSS: Estilizando Listas",
+                        description: "Descubra como aplicar estilos às listas em CSS.",
+                        interactiveContent: [
+                            {
+                                step: 1,
+                                instruction: "Estilize uma lista ordenada.",
+                                exampleCode: "ol {\n  list-style-type: square;\n  color: darkblue;\n}",
+                                hint: "Use 'list-style-type' para mudar a aparência da lista.",
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        title: "3. JavaScript: Funções Simples",
+                        description: "Aprenda a criar e usar funções básicas em JavaScript.",
+                        interactiveContent: [
+                            {
+                                step: 1,
+                                instruction: "Crie uma função que retorna a saudação de uma pessoa.",
+                                exampleCode: "function saudacao(nome) {\n  return 'Olá, ' + nome + '!';\n}",
+                                hint: "Funções podem ter parâmetros que são passados ao chamá-las.",
+                            },
+                        ],
+                    },
+                    {
+                        id: 4,
+                        title: "4. CSS: Flexbox para Layouts",
+                        description: "Utilize Flexbox para criar layouts flexíveis.",
+                        interactiveContent: [
+                            {
+                                step: 1,
+                                instruction: "Crie um layout horizontal com três itens usando Flexbox.",
+                                exampleCode: ".container {\n  display: flex;\n}\n.item {\n  flex: 1;\n  padding: 10px;\n  background-color: lightgray;\n}",
+                                hint: "Use 'display: flex' na div pai para alinhar os itens.",
+                            },
+                        ],
+                    },
+                    {
+                        id: 5,
+                        title: "✏ Quiz Final Básico",
+                        quiz: [
+                            {
+                                question: "1. Qual tag HTML é usada para definir um parágrafo?",
+                                answerType: "multipleChoice",
+                                options: ["<p>", "<paragraph>", "<text>"],
+                                expectedAnswer: "<p>",
+                            },
+                            {
+                                question: "2. Como você altera o tipo de marcador de uma lista não ordenada?",
+                                answerType: "multipleChoice",
+                                options: ["list-style-type: circle;", "marker-type: circle;", "list-type: circle;"],
+                                expectedAnswer: "list-style-type: circle;",
+                            },
+                            {
+                                question: "3. O que faz a palavra-chave 'return' em uma função JavaScript?",
+                                answerType: "multipleChoice",
+                                options: ["Retorna um valor da função.", "Finaliza o script.", "Imprime um valor no console."],
+                                expectedAnswer: "Retorna um valor da função.",
+                            },
+                            {
+                                question: "4. Qual propriedade CSS é usada para alinhar itens no centro em Flexbox?",
+                                answerType: "multipleChoice",
+                                options: ["align-items: center;", "justify-content: center;", "flex-align: center;"],
+                                expectedAnswer: "align-items: center;",
+                            },
+                            {
+                                question: "5. Como você cria um comentário em CSS?",
+                                answerType: "multipleChoice",
+                                options: ["// Este é um comentário", "<!-- Este é um comentário -->", "/* Este é um comentário */"],
+                                expectedAnswer: "/* Este é um comentário */",
+                            },
+                        ],
+                    },
+                ],
+            },
+        };
+
+        let currentModuleIndex = 0;
+
+        function loadLearningPath() {
+            const path = learningPathData.learningPath;
+            document.getElementById("learning-path-title").innerText = path.title;
+            document.getElementById("learning-path-description").innerText = path.description;
+            loadModule(path.modules[currentModuleIndex]);
+        }
+
+        function loadModule(module) {
+            const moduleContainer = document.getElementById("module-container");
+            moduleContainer.innerHTML = `
+                <div class="module">
+                    <div class="module-title">${module.title}</div>
+                    <div class="module-description">${module.description}</div>
+                    ${module.interactiveContent.map(step => `
+                        <div class="interactive-step">
+                            <div class="step-instruction">${step.instruction}</div>
+                            <div class="example-code">${step.exampleCode}</div>
+                            <textarea class="input-field" placeholder="Digite seu código aqui"></textarea>
+                            <div class="hint">Dica: ${step.hint}</div>
+                        </div>
+                    `).join('')}
+                    <div class="next-button" onclick="nextModule()">Próximo Módulo</div>
+                </div>
+            `;
+        }
+
+        function nextModule() {
+            const path = learningPathData.learningPath;
+            if (currentModuleIndex < path.modules.length - 1) {
+                currentModuleIndex++;
+                loadModule(path.modules[currentModuleIndex]);
+            } else {
+                loadQuiz(path.modules[4].quiz);
+            }
+        }
+
+        function loadQuiz(quiz) {
+            const quizContainer = document.getElementById("quiz-container");
+            quizContainer.innerHTML = `
+                <div class="quiz-title">Quiz Final</div>
+                ${quiz.map((q, index) => `
+                    <div class="question">
+                        <div class="question-text">${q.question}</div>
+                        ${q.options.map(option => `
+                            <div class="option" onclick="selectOption('${option}', ${index})">${option}</div>
+                        `).join('')}
+                    </div>
+                `).join('')}
+                <div class="calculate-button" onclick="calculateResults()">Finalizar</div>
+            `;
+        }
+
+        function selectOption(selectedOption, questionIndex) {
+            const quiz = learningPathData.learningPath.modules[4].quiz;
+            quiz[questionIndex].selectedAnswer = selectedOption;
+            const options = document.querySelectorAll(`.question:nth-child(${questionIndex + 1}) .option`);
+            options.forEach(option => {
+                option.classList.remove('selected-option');
+            });
+            const selectedElement = [...options].find(option => option.textContent === selectedOption);
+            selectedElement.classList.add('selected-option');
+        }
+
+        function calculateResults() {
+            const quiz = learningPathData.learningPath.modules[4].quiz;
+            const correctAnswers = quiz.filter(q => q.selectedAnswer === q.expectedAnswer).length;
+            alert(`Você acertou ${correctAnswers} de ${quiz.length} questões.`);
+        }
+
+        loadLearningPath();
+    </script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <style>
+        body {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        .logo {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: #f7e1c9;
+            color: #4d1948;
+        }
+        .button {
+            background-color: #a469aa;
+            color: #fff;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .link {
+            color: #fff;
+            margin-top: 10px;
+            display: block;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        .modal-title {
+            font-size: 20px;
+            color: #284767;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./image/logo.png" alt="Logo" class="logo">
+        <h1 class="title">Bem-vindo de volta</h1>
+        <input type="text" class="input" id="emailOrNome" placeholder="Email ou Nome:">
+        <input type="password" class="input" id="senha" placeholder="Senha:">
+        <button class="button" onclick="handleLogin()">ENTRAR</button>
+        <a href="#" class="link" onclick="showModal()">Não tem uma conta? Cadastre-se</a>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Redefinir Senha</h2>
+            <input type="email" class="input" id="resetEmail" placeholder="Digite seu email">
+            <input type="password" class="input" id="newPassword" placeholder="Digite sua nova senha">
+            <button class="button" onclick="handleForgotPassword()">Atualizar senha</button>
+            <button class="button" style="background-color: #333;" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin() {
+            const emailOrNome = document.getElementById('emailOrNome').value;
+            const senha = document.getElementById('senha').value;
+
+            if (!emailOrNome || !senha) {
+                alert('Erro: Por favor, preencha todos os campos.');
+                return;
+            }
+
+            // Simulação de autenticação (dados fictícios)
+            const users = [
+                { email: 'teste@example.com', nome: 'usuarioTeste', senha: '12345' }
+            ];
+            const user = users.find(user => (user.email === emailOrNome || user.nome === emailOrNome) && user.senha === senha);
+
+            if (user) {
+                alert('Login realizado com sucesso!');
+                // Redirecionar ou manipular de acordo
+            } else {
+                alert('Erro: Email ou senha incorretos!');
+            }
+        }
+
+        function navigateToSignup() {
+            // Redireciona para a tela de cadastro
+            window.location.href = "signup.html"; 
+        }
+
+        function showModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function handleForgotPassword() {
+            const resetEmail = document.getElementById('resetEmail').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            if (!resetEmail) {
+                alert('Erro: Por favor, insira seu email.');
+                return;
+            }
+
+            // Simulação de redefinição de senha (dados fictícios)
+            alert('Senha atualizada com sucesso!');
+            closeModal();
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .logo {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .input {
+            width: 80%;
+            background-color: #f7e1c9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            color: #4d1948;
+        }
+
+        .button {
+            background-color: #a469aa;
+            color: #fff;
+            padding: 15px;
+            width: 80%;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .signupLink {
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .modal input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .modal button {
+            background-color: #a469aa;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-modal {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="./image/logo.png" alt="Logo" class="logo">
+        <h1 class="title">Bem-vindo de volta</h1>
+
+        <input type="text" class="input" id="emailOrNome" placeholder="Email ou Nome">
+        <input type="password" class="input" id="senha" placeholder="Senha">
+
+        <button class="button" onclick="handleLogin()">ENTRAR</button>
+
+        <p class="signupLink" onclick="openSignup()">Não tem uma conta? Cadastre-se</p>
+        <p class="signupLink" onclick="openModal()">Esqueceu a senha?</p>
+    </div>
+
+    <!-- Modal de Redefinir Senha -->
+    <!-- <div id="resetPasswordModal" class="modal">
+        <div class="modal-content">
+            <h2>Redefinir Senha</h2>
+            <input type="email" id="resetEmail" placeholder="Digite seu email" />
+            <input type="password" id="newPassword" placeholder="Digite sua nova senha" />
+            <button onclick="handleForgotPassword()">Atualizar senha</button>
+            <button class="close-modal" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Função de login
+        function handleLogin() {
+            const emailOrNome = document.getElementById('emailOrNome').value;
+            const senha = document.getElementById('senha').value;
+
+            if (!emailOrNome || !senha) {
+                alert('Erro: Por favor, preencha todos os campos.');
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const user = users.find(u => (u.email === emailOrNome || u.nome === emailOrNome) && u.senha === senha);
+
+            if (user) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                alert('Login bem-sucedido!');
+                window.location.href = 'jogo.html'; // Redireciona para a página do jogo
+            } else {
+                alert('Erro: Email ou senha incorretos!');
+            }
+        }
+
+        // Função de abrir o modal de redefinir senha
+        function openModal() {
+            document.getElementById('resetPasswordModal').style.display = 'flex';
+        }
+
+        // Função de fechar o modal de redefinir senha
+        function closeModal() {
+            document.getElementById('resetPasswordModal').style.display = 'none';
+        }
+
+        // Função para redefinir senha
+        function handleForgotPassword() {
+            const resetEmail = document.getElementById('resetEmail').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            if (!resetEmail || !newPassword) {
+                alert('Erro: Por favor, insira o email e a nova senha.');
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const userIndex = users.findIndex(u => u.email === resetEmail);
+
+            if (userIndex !== -1) {
+                users[userIndex].senha = newPassword;
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Senha atualizada com sucesso!');
+                closeModal();
+            } else {
+                alert('Erro: Email não encontrado.');
+            }
+        }
+
+        // Função de abrir página de cadastro (exemplo)
+        // function openSignup() {
+        //     window.location.href = 'signup.html'; // Redireciona para a página de cadastro
+        // }
+    </script>
+
+</body>
+</html>
+ --> -->

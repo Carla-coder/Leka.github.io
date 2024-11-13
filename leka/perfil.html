@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil</title>
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #333;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding-bottom: 60px;
+      color: white;
+    }
+
+    .profile-image-container {
+      width: 180px;
+      height: 180px;
+      border-radius: 300px;
+      background-color: #7d5ba6;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      display: flex;
+    }
+
+    .profile-image {
+      width: 170px;
+      height: 170px;
+      border-radius: 100px;
+    }
+
+    .name {
+      font-size: 22px;
+      color: #f7e1c9;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .contact-info {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      width: 80%;
+      background-color: #f7e1c9;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      flex-direction: row;
+      align-items: center;
+      border: 2px solid #4d1948;
+      cursor: pointer;
+    }
+
+    .button-text {
+      color: #4d1948;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .edit-button {
+      background-color: #a469aa;
+      padding: 15px 80px;
+      border-radius: 25px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .edit-button-text {
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .modal-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #f7e1c9;
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      align-items: center;
+      border: 2px solid #4d1948;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .modal-image {
+      width: 90px;
+      height: 90px;
+      border-radius: 90px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .close-button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #a469aa;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .close-button-text {
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .bottom-menu {
+      display: flex;
+      justify-content: space-around;
+      background-color: #f7e1c9;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      overflow: hidden;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+      width: 100%;
+    }
+
+    .menu-item {
+      display: flex;
+      flex-direction: column; /* Alinha o texto abaixo do ícone */
+      align-items: center; /* Centraliza o ícone e o texto */
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .menu-text {
+      color: #4d1948;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .menu-item i {
+      font-size: 30px;
+      color: #4d1948;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="profile-image-container">
+      <img src="https://i.pinimg.com/736x/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg" class="profile-image" id="profileImage" onclick="openModal()">
+    </div>
+    <h2 class="name" id="userName">Nome do Usuário</h2>
+    <p class="contact-info" id="userContact">email@dominio.com | (11) 12345-6789</p>
+
+    <div class="button">  
+      <span class="button-text">Progressos</span>
+    </div>
+    <div class="button">
+      <span class="button-text">Certificados</span>
+    </div>
+    <div class="button">
+      <span class="button-text">Records</span>
+    </div>
+
+    <div class="edit-button" onclick="editProfile()">
+      <span class="edit-button-text">ALTERAR PERFIL</span>
+    </div>
+  </div>
+
+  <div class="modal-container" id="modalContainer">
+    <div class="modal-content">
+      <h3 class="modal-title">Escolha uma imagem</h3>
+      <div>
+        <img src="https://img.freepik.com/vetores-premium/uma-ilustracao-de-desenho-animado-de-uma-menina-com-fones-de-ouvido-e-um-telefone-celular-na-mao_569725-49415.jpg?semt=ais_hybrid" class="modal-image" onclick="selectImage(this)">
+        <img src="https://img.freepik.com/vetores-premium/jogador-de-desenhos-animados-feliz-segurando-um-joystick-com-um-grande-sorriso_657438-25584.jpg" class="modal-image" onclick="selectImage(this)">
+        <img src="https://cdn-icons-png.flaticon.com/512/1752/1752713.png" class="modal-image" onclick="selectImage(this)">
+        <img src="https://png.pngtree.com/png-vector/20230416/ourmid/pngtree-avatar-ninja-symbol-icon-vector-png-image_6709524.png" class="modal-image" onclick="selectImage(this)">
+        <img src="https://cdn-icons-png.flaticon.com/512/1752/1752767.png" class="modal-image" onclick="selectImage(this)">
+      </div>
+      <div class="close-button" onclick="closeModal()">
+        <span class="close-button-text">Fechar</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-menu">
+    <a href="jogo.html" class="menu-item">
+      <i class="material-icons">games</i>
+      <span class="menu-text">Jogo</span>
+    </a>
+    <a href="resumo.html" class="menu-item">
+      <i class="material-icons">description</i>
+      <span class="menu-text">Resumo</span>
+    </a>
+    <a href="amigos.html" class="menu-item">
+      <i class="material-icons">group</i>
+      <span class="menu-text">Amigos</span>
+    </a>
+    <a href="perfil.html" class="menu-item">
+      <i class="material-icons">person</i>
+      <span class="menu-text">Perfil</span>
+    </a>
+  </div>
+  
+
+  <script>
+    function openModal() {
+      document.getElementById('modalContainer').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modalContainer').style.display = 'none';
+    }
+
+    function selectImage(imageElement) {
+      document.getElementById('profileImage').src = imageElement.src;
+      closeModal();
+    }
+
+    function editProfile() {
+      alert("Editar perfil...");
+    }
+
+    function navigate(page) {
+      alert("Navegando para a página: " + page);
+    }
+  </script>
+
+</body>
+</html>

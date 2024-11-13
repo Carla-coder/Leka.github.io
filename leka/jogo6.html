@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Path</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .title {
+            font-size: 32px;
+            color: #f7e1c9;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .module {
+            background-color: #444;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .module-title {
+            font-size: 22px;
+            color: #f7e1c9;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .module-description {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .step {
+            background-color: #555;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .step h3 {
+            font-size: 18px;
+            color: #f7e1c9;
+        }
+
+        .code {
+            background-color: #f7e1c9;
+            color: #4d1948;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .hint {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #666;
+        }
+
+        .next-button {
+            background-color: #b03892;
+            padding: 15px;
+            color: #fff;
+            border-radius: 25px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .quiz-container {
+            padding: 20px;
+            background-color: #444;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-title {
+            font-size: 26px;
+            color: #f7e1c9;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 18px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .option {
+            background-color: #f7e1c9;
+            color: #4d1948;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .option.selected {
+            background-color: #b03892;
+            color: #fff;
+        }
+
+        .calculate-button {
+            background-color: #b03892;
+            color: #fff;
+            padding: 15px;
+            font-weight: bold;
+            border-radius: 25px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Learning Path</h1>
+        <p class="description">Aqui está seu caminho de aprendizado: HTML, CSS e JavaScript.</p>
+
+        <div id="module-1" class="module">
+            <h2 class="module-title">1. HTML: Elementos e Atributos</h2>
+            <p class="module-description">Aprenda sobre os principais elementos HTML e seus atributos.</p>
+
+            <div class="step">
+                <h3>Passo 1:</h3>
+                <p>Adicione uma tabela à sua página HTML.</p>
+                <pre class="code">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Nome&lt;/th&gt;
+    &lt;th&gt;Idade&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;João&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+                <p class="hint">Dica: Use &lt;table&gt;, &lt;tr&gt;, &lt;th&gt; e &lt;td&gt; para criar a tabela.</p>
+                <input type="text" class="input" placeholder="Digite seu código aqui" />
+            </div>
+
+            <div class="next-button" onclick="nextModule(2)">Próximo Módulo</div>
+        </div>
+
+        <div id="module-2" class="module" style="display: none;">
+            <h2 class="module-title">2. CSS: Estilizando Elementos</h2>
+            <p class="module-description">Aprenda a aplicar estilos básicos a elementos HTML.</p>
+
+            <div class="step">
+                <h3>Passo 1:</h3>
+                <p>Estilize um botão para parecer mais atraente.</p>
+                <pre class="code">button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}</pre>
+                <p class="hint">Dica: Use propriedades como 'background-color' e 'border-radius'.</p>
+                <input type="text" class="input" placeholder="Digite seu código aqui" />
+            </div>
+
+            <div class="next-button" onclick="nextModule(3)">Próximo Módulo</div>
+        </div>
+
+        <div id="module-3" class="module" style="display: none;">
+            <h2 class="module-title">3. JavaScript: Estruturas de Controle</h2>
+            <p class="module-description">Entenda como usar estruturas de controle como if e loops.</p>
+
+            <div class="step">
+                <h3>Passo 1:</h3>
+                <p>Crie uma função que verifica se um número é par ou ímpar.</p>
+                <pre class="code">function verificarPar(numero) {
+  if (numero % 2 === 0) {
+    return 'Par';
+  } else {
+    return 'Ímpar';
+  }
+}</pre>
+                <p class="hint">Dica: Use o operador '%' para verificar a divisibilidade.</p>
+                <input type="text" class="input" placeholder="Digite seu código aqui" />
+            </div>
+
+            <div class="next-button" onclick="nextModule(4)">Próximo Módulo</div>
+        </div>
+
+        <div id="module-4" class="module" style="display: none;">
+            <h2 class="module-title">4. Manipulação do DOM com JavaScript</h2>
+            <p class="module-description">Aprenda a modificar o conteúdo e estilo dos elementos na página.</p>
+
+            <div class="step">
+                <h3>Passo 1:</h3>
+                <p>Altere o texto de um cabeçalho ao clicar em um botão.</p>
+                <pre class="code">&lt;h2 id="titulo"&gt;Título Original&lt;/h2&gt;
+&lt;button onclick="mudarTitulo()"&gt;Alterar Título&lt;/button&gt;
+
+&lt;script&gt;
+function mudarTitulo() {
+  document.getElementById('titulo').innerText = 'Novo Título!';
+}
+&lt;/script&gt;</pre>
+                <p class="hint">Dica: Use 'innerText' para mudar o texto de um elemento.</p>
+                <input type="text" class="input" placeholder="Digite seu código aqui" />
+            </div>
+
+            <div class="next-button" onclick="nextModule(5)">Próximo Módulo</div>
+        </div>
+
+        <div id="module-5" class="module" style="display: none;">
+            <h2 class="module-title">✏ Quiz Final Básico</h2>
+            <div class="quiz-container">
+                <h3 class="quiz-title">Quiz Final</h3>
+
+                <div class="question">
+                    <p class="question-text">1. Qual tag HTML é usada para criar uma tabela?</p>
+                    <div class="option" onclick="checkAnswer(1, '&lt;table&gt;')"> &lt;table&gt; </div>
+                    <div class="option" onclick="checkAnswer(1, '&lt;div&gt;')"> &lt;div&gt; </div>
+                    <div class="option" onclick="checkAnswer(1, '&lt;ul&gt;')"> &lt;ul&gt; </div>
+                </div>
+
+                <div class="calculate-button" onclick="submitQuiz()">Enviar Respostas</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function nextModule(moduleNumber) {
+            for (let i = 1; i <= 5; i++) {
+                const module = document.getElementById('module-' + i);
+                if (i === moduleNumber) {
+                    module.style.display = 'block';
+                } else {
+                    module.style.display = 'none';
+                }
+            }
+        }
+
+        function checkAnswer(questionNumber, answer) {
+            // Função para checar a resposta selecionada
+            console.log('Resposta question ' + questionNumber + ': ' + answer);
+        }
+
+        function submitQuiz() {
+            alert('Quiz enviado!');
+        }
+
+        nextModule(1);
+    </script>
+</body>
+</html>

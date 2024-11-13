@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminho de Aprendizagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff3db;
+        }
+        .description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .moduleContainer {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #444;
+            border-radius: 8px;
+        }
+        .moduleTitle {
+            font-size: 22px;
+            color: #fff3db;
+            margin-bottom: 10px;
+        }
+        .moduleDescription {
+            font-size: 17px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .stepContainer {
+            margin-bottom: 15px;
+        }
+        .stepInstruction {
+            font-size: 18px;
+            color: #f7e1c9;
+            font-weight: bold;
+        }
+        .exampleCode {
+            font-size: 14px;
+            color: #4d1948;
+            background-color: #f7e1c9;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .textInput {
+            border-width: 1px;
+            border-color: #666;
+            color: #000;
+            background-color: #f7e1c9;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .hint {
+            font-size: 14px;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .nextButton {
+            padding: 15px;
+            background-color: #b03892;
+            border-radius: 25px;
+            align-items: center;
+            margin-top: 20px;
+            text-align: center;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+        }
+        .quizContainer {
+            padding: 10px;
+            background-color: #444;
+            border-radius: 10px;
+        }
+        .quizTitle {
+            font-size: 26px;
+            color: #f7e1c9;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .questionContainer {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #cb9fc6;
+            border-radius: 8px;
+        }
+        .questionText {
+            font-size: 18px;
+            color: #4d1948;
+            font-weight: bold;
+        }
+        .optionButton {
+            padding: 12px;
+            border-width: 1px;
+            border-color: #666;
+            background-color: #f7e1c9;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .selectedOptionButton {
+            background-color: #b03892;
+            border-color: #fff;
+        }
+        .optionText {
+            color: #4d1948;
+            font-size: 16px;
+        }
+        .calculateButton {
+            padding: 15px;
+            background-color: #b03892;
+            border-radius: 25px;
+            align-items: center;
+            margin-top: 10px;
+            cursor: pointer;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="title">Caminho de Aprendizagem</h1>
+    <p class="description">Aprenda HTML, CSS e JavaScript de forma prática e interativa.</p>
+
+    <!-- Módulo 1: Estrutura Básica do HTML -->
+    <div class="moduleContainer" id="module1">
+        <h2 class="moduleTitle">1. Estrutura Básica do HTML</h2>
+        <p class="moduleDescription">Aprenda a criar uma página HTML básica com elementos essenciais.</p>
+        <div class="stepContainer">
+            <p class="stepInstruction">Passo 1: Adicione uma imagem à sua página HTML.</p>
+            <pre class="exampleCode">&lt;img src='imagem.jpg' alt='Descrição da imagem'&gt;</pre>
+            <input type="text" class="textInput" placeholder="Digite seu código aqui" id="input1">
+            <p class="hint">Dica: Use a tag &lt;img&gt; com os atributos 'src' e 'alt'.</p>
+        </div>
+        <div class="nextButton" onclick="nextModule(1)">Próximo Módulo</div>
+    </div>
+
+    <!-- Módulo 2: CSS -->
+    <div class="moduleContainer" id="module2" style="display: none;">
+        <h2 class="moduleTitle">2. CSS: Layouts Simples</h2>
+        <p class="moduleDescription">Descubra como usar CSS para criar layouts simples.</p>
+        <div class="stepContainer">
+            <p class="stepInstruction">Passo 1: Crie um layout com duas colunas usando CSS.</p>
+            <pre class="exampleCode">.container { display: flex; }</pre>
+            <pre class="exampleCode">.coluna { width: 50%; padding: 10px; }</pre>
+            <input type="text" class="textInput" placeholder="Digite seu código aqui" id="input2">
+            <p class="hint">Dica: Utilize 'display: flex' para alinhar as colunas.</p>
+        </div>
+        <div class="nextButton" onclick="nextModule(2)">Próximo Módulo</div>
+    </div>
+
+    <!-- Quiz Final -->
+    <div class="quizContainer" id="quiz" style="display: none;">
+        <h2 class="quizTitle">Quiz Final</h2>
+        <div class="questionContainer">
+            <p class="questionText">1. Qual tag HTML é usada para adicionar um link?</p>
+            <div class="optionButton" onclick="answerQuiz(1, '&lt;a&gt;')"> &lt;a&gt;</div>
+            <div class="optionButton" onclick="answerQuiz(1, '&lt;link&gt;')"> &lt;link&gt;</div>
+            <div class="optionButton" onclick="answerQuiz(1, '&lt;url&gt;')"> &lt;url&gt;</div>
+        </div>
+        <!-- Additional questions would go here -->
+        <div class="calculateButton" onclick="calculateScore()">Calcular Pontuação</div>
+    </div>
+</div>
+
+<script>
+    let currentModule = 0;
+    let quizAnswers = [];
+
+    function nextModule(module) {
+        if (module === 1) {
+            document.getElementById('module1').style.display = 'none';
+            document.getElementById('module2').style.display = 'block';
+        } else if (module === 2) {
+            document.getElementById('module2').style.display = 'none';
+            document.getElementById('quiz').style.display = 'block';
+        }
+    }
+
+    function answerQuiz(questionIndex, answer) {
+        quizAnswers[questionIndex] = answer;
+    }
+
+    function calculateScore() {
+        const correctAnswers = {
+            1: '&lt;a&gt;'
+        };
+        let score = 0;
+        quizAnswers.forEach((answer, index) => {
+            if (answer === correctAnswers[index + 1]) {
+                score++;
+            }
+        });
+        alert('Você acertou ' + score + ' de ' + quizAnswers.length + ' perguntas!');
+    }
+</script>
+
+</body>
+</html>

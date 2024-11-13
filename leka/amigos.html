@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Sendbird</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sendbird/uikit-react/dist/index.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #222;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .App {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .header {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .channel-list {
+      flex: 1;
+      padding: 20px;
+      overflow-y: scroll;
+      background-color: #444;
+    }
+
+    .channel-item {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #555;
+      cursor: pointer;
+    }
+
+    .channel-item:hover {
+      background-color: #666;
+    }
+
+    .chat-container {
+      flex: 2;
+      background-color: #333;
+      padding: 20px;
+    }
+
+    .chat-message {
+      background-color: #4e4e4e;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .chat-input {
+      width: 100%;
+      padding: 10px;
+      background-color: #555;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="App">
+    <div class="header">
+      <h1>Chat Sendbird</h1>
+    </div>
+
+    <div class="channel-list">
+      <div class="channel-item" onclick="openChannel('channel1')">Canal 1</div>
+      <div class="channel-item" onclick="openChannel('channel2')">Canal 2</div>
+      <div class="channel-item" onclick="openChannel('channel3')">Canal 3</div>
+    </div>
+
+    <div class="chat-container" id="chatContainer" style="display: none;">
+      <div class="chat-message" id="message1">Mensagem 1</div>
+      <div class="chat-message" id="message2">Mensagem 2</div>
+      <input type="text" class="chat-input" id="chatInput" placeholder="Digite uma mensagem" />
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@sendbird/uikit-react/dist/index.js"></script>
+  <script>
+    const APP_ID = '2DDEB71C-A50F-4092-859B-05CF4A17E07F';  // Substitua pelo seu ID de aplicativo Sendbird
+    const USER_ID = 'user123'; // Substitua pelo seu ID de usuário
+    let currentChannelUrl = '';
+
+    // Inicializar Sendbird e conectar ao aplicativo
+    const sendBirdClient = new SendBird({ appId: APP_ID });
+    sendBirdClient.connect(USER_ID, function(user, error) {
+      if (error) {
+        console.error("Erro ao conectar ao Sendbird", error);
+      } else {
+        console.log("Conectado como", user);
+      }
+    });
+
+    // Função para abrir o canal de chat
+    function openChannel(channelUrl) {
+      currentChannelUrl = channelUrl;
+      document.getElementById('chatContainer').style.display = 'block';
+      // Aqui você pode carregar as mensagens do canal selecionado (canalUrl)
+      loadMessages(channelUrl);
+    }
+
+    // Função para carregar mensagens do canal
+    function loadMessages(channelUrl) {
+      // Aqui você simula a carga de mensagens. Em um caso real, você usaria o SDK do Sendbird para obter as mensagens.
+      const messages = ['Mensagem 1', 'Mensagem 2', 'Mensagem 3']; 
+      const messageContainer = document.getElementById('chatContainer');
+      
+      // Limpar mensagens antigas
+      messageContainer.innerHTML = '';
+      
+      messages.forEach(msg => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message');
+        messageElement.textContent = msg;
+        messageContainer.appendChild(messageElement);
+      });
+    }
+
+    // Função para enviar mensagens
+    document.getElementById('chatInput').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        const messageText = event.target.value;
+        if (messageText) {
+          sendMessage(messageText);
+          event.target.value = ''; // Limpa o campo de entrada após o envio
+        }
+      }
+    });
+
+    // Função para enviar uma mensagem no canal
+    function sendMessage(text) {
+      sendBirdClient.GroupChannel.getChannel(currentChannelUrl, function(channel, error) {
+        if (error) {
+          console.error("Erro ao enviar a mensagem:", error);
+        } else {
+          channel.sendUserMessage(text, function(message, error) {
+            if (error) {
+              console.error("Erro ao enviar mensagem", error);
+            } else {
+              const messageElement = document.createElement('div');
+              messageElement.classList.add('chat-message');
+              messageElement.textContent = message.message;
+              document.getElementById('chatContainer').appendChild(messageElement);
+            }
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

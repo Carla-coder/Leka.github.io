@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Interesse</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            height: 100vh;
+        }
+        .gif {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+            position: relative;
+            top: -50px;
+        }
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-top: -50px;
+        }
+        .button {
+            background-color: #f7e1c9;
+            color: #4d1948;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            margin: 10px 0;
+            width: 80%;
+            text-align: center;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #e6d1b8;
+        }
+    </style>
+</head>
+<body>
+    <img src="./image/interesse.gif" alt="Gif ilustrativo" class="gif">
+    <h1 class="title">O que mais te interessa?</h1>
+
+    <button class="button" onclick="calcularResultado('logica')">Eu gosto de lógica</button>
+    <button class="button" onclick="calcularResultado('design')">Eu gosto de design visual</button>
+    <button class="button" onclick="calcularResultado('ambos')">Eu gosto de ambos</button>
+
+    <script>
+        function calcularResultado(escolha) {
+            let resultado = '';
+    
+            if (escolha === 'logica') {
+                resultado = 'Backend Developer';
+            } else if (escolha === 'design') {
+                resultado = 'Frontend Developer';
+            } else if (escolha === 'ambos') {
+                resultado = 'Fullstack Developer';
+            }
+    
+            // Exibir um alerta e chamar a função de navegação com o resultado
+            alert(`Você deveria ser um: ${resultado}`);
+            navigateTo(resultado);
+        }
+    
+        function navigateTo(resultado) {
+            // Simulação de navegação - você pode adicionar parâmetros à URL se necessário
+            window.location.href = 'resultado.html';
+        }
+    </script>
+    
+</body>
+</html>

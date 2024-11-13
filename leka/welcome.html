@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Boas-vindas</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin-top: 50px;
+        }
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px 0;
+            scroll-behavior: smooth; 
+        }
+        .page {
+            scroll-snap-align: center;
+            min-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .title {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #aaa;
+        }
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #aaa;
+            margin: 5px;
+        }
+        .active-dot {
+            background-color: #6C63FF;
+        }
+        .button {
+            background-color: #a469aa;
+            color: #fff;
+            padding: 15px 80px;
+            border: none;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .link {
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img src="./image/logo.png" alt="Logo" class="logo">
+    <div class="carousel" id="carousel">
+        <div class="page">
+            <h2 class="title">Aprendizado Interativo</h2>
+            <p class="subtitle">Descubra um novo jeito de aprender programação! No LeKa, você poderá dominar habilidades essenciais jogando e se divertindo.</p>
+        </div>
+        <div class="page">
+            <h2 class="title">Aprenda Jogando</h2>
+            <p class="subtitle">Explore diversos jogos que tornam o aprendizado de programação divertido e interativo. Domine conceitos enquanto se diverte!</p>
+        </div>
+        <div class="page">
+            <h2 class="title">Ganhe Recompensas</h2>
+            <p class="subtitle">Complete desafios e ganhe recompensas que o ajudarão a avançar nas suas habilidades. Aumentando seu conhecimento!</p>
+        </div>
+    </div>
+    <div class="dots-container" id="dotsContainer"></div>
+    <button class="button" onclick="navigateToLogin()">INICIAR</button>
+    <div class="link" onclick="navigateToSignup()">EU JÁ TENHO UMA CONTA</div>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const dotsContainer = document.getElementById('dotsContainer');
+        const pages = document.querySelectorAll('.page');
+
+        let currentPage = 0;
+
+        function createDots() {
+            for (let i = 0; i < pages.length; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) {
+                    dot.classList.add('active-dot');
+                }
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === currentPage) {
+                    dot.classList.add('active-dot');
+                } else {
+                    dot.classList.remove('active-dot');
+                }
+            });
+        }
+
+        carousel.addEventListener('scroll', () => {
+            currentPage = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+            updateDots();
+        });
+
+        function navigateToLogin() {
+            window.location.href = "login.html";
+            alert('Navegando para a página de login...');
+        }
+
+        function navigateToSignup() {
+            window.location.href = "signup.html";
+            alert('Navegando para a página de cadastro...');
+        }
+
+        createDots();
+    </script>
+</body>
+</html>
+

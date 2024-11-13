@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminho de Aprendizagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .module-container {
+            margin-bottom: 20px;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .module-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #f7e1c9;
+        }
+        .module-description {
+            font-size: 17px;
+            margin-top: 10px;
+        }
+        .step-container {
+            margin-bottom: 15px;
+        }
+        .step-instruction {
+            font-size: 18px;
+            font-weight: bold;
+            color: #f7e1c9;
+        }
+        .example-code {
+            font-size: 14px;
+            background-color: #f7e1c9;
+            color: #4d1948;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .text-input {
+            border: 1px solid #666;
+            background-color: #f7e1c9;
+            color: #000;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .hint {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 5px;
+        }
+        .quiz-container {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .quiz-title {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            color: #f7e1c9;
+            margin-bottom: 15px;
+        }
+        .question-container {
+            background-color: #cb9fc6;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .question-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4d1948;
+        }
+        .option-button {
+            background-color: #f7e1c9;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .option-button.selected {
+            background-color: #b03892;
+        }
+        .calculate-button {
+            background-color: #b03892;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+        }
+        .next-button {
+            background-color: #b03892;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="app">
+        <h1>Caminho de Aprendizagem</h1>
+        <div id="module"></div>
+    </div>
+
+    <script>
+        const learningPathData = {
+            learningPath: {
+                modules: [
+                    {
+                        id: 1,
+                        title: "1. HTML: Formulários Básicos",
+                        description: "Aprenda a criar formulários HTML para capturar dados do usuário.",
+                        interactiveContent: [
+                            {
+                                step: 1,
+                                instruction: "Crie um formulário com campos para nome e email.",
+                                exampleCode: "<form>\n  <label for='nome'>Nome:</label>\n  <input type='text' id='nome' name='nome'>\n  <label for='email'>Email:</label>\n  <input type='email' id='email' name='email'>\n  <input type='submit' value='Enviar'>\n</form>",
+                                hint: "Use a tag <form> e os campos <input> para os dados."
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        title: "2. CSS: Cores e Fundos",
+                        description: "Aprenda a aplicar cores e imagens de fundo em CSS.",
+                        interactiveContent: [
+                            {
+                                step: 1,
+                                instruction: "Defina um fundo azul e texto branco para um div.",
+                                exampleCode: ".caixa {\n  background-color: blue;\n  color: white;\n  padding: 20px;\n}",
+                                hint: "Use 'background-color' para definir a cor de fundo."
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        title: "3. JavaScript: Manipulação de Strings",
+                        description: "Entenda como manipular strings em JavaScript.",
+                        interactiveContent: [
+                            {
+                                step: 1,
+                                instruction: "Crie uma função que converte um texto para maiúsculas.",
+                                exampleCode: "function paraMaiusculas(texto) {\n  return texto.toUpperCase();\n}",
+                                hint: "Use o método 'toUpperCase()' para converter para maiúsculas."
+                            },
+                        ],
+                    },
+                    {
+                        id: 4,
+                        title: "4. CSS: Transições e Animações",
+                        description: "Aprenda a adicionar transições suaves aos elementos.",
+                        interactiveContent: [
+                            {
+                                step: 1,
+                                instruction: "Crie uma transição que altera a cor de fundo de um botão ao passar o mouse.",
+                                exampleCode: "button {\n  background-color: gray;\n  transition: background-color 0.3s;\n}\nbutton:hover {\n  background-color: green;\n}",
+                                hint: "Use a propriedade 'transition' para suavizar a mudança."
+                            },
+                        ],
+                    },
+                    {
+                        id: 5,
+                        title: "✏ Quiz Final Básico",
+                        quiz: [
+                            {
+                                question: "1. Qual tag HTML é usada para criar um botão?",
+                                options: ["<input type='button'>", "<button>", "<btn>"],
+                                expectedAnswer: "<button>"
+                            },
+                            {
+                                question: "2. Como você define a cor do texto em CSS?",
+                                options: ["text-color: red;", "color: red;", "font-color: red;"],
+                                expectedAnswer: "color: red;"
+                            },
+                            {
+                                question: "3. O que faz o método 'length' em uma string?",
+                                options: ["Retorna o número de caracteres na string.", "Converte a string para um número.", "Adiciona um caractere à string."],
+                                expectedAnswer: "Retorna o número de caracteres na string."
+                            },
+                            {
+                                question: "4. Qual propriedade CSS permite fazer uma animação?",
+                                options: ["animation-name", "transition", "keyframes"],
+                                expectedAnswer: "animation-name"
+                            },
+                            {
+                                question: "5. Como você cria um novo elemento HTML em JavaScript?",
+                                options: ["document.addElement('div');", "document.createElement('div');", "document.newElement('div');"],
+                                expectedAnswer: "document.createElement('div');"
+                            },
+                        ],
+                    },
+                ]
+            }
+        };
+
+        let currentModuleIndex = 0;
+
+        function loadModule() {
+            const module = learningPathData.learningPath.modules[currentModuleIndex];
+            const moduleElement = document.getElementById("module");
+            moduleElement.innerHTML = `
+                <div class="module-container">
+                    <h2 class="module-title">${module.title}</h2>
+                    <p class="module-description">${module.description}</p>
+                    ${module.interactiveContent ? module.interactiveContent.map(step => `
+                        <div class="step-container">
+                            <p class="step-instruction">${step.instruction}</p>
+                            <pre class="example-code">${step.exampleCode}</pre>
+                            <input type="text" class="text-input" placeholder="Digite seu código aqui" />
+                            <p class="hint">Dica: ${step.hint}</p>
+                        </div>
+                    `).join('') : ''}
+                    ${module.quiz ? `
+                        <div class="quiz-container">
+                            <h3 class="quiz-title">Quiz Final</h3>
+                            ${module.quiz.map((question, index) => `
+                                <div class="question-container">
+                                    <p class="question-text">${question.question}</p>
+                                    ${question.options.map(option => `
+                                        <div class="option-button" onclick="selectAnswer(${index}, '${option}')">${option}</div>
+                                    `).join('')}
+                                </div>
+                            `).join('')}
+                            <div class="calculate-button" onclick="calculateQuiz()">Calcular Pontuação</div>
+                        </div>
+                    ` : ''}
+                    <div class="next-button" onclick="nextModule()">Próximo Módulo</div>
+                </div>
+            `;
+        }
+
+        function nextModule() {
+            currentModuleIndex++;
+            if (currentModuleIndex < learningPathData.learningPath.modules.length) {
+                loadModule();
+            } else {
+                alert("Você completou todos os módulos!");
+            }
+        }
+
+        let selectedAnswers = [];
+
+        function selectAnswer(questionIndex, answer) {
+            selectedAnswers[questionIndex] = answer;
+            const buttons = document.querySelectorAll(`.question-container:nth-child(${questionIndex + 1}) .option-button`);
+            buttons.forEach(button => button.classList.remove('selected'));
+            const selectedButton = [...buttons].find(button => button.innerText === answer);
+            selectedButton.classList.add('selected');
+        }
+
+        function calculateQuiz() {
+            let score = 0;
+            const quiz = learningPathData.learningPath.modules[4].quiz;
+            quiz.forEach((question, index) => {
+                if (selectedAnswers[index] === question.expectedAnswer) {
+                    score++;
+                }
+            });
+            alert(`Você acertou ${score} de ${quiz.length} perguntas.`);
+        }
+
+        loadModule();
+    </script>
+</body>
+</html>

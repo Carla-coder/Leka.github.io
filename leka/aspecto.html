@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aspecto Screen</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .title {
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background-color: #a469aa;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    .button:hover {
+      background-color: #8b4f83;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Qual aspecto mais te interessa?</div>
+    <button class="button" onclick="navigateTo('Fim')">Jogos</button>
+    <button class="button" onclick="navigateTo('Fim')">Sites</button>
+    <button class="button" onclick="navigateTo('Fim')">Não tenho certeza</button>
+  </div>
+
+  <script>
+    // Função para simular a navegação para a página Fim
+    function navigateTo(page) {
+      alert("Navegando para a página: " + page);
+      // Aqui você pode alterar para navegação real em um ambiente web, usando algo como React Router
+    }
+  </script>
+</body>
+</html>

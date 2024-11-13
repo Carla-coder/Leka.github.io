@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminho de Aprendizagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .title {
+            font-size: 30px;
+            color: #fff3db;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .description {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .module-container {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #444;
+            border-radius: 8px;
+        }
+        .module-title {
+            font-size: 22px;
+            color: #f7e1c9;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .module-description {
+            font-size: 17px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .step-container {
+            margin-bottom: 15px;
+        }
+        .step-instruction {
+            font-size: 18px;
+            color: #f7e1c9;
+            font-weight: bold;
+        }
+        .example-code {
+            font-size: 14px;
+            color: #4d1948;
+            background-color: #f7e1c9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .text-input {
+            border: 1px solid #666;
+            color: #000;
+            background-color: #f7e1c9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .hint {
+            font-size: 14px;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .button {
+            padding: 15px;
+            background-color: #b03892;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+            color: white;
+        }
+        .quiz-container {
+            padding: 10px;
+            background-color: #444;
+            border-radius: 10px;
+        }
+        .quiz-title {
+            font-size: 26px;
+            color: #f7e1c9;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .question-container {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #cb9fc6;
+            border-radius: 8px;
+        }
+        .question-text {
+            font-size: 18px;
+            color: #4d1948;
+            font-weight: bold;
+        }
+        .option-button {
+            padding: 12px;
+            border: 1px solid #666;
+            background-color: #f7e1c9;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .selected-option-button {
+            background-color: #b03892;
+            border-color: #fff;
+        }
+        .option-text {
+            color: #4d1948;
+            font-size: 16px;
+            text-align: center;
+        }
+        .calculate-button {
+            padding: 15px;
+            background-color: #b03892;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Caminho de Aprendizagem</h1>
+        <p class="description">Aprenda HTML, CSS e JavaScript com módulos interativos.</p>
+
+        <div class="module-container">
+            <h2 class="module-title">1. HTML5: Semântica e Estruturas Avançadas</h2>
+            <p class="module-description">Aprenda a usar tags semânticas para melhorar a acessibilidade e SEO.</p>
+            <div class="step-container">
+                <p class="step-instruction">Crie uma estrutura HTML5 com seções, cabeçalho e rodapé.</p>
+                <pre class="example-code">
+<header>
+  <h1>Meu Blog</h1>
+</header>
+<section>
+  <article>
+    <h2>Título do Artigo</h2>
+    <p>Conteúdo do artigo...</p>
+  </article>
+</section>
+<footer>
+  <p>© 2024 Meu Blog</p>
+</footer>
+                </pre>
+                <input class="text-input" placeholder="Digite seu código aqui" />
+                <p class="hint">Dica: Use &lt;header&gt;, &lt;section&gt;, &lt;article&gt;, e &lt;footer&gt; para a estrutura.</p>
+            </div>
+            <div class="button" onclick="nextModule()">Próximo Módulo</div>
+        </div>
+
+        <div class="module-container">
+            <h2 class="module-title">2. CSS: Flexbox e Alinhamento Complexo</h2>
+            <p class="module-description">Domine o Flexbox para layouts dinâmicos e responsivos.</p>
+            <div class="step-container">
+                <p class="step-instruction">Crie um layout com três itens alinhados no centro usando Flexbox.</p>
+                <pre class="example-code">
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.item {
+  margin: 10px;
+  padding: 20px;
+  background-color: lightcoral;
+}
+                </pre>
+                <input class="text-input" placeholder="Digite seu código aqui" />
+                <p class="hint">Dica: Use 'justify-content' e 'align-items' para centralizar.</p>
+            </div>
+            <div class="button" onclick="nextModule()">Próximo Módulo</div>
+        </div>
+
+        <div class="quiz-container">
+            <h2 class="quiz-title">Quiz Final</h2>
+            <div class="question-container">
+                <p class="question-text">Qual a principal vantagem de usar tags semânticas em HTML?</p>
+                <div class="option-button" onclick="selectAnswer(0, 'Aumenta a legibilidade do código para humanos e máquinas.')">Aumenta a legibilidade do código para humanos e máquinas.</div>
+                <div class="option-button" onclick="selectAnswer(0, 'Melhora o desempenho da página.')">Melhora o desempenho da página.</div>
+                <div class="option-button" onclick="selectAnswer(0, 'Facilita a estilização com CSS.')">Facilita a estilização com CSS.</div>
+            </div>
+            <div class="button" onclick="submitQuiz()">Calcular Pontuação</div>
+        </div>
+    </div>
+
+    <script>
+        let selectedAnswers = [];
+
+        function selectAnswer(questionIndex, answer) {
+            selectedAnswers[questionIndex] = answer;
+            const buttons = document.querySelectorAll(`.question-container:nth-child(${questionIndex + 1}) .option-button`);
+            buttons.forEach(button => button.classList.remove('selected-option-button'));
+            const selectedButton = [...buttons].find(button => button.innerText === answer);
+            selectedButton.classList.add('selected-option-button');
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            const expectedAnswers = [
+                "Aumenta a legibilidade do código para humanos e máquinas.",
+            ];
+
+            selectedAnswers.forEach((answer, index) => {
+                if (answer === expectedAnswers[index]) {
+                    score++;
+                }
+            });
+
+            alert(`Você acertou ${score} de ${expectedAnswers.length} perguntas.`);
+        }
+
+        function nextModule() {
+            alert('Passando para o próximo módulo!');
+        }
+    </script>
+</body>
+</html>

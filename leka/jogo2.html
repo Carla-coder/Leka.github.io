@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulos de Aprendizado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .module-title {
+            font-size: 22px;
+            color: #fff3db;
+            margin-bottom: 10px;
+        }
+        .module-description {
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+        .step-instruction {
+            margin-bottom: 10px;
+        }
+        .example-code {
+            background-color: #f7e1c9;
+            color: #4d1948;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            white-space: pre-wrap;
+        }
+        .text-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #666;
+            border-radius: 5px;
+            background-color: #f7e1c9;
+            color: #000;
+        }
+        .hint {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #fff;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #b03892;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #a02684;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Módulos de Aprendizado</h1>
+        <div id="moduleContainer"></div>
+        <button id="nextButton" class="button">Próximo Módulo</button>
+    </div>
+    <script>
+        const learningPathData = {
+            modules: [
+                {
+                    id: 1,
+                    title: "1. HTML5 Avançado",
+                    description: "Explore novos recursos do HTML5, como APIs e elementos avançados.",
+                    interactiveContent: [
+                        {
+                            step: 1,
+                            instruction: "Implemente uma aplicação usando a API de Geolocalização do HTML5.",
+                            exampleCode: "navigator.geolocation.getCurrentPosition(function(position) {\n  console.log(position.coords.latitude, position.coords.longitude);\n});",
+                            hint: "Verifique se a localização do usuário está habilitada no navegador."
+                        }
+                    ]
+                },
+                {
+                    id: 2,
+                    title: "2. CSS Avançado com Variáveis e Pré-processadores",
+                    description: "Aprofunde-se em variáveis CSS, SASS e LESS para estilos dinâmicos.",
+                    interactiveContent: [
+                        {
+                            step: 1,
+                            instruction: "Crie um tema usando variáveis CSS para cores e fontes.",
+                            exampleCode: ":root {\n  --main-color: #3498db;\n  --font-family: 'Arial', sans-serif;\n}\nbody {\n  color: var(--main-color);\n  font-family: var(--font-family);\n}",
+                            hint: "Use :root para definir variáveis globais."
+                        }
+                    ]
+                },
+                {
+                    id: 3,
+                    title: "3. JavaScript Assíncrono e Promises",
+                    description: "Aprenda a trabalhar com operações assíncronas utilizando Promises e Async/Await.",
+                    interactiveContent: [
+                        {
+                            step: 1,
+                            instruction: "Crie uma função que busca dados de uma API usando Fetch e retorna uma Promise.",
+                            exampleCode: "async function fetchData(url) {\n  const response = await fetch(url);\n  return await response.json();\n}",
+                            hint: "Use 'async' para definir uma função assíncrona e 'await' para esperar a resolução da Promise."
+                        }
+                    ]
+                },
+                {
+                    id: 4,
+                    title: "4. Animações Avançadas com CSS e JavaScript",
+                    description: "Aprofunde-se em animações complexas usando keyframes e bibliotecas JavaScript.",
+                    interactiveContent: [
+                        {
+                            step: 1,
+                            instruction: "Crie uma animação CSS usando keyframes para um efeito de entrada.",
+                            exampleCode: "@keyframes slideIn {\n  from { transform: translateX(-100%); }\n  to { transform: translateX(0); }\n}\n.element {\n  animation: slideIn 0.5s ease-out;\n}",
+                            hint: "Use @keyframes para definir a animação."
+                        }
+                    ]
+                }
+            ]
+        };
+
+        let currentModuleIndex = 0;
+
+        function renderModule() {
+            const moduleContainer = document.getElementById('moduleContainer');
+            moduleContainer.innerHTML = '';
+
+            const module = learningPathData.modules[currentModuleIndex];
+            if (module) {
+                const title = document.createElement('h2');
+                title.className = 'module-title';
+                title.textContent = module.title;
+
+                const description = document.createElement('p');
+                description.className = 'module-description';
+                description.textContent = module.description;
+
+                moduleContainer.appendChild(title);
+                moduleContainer.appendChild(description);
+
+                if (module.interactiveContent) {
+                    module.interactiveContent.forEach(step => {
+                        const instruction = document.createElement('p');
+                        instruction.className = 'step-instruction';
+                        instruction.textContent = step.instruction;
+
+                        const codeBlock = document.createElement('pre');
+                        codeBlock.className = 'example-code';
+                        codeBlock.textContent = step.exampleCode;
+
+                        const hint = document.createElement('p');
+                        hint.className = 'hint';
+                        hint.textContent = `Dica: ${step.hint}`;
+
+                        const input = document.createElement('textarea');
+                        input.className = 'text-input';
+                        input.placeholder = 'Digite seu código aqui';
+
+                        moduleContainer.appendChild(instruction);
+                        moduleContainer.appendChild(codeBlock);
+                        moduleContainer.appendChild(input);
+                        moduleContainer.appendChild(hint);
+                    });
+                }
+            }
+        }
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+            if (currentModuleIndex < learningPathData.modules.length - 1) {
+                currentModuleIndex++;
+                renderModule();
+            } else {
+                alert('Você completou todos os módulos!');
+            }
+        });
+
+        renderModule();
+    </script>
+</body>
+</html>

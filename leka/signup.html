@@ -1,0 +1,258 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <style>
+        body {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        .logo {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: #f7e1c9;
+            color: #4d1948;
+        }
+        .button {
+            background-color: #a469aa;
+            color: #fff;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./image/logo.png" alt="Logo" class="logo">
+        <h1 class="title">Vamos criar sua conta</h1>
+        <input type="text" class="input" id="nome" placeholder="Nome:">
+        <input type="email" class="input" id="email" placeholder="Email:">
+        <input type="text" class="input" id="celular" placeholder="Celular:" oninput="formatCelular(this)">
+        <input type="password" class="input" id="senha" placeholder="Senha:">
+        <input type="password" class="input" id="confirmarSenha" placeholder="Confirmar Senha:">
+        <button class="button" onclick="handleSignup()">VAMOS</button>
+    </div>
+
+    <script>
+        function validateEmail(email) {
+            return email.includes('@');
+        }
+
+        function validateCelular(celular) {
+            return celular.length === 15;
+        }
+
+        function validateSenha(senha) {
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+            return regex.test(senha);
+        }
+
+        function formatCelular(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length <= 10) {
+                input.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+            } else {
+                input.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7, 11)}`;
+            }
+        }
+
+        function handleSignup() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const celular = document.getElementById('celular').value;
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+            if (!validateEmail(email)) {
+                alert('Erro: Por favor, insira um email válido.');
+                return;
+            }
+
+            if (!validateCelular(celular)) {
+                alert('Erro: Por favor, insira um celular válido.');
+                return;
+            }
+
+            if (!validateSenha(senha)) {
+                alert('Erro: A senha deve ter no mínimo 6 caracteres, incluindo 1 letra maiúscula, 1 letra minúscula, 1 número e 1 caractere especial.');
+                return;
+            }
+
+            if (senha !== confirmarSenha) {
+                alert('Erro: Senhas não coincidem.');
+                return;
+            }
+
+            alert('Sucesso: Conta criada com sucesso!');
+            // Adicione código de armazenamento ou redirecionamento conforme necessário
+
+            window.location.href = 'motivo.html';
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <style>
+        body {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        .logo {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: #f7e1c9;
+            color: #4d1948;
+        }
+        .button {
+            background-color: #a469aa;
+            color: #fff;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./image/logo.png" alt="Logo" class="logo">
+        <h1 class="title">Vamos criar sua conta</h1>
+        <input type="text" class="input" id="nome" placeholder="Nome:">
+        <input type="email" class="input" id="email" placeholder="Email:">
+        <input type="text" class="input" id="celular" placeholder="Celular:" oninput="formatCelular(this)">
+        <input type="password" class="input" id="senha" placeholder="Senha:">
+        <input type="password" class="input" id="confirmarSenha" placeholder="Confirmar Senha:">
+        <button class="button" onclick="handleSignup()">VAMOS</button>
+    </div>
+
+    <script>
+        function validateEmail(email) {
+            return email.includes('@');
+        }
+
+        function validateCelular(celular) {
+            return celular.length === 15;
+        }
+
+        function validateSenha(senha) {
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+            return regex.test(senha);
+        }
+
+        function formatCelular(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length <= 10) {
+                input.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+            } else {
+                input.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7, 11)}`;
+            }
+        }
+
+        function handleSignup() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const celular = document.getElementById('celular').value;
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+            if (!validateEmail(email)) {
+                alert('Erro: Por favor, insira um email válido.');
+                return;
+            }
+
+            if (!validateCelular(celular)) {
+                alert('Erro: Por favor, insira um celular válido.');
+                return;
+            }
+
+            if (!validateSenha(senha)) {
+                alert('Erro: A senha deve ter no mínimo 6 caracteres, incluindo 1 letra maiúscula, 1 letra minúscula, 1 número e 1 caractere especial.');
+                return;
+            }
+
+            if (senha !== confirmarSenha) {
+                alert('Erro: Senhas não coincidem.');
+                return;
+            }
+
+            // Armazenar o usuário no localStorage
+            const user = { nome, email, celular, senha };
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push(user);
+            localStorage.setItem('users', JSON.stringify(users));
+
+            alert('Sucesso: Conta criada com sucesso!');
+            window.location.href = 'motivo.html';
+        }
+    </script>
+</body>
+</html>
