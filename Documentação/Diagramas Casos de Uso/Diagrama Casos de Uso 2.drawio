@@ -1,1 +1,55 @@
-<mxGraphModel><root><mxCell id="0"/><mxCell id="1" parent="0"/></root></mxGraphModel>
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8">
+  <diagram id="P1ZYs-dPmpwJIotlu-za" name="Página-1">
+    <mxGraphModel dx="1511" dy="1997" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WsqNNofEy5lN3f-Kb209-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="WsqNNofEy5lN3f-Kb209-2" target="WsqNNofEy5lN3f-Kb209-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-2" value="Usuário" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="420" y="-40" width="60" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-3" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;dashed=1;dashPattern=12 12;endArrow=open;endFill=0;" parent="1" source="WsqNNofEy5lN3f-Kb209-7" target="WsqNNofEy5lN3f-Kb209-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-4" value="&amp;lt;&amp;lt;Include&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="WsqNNofEy5lN3f-Kb209-3" vertex="1" connectable="0">
+          <mxGeometry x="0.0261" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=12 12;endArrow=open;endFill=0;" parent="1" source="WsqNNofEy5lN3f-Kb209-7" target="WsqNNofEy5lN3f-Kb209-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-6" value="&amp;lt;&amp;lt;Include&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="WsqNNofEy5lN3f-Kb209-5" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-7" value="RF011&lt;div&gt;Comunidades&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="550" y="-20" width="110" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-8" value="RF011.1&lt;div&gt;Amigo&amp;nbsp; cria Comunidade&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="760" y="-110" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-9" value="RF011.2&lt;div&gt;Registra e Exibe Progresso individual&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="760" y="-20" width="136" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-10" value="RF011.3&lt;div&gt;Visualiza Acertos e erros&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="760" y="70" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-11" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;dashed=1;dashPattern=12 12;" parent="1" source="WsqNNofEy5lN3f-Kb209-7" target="WsqNNofEy5lN3f-Kb209-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-12" value="&amp;lt;&amp;lt;Include&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="WsqNNofEy5lN3f-Kb209-11" vertex="1" connectable="0">
+          <mxGeometry x="-0.0838" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsqNNofEy5lN3f-Kb209-13" value="Projeto: LEKA&lt;div&gt;UML - DCU (Diagrama de Casos de Uso)&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="496" y="-110" width="240" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
