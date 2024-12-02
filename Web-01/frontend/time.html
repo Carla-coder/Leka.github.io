@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Tempo de Aprendizado</title>
+    <style>
+        body {
+            background-color: #282828;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+        }
+        .gif {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+            position: relative;
+            top: 6%;
+        }
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 60px;
+            text-align: center;
+            top: -80px;
+        }
+        .options-container {
+            background-color: #cb9fc6;
+            border-radius: 10px;
+            padding: 20px;
+            width: 50%;
+            max-width: 300px;
+            position: relative;
+            top: -50px;
+        }
+        .option {
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            text-align: center;
+            background-color: transparent;
+        }
+        .option.selected {
+            background-color: #f7e1c9;
+        }
+        .option-text {
+            color: #4d1948;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .continue-button {
+            background-color: #f7e1c9;
+            padding: 15px;
+            border-radius: 25px;
+            margin-top: 20px;
+            width: 20%;
+            text-align: center;
+            position: relative;
+            top: -60px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #4d1948;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <img src="./image/tempo.gif" alt="Gif ilustrativo" class="gif">
+    <h1 class="title">Quanto tempo você quer gastar aprendendo?</h1>
+    
+    <div class="options-container">
+        <div class="option" onclick="handleOptionChange('Casual')">
+            <p class="option-text">Casual - 5 Minutos</p>
+        </div>
+        <div class="option" onclick="handleOptionChange('Regular')">
+            <p class="option-text">Regular - 10 Minutos</p>
+        </div>
+        <div class="option" onclick="handleOptionChange('Sério')">
+            <p class="option-text">Sério - 20 Minutos</p>
+        </div>
+    </div>
+
+    <div class="continue-button" onclick="handleSubmit()">CONTINUAR</div>
+
+    <script>
+        let selectedOption = 'Casual'; // Opção padrão
+
+        function handleOptionChange(option) {
+            selectedOption = option;
+            document.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
+            document.querySelectorAll('.option').forEach(el => {
+                if (el.textContent.includes(option)) {
+                    el.classList.add('selected');
+                }
+            });
+        }
+
+        function handleSubmit() {
+            navigateToTrilha();
+        }
+
+        function navigateToTrilha() {
+        // Redireciona para a página trilha.html
+        window.location.href = 'trilha.html';
+    }
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Motivo</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            height: 100vh;
+        }
+        .gif {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-top: -50px;
+        }
+        .button {
+            background-color: #f7e1c9;
+            color: #4d1948;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            margin: 10px 0;
+            width: 80%;
+            text-align: center;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #e6d1b8;
+        }
+    </style>
+</head>
+<body>
+    <img src="./image/porque.gif" alt="Motivo GIF" class="gif">
+    <h1 class="title">Por que você está aprendendo?</h1>
+
+    <button class="button" onclick="navigateTo('Para me tornar profissional')">Para me tornar profissional</button>
+    <button class="button" onclick="navigateTo('Apenas por diversão')">Apenas por diversão</button>
+    <button class="button" onclick="navigateTo('Para o meu trabalho atual')">Para o meu trabalho atual</button>
+    <button class="button" onclick="navigateTo('Por um motivo diferente')">Por um motivo diferente</button>
+
+    <script>
+        function navigateTo(opcao) {
+            window.location.href = 'melhoropcao.html';
+            }
+    </script>
+</body>
+</html>

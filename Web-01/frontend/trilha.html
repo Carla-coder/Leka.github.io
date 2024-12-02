@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha Profissional</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #282828;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .screen-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .progress-container {
+      position: relative;
+      height: 400px; /* Maior para acomodar a linha */
+      width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .diagonal-line {
+      position: absolute;
+      width: 600px; /* Aumenta o comprimento */
+      height: 2px;
+      background-color: #fff;
+      transform: rotate(151deg); /* Define o ângulo de 40 graus */
+      top: 50%; /* Centraliza */
+      transform-origin: center;
+    }
+
+    .dot {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      background-color: #cb9fc6;
+    }
+
+    .dot-left {
+      top: calc(50% + 120px); /* Ajustado para alinhar com a linha */
+      left: calc(50% - 240px);
+    }
+
+    .dot-middle {
+      top: 50%; /* Centralizado */
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .dot-right {
+      top: calc(50% - 146px); /* Ajustado para alinhar com a linha */
+      left: calc(50% + 240px);
+    }
+
+    .text-container {
+      position: relative;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .level-text {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ca8efb;
+    }
+
+    .level-text-left {
+      position: absolute;
+      right:440px;
+      top: -45px;
+    }
+
+    .level-text-middle {
+      position: absolute;
+      left: 45%;
+      top: -160px;
+    }
+
+    .level-text-right {
+      position: absolute;
+      right: -70px;
+      bottom: 280px;
+    }
+
+    .time-text {
+      font-size: 14px;
+      font-weight: bold;
+      color: #ddd;
+    }
+
+    .time-text-left {
+      position: absolute;
+      left: 40px;
+      top: -10px;
+    }
+
+    .time-text-middle {
+      position: absolute;
+      left: 50%;
+      margin-left: -30px;
+      top: -120px;
+    }
+
+    .time-text-right {
+      position: absolute;
+      right: -70px;
+      bottom: 230px;
+    }
+
+    .continue-button {
+      background-color: #f7e1c9;
+      padding: 15px;
+      border-radius: 25px;
+      margin-top: 30px;
+      width: 80%;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .continue-button:hover {
+      background-color: #e0c1a0;
+    }
+
+    .continue-button:focus {
+      outline: none;
+    }
+
+    .continue-button span {
+      font-size: 18px;
+      font-weight: bold;
+      color: #4d1948;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-container">
+    <h1 class="title">Você se tornará profissional em pouco tempo!</h1>
+    <div class="progress-container">
+      <div class="diagonal-line"></div>
+      <div class="dot dot-left"></div>
+      <div class="dot dot-middle"></div>
+      <div class="dot dot-right"></div>
+    </div>
+
+    <div class="text-container">
+      <div class="level-text level-text-left">Básico</div>
+      <div class="time-text time-text-left">Agora</div>
+    </div>
+    <div class="text-container">
+      <div class="level-text level-text-middle">Média</div>
+      <div class="time-text time-text-middle">1 Semana</div>
+    </div>
+    <div class="text-container">
+      <div class="level-text level-text-right">Profissional</div>
+      <div class="time-text time-text-right" id="formation-time">Desconhecido</div>
+    </div>
+
+    <button class="continue-button" onclick="navigateToGame()">
+      CONTINUAR
+    </button>
+  </div>
+
+  <script>
+    function calculateFormationTime(option) {
+      let time = '';
+      switch (option) {
+        case 'Casual':
+          time = 'Abril de 2025';
+          break;
+        case 'Regular':
+          time = 'Dezembro de 2024';
+          break;
+        case 'Sério':
+          time = 'Julho de 2024';
+          break;
+        default:
+          time = 'Desconhecido';
+      }
+      return time;
+    }
+
+    function updateFormationTime(selectedOption) {
+      const formationTime = calculateFormationTime(selectedOption);
+      document.getElementById('formation-time').textContent = formationTime;
+    }
+
+    function navigateToGame() {
+      window.location.href = 'login.html';
+    }
+
+    const selectedOption = "Casual";
+    updateFormationTime(selectedOption);
+  </script>
+</body>
+</html>

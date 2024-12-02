@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Resultado</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            height: 100vh;
+        }
+        .gif {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+            position: relative;
+            top: -50px;
+        }
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-top: -50px;
+        }
+        .resultado {
+            font-size: 32px;
+            color: #f7e1c9;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #a469aa;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px 80px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #925991;
+        }
+    </style>
+</head>
+<body>
+    <img src="./image/conclui.gif" alt="Gif ilustrativo" class="gif">
+    <h1 class="title">A melhor opção para você é:</h1>
+    <div class="resultado" id="resultado">Backend Developer</div> <!-- Valor padrão para demonstração -->
+
+    <button class="button" onclick="seguir()">Seguir</button>
+
+    <script>
+        // Simulação de recebimento de parâmetro
+        function setResultado(resultado) {
+            document.getElementById('resultado').textContent = resultado;
+        }
+
+        // Simulação de navegação
+        function seguir() {
+            window.location.href = 'time.html';
+        }
+
+        // Exemplo de inicialização com um valor (pode ser substituído por um parâmetro real)
+        setResultado('Fullstack Developer');
+    </script>
+</body>
+</html>
