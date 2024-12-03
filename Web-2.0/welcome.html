@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Boas-vindas</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 92%;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        .logo {
+            width: 30%;
+            max-width: 230px;
+            height: auto;
+            margin-top: 50px;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .page {
+            min-width: 99%;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .title {
+            font-size: 2vw;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1vw;
+            color: #aaa;
+        }
+
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #aaa;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .active-dot {
+            background-color: #6C63FF;
+        }
+
+        .button {
+            background-color: #a469aa;
+            color: #fff;
+            padding: 12px 60px;
+            border: none;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 1.5vw;
+        }
+
+        .link {
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #f7e1c9;
+            color: #a469aa;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            width: 99%;
+        }
+
+        footer a {
+            color: #6C63FF;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background-color: #f7e1c9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            height: 3%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            margin-right: 60px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #a469aa;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ca75d3;
+            transform: scale(1.1);
+        }
+
+        header h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #a469aa;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            justify-content: space-between;
+        }
+
+        .hamburger div {
+            height: 4px;
+            width: 100%;
+            background-color: #a469aa;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #f7e1c9;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+
+        @media (max-width: 768px) {
+            .logo {
+                width: 80%;
+                max-width: 200px;
+            }
+
+            .title {
+                font-size: 6vw;
+            }
+
+            .subtitle {
+                font-size: 4vw;
+            }
+
+            .button {
+                padding: 15px 80px;
+                font-size: 4vw;
+            }
+
+            header {
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                display: none; 
+                width: 100%;
+                background-color: #333; 
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px 0;
+                z-index: 999;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            nav ul li {
+                margin-bottom: 10px;
+                width: 100%; 
+                text-align: center;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 7vw;
+            }
+
+            .subtitle {
+                font-size: 5vw;
+            }
+
+            .button {
+                padding: 10px 60px;
+                font-size: 5vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h3>Leka Aprenda Jogando!</h3>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="welcome.html">Home</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="glossario.html">Glossário</a></li>
+                <li><a href="depoimento.html">Depoimentos</a></li>
+                <li><a href="contato.html">Entre em Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <img src="./image/logo.png" alt="Logo" class="logo">
+        <div class="carousel" id="carousel">
+            <div class="page active">
+                <h2 class="title">Aprendizado Interativo</h2>
+                <p class="subtitle">Descubra um novo jeito de aprender programação! No LeKa, você poderá dominar
+                    habilidades essenciais jogando e se divertindo.</p>
+            </div>
+            <div class="page">
+                <h2 class="title">Aprenda Jogando</h2>
+                <p class="subtitle">Explore diversos jogos que tornam o aprendizado de programação divertido e
+                    interativo. Domine conceitos enquanto se diverte!</p>
+            </div>
+            <div class="page">
+                <h2 class="title">Ganhe Recompensas</h2>
+                <p class="subtitle">Complete desafios e ganhe recompensas que o ajudarão a avançar nas suas habilidades.
+                    Aumentando seu conhecimento!</p>
+            </div>
+        </div>
+        <div class="dots-container" id="dotsContainer"></div>
+        <button class="button" onclick="navigateToLogin()">Entre em Contato</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Leka. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const dotsContainer = document.getElementById('dotsContainer');
+        const pages = document.querySelectorAll('.page');
+
+        let currentPage = 0;
+
+        // Função para criar as bolinhas de navegação
+        function createDots() {
+            for (let i = 0; i < pages.length; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) {
+                    dot.classList.add('active-dot');
+                }
+                dot.addEventListener('click', () => {
+                    scrollToPage(i); // Quando a bolinha for clicada, vai para a página correspondente
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // Função para atualizar as bolinhas de navegação com base na página ativa
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === currentPage) {
+                    dot.classList.add('active-dot');
+                } else {
+                    dot.classList.remove('active-dot');
+                }
+            });
+        }
+
+        // Função para rolar até a página correspondente
+        function scrollToPage(pageIndex) {
+            currentPage = pageIndex;
+            // Atualiza a classe 'active' para a página correspondente
+            pages.forEach((page, index) => {
+                if (index === pageIndex) {
+                    page.classList.add('active');
+                } else {
+                    page.classList.remove('active');
+                }
+            });
+            updateDots();
+        }
+
+        // Navegação através de cliques no carrossel
+        carousel.addEventListener('click', () => {
+            const nextPage = (currentPage + 1) % pages.length;
+            scrollToPage(nextPage);
+        });
+
+        // Navegar para a página de login
+        function navigateToLogin() {
+            window.location.href = "contato.html";
+        }
+
+        // Criar as bolinhas de navegação ao carregar a página
+        createDots();
+
+        // Função para alternar a visibilidade do menu hamburguer
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Leka Aprenda Jogando!</title>
+    <style>
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #A469AA;
+            --accent-color: #F7E1C9;
+            --background-color: #333;
+            --text-color-light: #fff;
+            --text-color-dark: #aaa;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color-light);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #f7e1c9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            height: 3%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            margin-right: 60px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #a469aa;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ca75d3;
+            transform: scale(1.1);
+        }
+
+        header h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #a469aa;
+        }
+
+        .content-container {
+            width: 100%;
+            padding: 90px 20px 20px;
+            text-align: center;
+            max-width: 1200px;
+        }
+
+        .title {
+            font-size: 2vw;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+
+        .about-text {
+            font-size: 1.1vw;
+            color: #fff;
+            text-align:center;
+            margin: 30px auto;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .team-title {
+            font-size: 2vw;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .team-member {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e7bbf5;
+        }
+
+        .team-member-name {
+            color: var(--text-color-light);
+            font-size: 1.2vw;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .team-member-role {
+            color: #e7bbf5;
+            font-size: 1vw;
+        }
+
+        .contact-btn {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            padding: 15px 60px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.5vw;
+            margin-top: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #534cfc;
+        }
+
+        footer {
+            background-color: #f7e1c9;
+            color: #a469aa;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            width: 99%;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #6C63FF;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .button {
+            background-color: #a469aa;
+            color: #fff;
+            padding: 12px 60px;
+            border: none;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 1.5vw;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            justify-content: space-between;
+        }
+
+        .hamburger div {
+            height: 4px;
+            width: 100%;
+            background-color: #a469aa;
+        }
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #f7e1c9;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            .title {
+                font-size: 6vw;
+            }
+
+            .subtitle {
+                font-size: 4vw;
+            }
+
+            .team-title {
+                font-size: 6vw;
+            }
+
+            .team-member img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .contact-btn {
+                padding: 15px 50px;
+                font-size: 4vw;
+            }
+            header {
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                display: none; 
+                width: 100%;
+                background-color: #333; 
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px 0;
+                z-index: 999;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            nav ul li {
+                margin-bottom: 10px;
+                width: 100%; 
+                text-align: center;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .title {
+            font-size: 2vw;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+
+        .about-text {
+            font-size: 4.1vw;
+            color: #fff;
+            text-align:center;
+            line-height: 1.6;
+            top: -851px;
+        }
+
+        .team-section {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .team-title {
+            font-size: 2vw;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .team-member {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e7bbf5;
+        }
+
+        .team-member-name {
+            color: var(--text-color-light);
+            font-size: 3.2vw;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .team-member-role {
+            color: #e7bbf5;
+            font-size: 2vw;
+        }
+
+        .contact-btn {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            padding: 15px 60px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.5vw;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #534cfc;
+        }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 7vw;
+            }
+
+            .subtitle {
+                font-size: 5vw;
+            }
+
+            .button {
+                padding: 10px 60px;
+                font-size: 5vw;
+            }
+
+            .team-title {
+                font-size: 8vw;
+            }
+
+            .team-member img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .contact-btn {
+                padding: 15px 40px;
+                font-size: 5vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3>Leka Aprenda Jogando!</h3>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="welcome.html">Home</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="glossario.html">Glossário</a></li>
+                <li><a href="depoimento.html">Depoimentos</a></li>
+                <li><a href="contato.html">Entre em Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <h3 class="title">Nossa História</h3>
+        <p class="about-text">O Leka nasceu em 2024 do desafio de duas desenvolvedoras pela educação e pela tecnologia. Percebemos que aprender programação pode 
+            ser um desafio, especialmente para iniciantes. Por isso, decidimos criar uma solução divertida, acessível e envolvente para todos. Acreditamos que o aprendizado deve ser uma 
+            experiência divertida e não uma obrigação. O LeKa foi pensado para todos que querem aprender programação de maneira divertida. Seja você um iniciante ou um programador avançado, 
+            temos desafios que atendem diferentes níveis de conhecimento. Nossa missão é tornar o aprendizado acessível e prazeroso para pessoas de todas as idades.</p>
+
+
+        <div class="team-section">
+            <h2 class="team-title">Conheça nossa equipe</h2>
+            <div class="team-member">
+                <img src="https://avatars.githubusercontent.com/u/140626600?v=4" class="modal-image" onclick="selectImage(this)">
+                <p class="team-member-name">Leticia Hofman</p>
+                <p class="team-member-role">Desenvolvedora Full-Stack</p>
+            </div>
+            <div class="team-member">
+                <img src="https://avatars.githubusercontent.com/u/128012862?v=4" alt="Carlos Costa">
+                <p class="team-member-name">Carla Mozena</p>
+                <p class="team-member-role">Desenvolvedora Front-end</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Leka. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+<script>
+            function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('active');
+        }
+</script>
+</html>

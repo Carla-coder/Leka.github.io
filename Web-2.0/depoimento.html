@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depoimentos</title>
+    <style>
+        /* Variáveis de cores para consistência no design */
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #A469AA;
+            --accent-color: #F7E1C9;
+            --background-color: #f4f4f4;
+            --text-color-light: #333;
+            --text-color-dark: #666;
+        }
+
+        /* Configurações gerais da página */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: var(--text-color-light);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #f7e1c9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            height: 3%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            margin-right: 60px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #a469aa;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ca75d3;
+            transform: scale(1.1);
+        }
+
+        /* Estilo para o título */
+        header h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #a469aa;
+        }
+
+        /* Container centralizado */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        /* Layout da seção de depoimentos */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 60px;
+        }
+
+        /* Estilo individual dos depoimentos */
+        .testimonial {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: var(--text-color-light);
+        }
+
+        /* Estilo para a imagem de perfil */
+        .photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Estilo do conteúdo textual dentro dos depoimentos */
+        .message {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .author {
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .role {
+            font-style: italic;
+            color: var(--text-color-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Estilo das estrelas de avaliação */
+        .rating span {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+        footer {
+            background-color: #f7e1c9;
+            color: #a469aa;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            width: 98.6%;
+        }
+
+        footer a {
+            color: #6C63FF;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            justify-content: space-between;
+        }
+
+        .hamburger div {
+            height: 4px;
+            width: 100%;
+            background-color: #a469aa;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #f7e1c9;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            .logo {
+                width: 80%;
+                max-width: 200px;
+            }
+
+            .title {
+                font-size: 6vw;
+            }
+
+            .subtitle {
+                font-size: 4vw;
+            }
+
+            .button {
+                padding: 15px 80px;
+                font-size: 4vw;
+            }
+
+            header {
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                display: none; 
+                width: 100%;
+                background-color: #333; 
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px 0;
+                z-index: 999;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            nav ul li {
+                margin-bottom: 10px;
+                width: 100%; 
+                text-align: center;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 7vw;
+            }
+
+            .subtitle {
+                font-size: 5vw;
+            }
+
+            .button {
+                padding: 10px 60px;
+                font-size: 5vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>Leka Aprenda Jogando!</h3>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="welcome.html">Home</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="glossario.html">Glossário</a></li>
+                <li><a href="depoimento.html">Depoimentos</a></li>
+                <li><a href="contato.html">Entre em Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <!-- Seção que contém todos os depoimentos -->
+        <div class="testimonials">
+            <!-- Cada depoimento individual -->
+            <div class="testimonial">
+                <img src="https://i.pinimg.com/236x/6d/5e/38/6d5e38d19bf4c0c9554b1e6beab75952.jpg" alt="Foto de Maria" class="photo">
+                <p class="message">"Adorei o curso, aprendi muito sobre HTML e CSS! Recomendo a todos."</p>
+                <p class="author">Maria Silva</p>
+                <p class="role">Front-End Developer</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://magazine.com.ve/wp-content/uploads/2023/07/avatar-fotos-de-perfil-para-youtube.jpg" alt="Foto de João" class="photo">
+                <p class="message">"A experiência foi incrível, os desafios práticos me ajudaram bastante."</p>
+                <p class="author">João Santos</p>
+                <p class="role">Full-Stack Developer</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐</span>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://i.pinimg.com/736x/62/28/c7/6228c71efa95b0be867a3a955beed6d0.jpg" alt="Foto de Ana" class="photo">
+                <p class="message">"Gostei muito, mas acho que poderia ter mais exemplos práticos."</p>
+                <p class="author">Ana Souza</p>
+                <p class="role">Web Designer</p>
+                <div class="rating">
+                    <span>⭐⭐⭐</span>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://img.freepik.com/vector-premium/ilustracion-avatar-estudiante-icono-perfil-usuario-avatar-jovenes_118339-4402.jpg" alt="Foto de Pedro" class="photo">
+                <p class="message">"Aprendi muitas habilidades práticas que já estou usando no trabalho."</p>
+                <p class="author">Pedro Alves</p>
+                <p class="role">Mobile Developer</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://static.vecteezy.com/system/resources/previews/014/212/681/non_2x/female-user-profile-avatar-is-a-woman-a-character-for-a-screen-saver-with-emotions-for-website-and-mobile-app-design-illustration-on-a-white-isolated-background-vector.jpg" alt="Foto de Júlia" class="photo">
+                <p class="message">"Recomendo para quem está começando na área de tecnologia!"</p>
+                <p class="author">Júlia Souza</p>
+                <p class="role">UI/UX Designer</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐</span>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://i.pinimg.com/originals/8a/55/99/8a5599792c0d7b0a02377b97fafe76a9.jpg" alt="Foto de Laura" class="photo">
+                <p class="message">"Curso bem estruturado, mas senti falta de mais interatividade."</p>
+                <p class="author">Laura Mendes</p>
+                <p class="role">QA Analyst</p>
+                <div class="rating">
+                    <span>⭐⭐⭐</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Leka. Todos os direitos reservados.</p>
+    </footer>
+</body>
+<script>
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('active');
+        }
+</script>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Leka Aprenda Jogando!</title>
+    <style>
+        /* Mantém a paleta de cores e outros estilos principais */
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #A469AA;
+            --accent-color: #F7E1C9;
+            --background-color: #333;
+            --text-color-light: #fff;
+            --text-color-dark: #aaa;
+        }
+    
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color-light);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    
+        header {
+            background-color: #f7e1c9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            height: 3%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            margin-right: 60px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #a469aa;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ca75d3;
+            transform: scale(1.1);
+        }
+
+        /* Estilo para o título */
+        header h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #a469aa;
+        }
+        section.contact {
+            width: 90%;
+            max-width: 500px;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+        }
+    
+        h2.title {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+    
+        .input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 80%;
+            margin: 0 auto;
+        }
+    
+        .input-box input,
+        .input-box textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 0.2rem solid rgba(255, 255, 255, 0.3);
+            outline: none;
+            backdrop-filter: blur(10px);
+            border-radius: 0.8rem;
+            transition: 0.3s ease;
+        }
+    
+        .input-box input::placeholder,
+        .input-box textarea::placeholder {
+            font-size: 1rem;
+            color: #ddd;
+        }
+    
+        .input-box input:focus,
+        .input-box textarea:focus {
+            border: 0.2rem solid #ff00ee;
+        }
+    
+        .btn {
+            background-color: #ff00ee;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 0 10px rgba(255, 0, 238, 0.5);
+        }
+    
+        .btn:hover {
+            background-color: #ff77ff;
+            box-shadow: 0 0 15px rgba(255, 0, 238, 0.7);
+        }
+    
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+    
+        footer {
+            background-color: var(--accent-color);
+            color: #A469AA;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            justify-content: space-between;
+        }
+
+        .hamburger div {
+            height: 4px;
+            width: 100%;
+            background-color: #a469aa;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #f7e1c9;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            section.contact {
+            width: 90%;
+            max-width: 300px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+        }
+        .input-box input,
+        .input-box textarea {
+            width: 90%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 0.2rem solid rgba(255, 255, 255, 0.3);
+            outline: none;
+            backdrop-filter: blur(10px);
+            border-radius: 0.8rem;
+            transition: 0.3s ease;
+        }
+            .title {
+                font-size: 6vw;
+            }
+
+            .subtitle {
+                font-size: 4vw;
+            }
+
+            .button {
+                padding: 15px 80px;
+                font-size: 4vw;
+            }
+
+            header {
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                display: none; 
+                width: 100%;
+                background-color: #333; 
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px 0;
+                z-index: 999;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            nav ul li {
+                margin-bottom: 10px;
+                width: 100%; 
+                text-align: center;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 7vw;
+            }
+
+            .subtitle {
+                font-size: 5vw;
+            }
+
+            .button {
+                padding: 10px 60px;
+                font-size: 5vw;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header>
+        <h3>Leka Aprenda Jogando!</h3>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="welcome.html">Home</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="glossario.html">Glossário</a></li>
+                <li><a href="depoimento.html">Depoimentos</a></li>
+                <li><a href="contato.html">Entre em Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact start-animation" id="contact">
+        <form action="https://formspree.io/f/xwkdzblr" method="POST">
+
+            
+        <h2 class="title">Entre em Contato</h2>
+            <div class="input-box">
+                <input type="text" name="name" required placeholder="Nome Completo">
+                <input type="email" name="email" required placeholder="Email">
+                <input type="tel" name="tel" required placeholder="Telefone">
+                <input type="text" name="subject" required placeholder="Assunto">
+                
+            <textarea name="message" required placeholder="Mensagem"></textarea>
+            </div>
+
+            <input type="submit" value="Enviar Mensagem" class="btn">
+
+        </form>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Leka. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('nav ul');
+        menu.classList.toggle('active');
+    }
+</script>
+</html>
