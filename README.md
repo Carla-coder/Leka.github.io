@@ -52,12 +52,12 @@ O aplicativo Leka visa promover o aprendizado de habilidades de programação de
     - [x] DER - Diagrama de Entidade Relacionamento<br>[Exemplo](https://github.com/wellifabio/projetofullexemplo/tree/main/docs/projeto)
 
 ## Sprint 03 - Backlog
-- [X] Desenvolver o Código
+- [x] Desenvolver o Código
     - [x] Front-End
     - [x] Banco de Dados
     - [x] Back-End
     - [x] Mobile
-    - [ ] Testes unitários<br>[Exemplo](https://github.com/wellifabio/projetofullexemplo.git)
+    - [x] Testes unitários<br>[Exemplo](https://github.com/wellifabio/projetofullexemplo.git)
 - [x] Criar o Documento do Projeto
     - [x] ABNT
     - [x] Dicionário de Dados<br>[Exemplo](https://github.com/wellifabio/projetofullexemplo/tree/main/docs/projeto)
@@ -71,7 +71,7 @@ O aplicativo Leka visa promover o aprendizado de habilidades de programação de
 - [x] Revisar o documento do projeto
 - [x] Criar o Documento de Implantação
     - [x] Manual do Usuário
-    - [ ] Manual do Administrador se houver
+    - [x] Manual do Administrador se houver
 
 ## Apresentação
 - [ ] Apresentação do Projeto
