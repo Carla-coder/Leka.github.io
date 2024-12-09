@@ -79,6 +79,9 @@ O aplicativo Leka visa promover o aprendizado de habilidades de programação de
     - [ ] Apresentação do Projeto Mobile
     - [ ] Documento do Projeto
 
+## Conheça o projeto, clique no link
+
+https://Carla-coder.github.io/Leka/Web-2.0/welcome.html
 
 ## Autores
 
