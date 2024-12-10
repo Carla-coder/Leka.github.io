@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perfil</title>
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -37,7 +35,7 @@
       align-items: center;
       margin-bottom: 20px;
       display: flex;
-      cursor: pointer; /* Torna a imagem clicável */
+      cursor: pointer;
     }
 
     .profile-image {
@@ -92,7 +90,7 @@
     }
 
     .modal-container {
-      display: none; /* Começa escondido */
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
@@ -105,32 +103,52 @@
     }
 
     .modal-content {
-      background-color: #a469aa;
+      background-color: #f7e1c9;
       padding: 20px;
       border-radius: 10px;
       text-align: center;
       max-width: 40%;
-      overflow-y: auto;
     }
 
-    .modal-image {
-      width: 100px;
-      height: 100px;
-      margin: 10px;
-      border-radius: 50%;
-      cursor: pointer;
+    .modal-title {
+      font-size: 24px;
+      color: #4d1948;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .progress-bar-container {
+      margin-top: 15px;
+      height: 20px;
+      background-color: #e2e2e2;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: #7d5ba6;
+      width: 0;
+      transition: width 0.5s ease;
+    }
+
+    .modal-item {
+      font-size: 18px;
+      margin: 10px 0;
+      color: #4d1948;
+      font-weight: bold;
     }
 
     .close-button {
       margin-top: 20px;
-      background-color: #f7e1c9;
+      background-color: #7d5ba6;
       padding: 10px 30px;
       border-radius: 25px;
       cursor: pointer;
     }
 
     .close-button-text {
-      color: #4d1948;
+      color: #fff;
       font-weight: bold;
     }
 
@@ -138,41 +156,61 @@
       display: flex;
       justify-content: space-around;
       background-color: #f7e1c9;
-      padding: 10px;
+      padding: 10px 0;
       position: fixed;
       bottom: 0;
-      overflow: hidden;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
       width: 100%;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .menu-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      cursor: pointer;
       text-decoration: none;
     }
 
     .menu-text {
       color: #4d1948;
-      font-weight: bold;
       font-size: 12px;
+      font-weight: bold;
+      margin-top: 5px;
     }
 
     .menu-item i {
       font-size: 30px;
       color: #4d1948;
     }
-    .key {
-  font-size: 16px;
-  color: #ffffff; /* Cor para a chave */
-  font-weight: bold;
-  font-size: 15px;
-  margin-left: 10px; /* Espaço entre o nome e a chave */
-  display: inline-block;
-}
+    .certificado-card {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      margin-left: 100px;
+    }
+
+    .certificado-header {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #4d1948;
+      margin-bottom: 20px;
+    }
+
+    .certificado-body {
+      font-size: 18px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .certificado-footer {
+      text-align: center;
+      font-size: 16px;
+      color: #777;
+    }
   </style>
 </head>
 
@@ -184,34 +222,37 @@
     <h2 class="name" id="userName">Nome do Usuário</h2>
     <p class="contact-info" id="userContact">email@dominio.com | (11) 12345-6789</p>
 
-    <p class="key" id="userKey">Chave ID: </p>
-
-    <div class="button">
+    <div class="button" onclick="showProgressModal()">
       <span class="button-text">Progressos</span>
     </div>
-    <div class="button">
-      <span class="button-text">Certificados</span>
-    </div>
-    <div class="button">
-      <span class="button-text">Records</span>
+
+    <div class="button" onclick="certificadoModal()">
+      <span class="button-text">Certificado</span>
     </div>
 
-    <div class="edit-button" onclick="editProfile()">
+    <div class="edit-button" onclick="redirectToLogin()">
       <span class="edit-button-text">ALTERAR PERFIL</span>
+    </div>
+    
+  </div>
+
+  <div class="modal-container" id="certificadoModal">
+    <div class="modal-content">
+      <h3 class="modal-title">Certificado</h3>
+      <div id="certificadoCard" class="certificado-card"></div>
+      <div class="close-button" onclick="closeCertificadoModal()">
+        <span class="close-button-text">Fechar</span>
+      </div>
     </div>
   </div>
 
-  <div class="modal-container" id="modalContainer">
+  <div class="modal-container" id="progressModal">
     <div class="modal-content">
-      <h3 class="modal-title">Escolha uma imagem</h3>
-      <div>
-        <img src="https://img.freepik.com/vetores-premium/uma-ilustracao-de-desenho-animado-de-uma-menina-com-fones-de-ouvido-e-um-telefone-celular-na-mao_569725-49415.jpg?semt=ais_hybrid" class="modal-image" onclick="selectImage(this)">
-        <img src="https://img.freepik.com/vetores-premium/jogador-de-desenhos-animados-feliz-segurando-um-joystick-com-um-grande-sorriso_657438-25584.jpg" class="modal-image" onclick="selectImage(this)">
-        <img src="https://cdn-icons-png.flaticon.com/512/1752/1752713.png" class="modal-image" onclick="selectImage(this)">
-        <img src="https://png.pngtree.com/png-vector/20230416/ourmid/pngtree-avatar-ninja-symbol-icon-vector-png-image_6709524.png" class="modal-image" onclick="selectImage(this)">
-        <img src="https://cdn-icons-png.flaticon.com/512/1752/1752767.png" class="modal-image" onclick="selectImage(this)">
-      </div>
-      <div class="close-button" onclick="closeModal()">
+      <h3 class="modal-title">Progresso do Usuário</h3>
+      <p id="modalLives">Vidas: ❤️ 5</p>
+      <p id="modalScore">Pontuação: 🎯 100</p>
+      <p id="modalProgress">Progresso: 0%</p>
+      <div class="close-button" onclick="closeProgressModal()">
         <span class="close-button-text">Fechar</span>
       </div>
     </div>
@@ -237,6 +278,10 @@
   </div>
 
   <script>
+
+function redirectToLogin() {
+    window.location.href = "login.html"; 
+  }
     function openModal() {
       document.getElementById('modalContainer').style.display = 'flex';
     }
@@ -245,63 +290,103 @@
       document.getElementById('modalContainer').style.display = 'none';
     }
 
-    function selectImage(imageElement) {
-      const profileImage = document.getElementById('profileImage');
-      profileImage.src = imageElement.src;
-      localStorage.setItem('profileImage', imageElement.src); // Armazenar a imagem no localStorage
-      closeModal();
+    function showProgressModal() {
+    const userId = localStorage.getItem('currentUser'); 
+
+    const savedLives = localStorage.getItem(`${userId}_lives`) || 5; 
+    const savedScore = localStorage.getItem(`${userId}_score`) || 100; 
+    const savedProgress = parseInt(localStorage.getItem(`${userId}_progress`) || 0); 
+
+    document.getElementById('modalLives').textContent = `Vidas: ❤️ ${savedLives}`;
+    document.getElementById('modalScore').textContent = `Pontuação: 🎯 ${savedScore}`;
+    document.getElementById('modalProgress').textContent = `Progresso: ${savedProgress}%`;
+
+    localStorage.setItem(`${userId}_isCertified`, savedProgress === 100 ? 'true' : 'false');
+
+    document.getElementById('progressModal').style.display = 'flex';
+  }
+
+
+
+
+
+    function closeProgressModal() {
+      document.getElementById('progressModal').style.display = 'none';
     }
 
-    async function getProfile() {
-    const token = localStorage.getItem("authToken");
+    function certificadoModal() {
+    const userId = localStorage.getItem('currentUser'); 
+    const isCertified = localStorage.getItem(`${userId}_isCertified`) === 'true';
 
-    if (!token) {
+    const certificadoCard = document.getElementById('certificadoCard');
+    if (isCertified) {
+      certificadoCard.innerHTML = `
+        <div class="certificado-header">
+          Certificado de Conclusão
+        </div>
+        <div class="certificado-body">
+          Parabéns, você completou o curso de Desenvolvimento Web!
+        </div>
+        <div class="certificado-footer">
+          Emitido por: Instituição Leka
+        </div>
+      `;
+    } else {
+      certificadoCard.innerHTML = `
+        <div class="certificado-header">
+          Progresso Incompleto
+        </div>
+        <div class="certificado-body">
+          Complete todos os módulos para receber o certificado.
+        </div>
+        <div class="certificado-footer">
+          Emitido por: Instituição Leka
+        </div>
+      `;
+    }
+
+    document.getElementById('certificadoModal').style.display = 'flex';
+  }
+
+function closeCertificadoModal() {
+  document.getElementById('certificadoModal').style.display = 'none';
+}
+
+    async function getProfile() {
+      const token = localStorage.getItem("authToken");
+      if (!token) {
         alert("Você precisa estar logado para acessar o perfil.");
         window.location.href = "login.html";
         return;
-    }
+      }
 
-    const savedImage = localStorage.getItem('profileImage'); // Recuperar a imagem do perfil
-    if (savedImage) {
+      const savedImage = localStorage.getItem('profileImage');
+      if (savedImage) {
         document.getElementById("profileImage").src = savedImage;
-    }
+      }
 
-    try {
+      try {
         const response = await fetch("http://localhost:3000/api/perfil", {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
 
         if (response.ok) {
-            const data = await response.json();
-            document.getElementById("userName").textContent = data.nome;
-            document.getElementById("userContact").textContent = `${data.email} | ${data.telefone}`;
-
-            // Exibindo o ID do usuário
-            document.getElementById("userKey").textContent = `ID do Usuário: ${data.id}`;
+          const data = await response.json();
+          document.getElementById("userName").textContent = data.nome;
+          document.getElementById("userContact").textContent = `${data.email} | ${data.telefone}`;
         } else {
-            console.error("Erro ao carregar os dados do perfil.");
+          throw new Error("Erro ao carregar os dados do perfil.");
         }
-    } catch (error) {
-        console.error("Erro na requisição ao servidor: ", error);
+      } catch (error) {
+        console.error("Erro:", error);
+      }
     }
-}
 
-
-
-    // Chama a função ao carregar a página
-    document.addEventListener("DOMContentLoaded", () => {
-      getProfile();
-    });
-
-    // Função para editar o perfil (ir para a tela de login)
-    function editProfile() {
-      localStorage.removeItem("authToken"); // Remover token de autenticação
-      window.location.href = "login.html"; // Redireciona para a tela de login
-    }
+    getProfile();
   </script>
-</body>
 
+</body>
 </html>

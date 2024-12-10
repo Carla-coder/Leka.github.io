@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +13,6 @@
             margin: 0;
             padding: 20px;
         }
-
         .container {
             max-width: 800px;
             margin: auto;
@@ -22,23 +20,19 @@
             padding: 20px;
             border-radius: 10px;
         }
-
         .title {
             text-align: center;
             color: #fff3db;
         }
-
         .module-title {
             font-size: 22px;
             color: #fff3db;
             margin-bottom: 10px;
         }
-
         .module-description {
             font-size: 17px;
             margin-bottom: 20px;
         }
-
         .example-code {
             background-color: #fff3db;
             color: #4d1948;
@@ -48,7 +42,6 @@
             font-family: monospace;
             white-space: pre-wrap;
         }
-
         .text-input {
             width: 100%;
             padding: 10px;
@@ -58,7 +51,6 @@
             background-color: #fff3db;
             color: #000;
         }
-
         .button {
             display: block;
             width: 100%;
@@ -70,154 +62,153 @@
             border-radius: 25px;
             cursor: pointer;
         }
-
         .button:hover {
             background-color: #a02684;
         }
-
-        .quiz-options label {
-            display: flex;
-            align-items: center;
-            background-color: #fff3db;
-            border: 2px solid #666;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            color: #a02684;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        .quiz-options input[type="radio"] {
-            margin-right: 10px;
-            accent-color: #b03892;
-        }
-
-        .quiz-options input[type="radio"]:checked+label {
-            background-color: #b03892;
-            color: #a02684;
-            border-color: #fff3db;
-        }
+    .quiz-options label {
+        display: flex;
+        align-items: center;
+        background-color: #fff3db;
+        border: 2px solid #666;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: #a02684;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+    .quiz-options input[type="radio"] {
+        margin-right: 10px;
+        accent-color: #b03892; 
+    }
+    .quiz-options input[type="radio"]:checked + label {
+        background-color: #b03892;
+        color: #a02684;
+        border-color: #fff3db;
+    }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1 class="title">Módulos de Aprendizado</h1>
         <div id="moduleContainer"></div>
         <button id="nextButton" class="button">Próximo Módulo</button>
-        <div id="result"></div>
     </div>
     <script>
         const learningPathData = {
             modules: [
-                {
-                    id: 1,
-                    title: "1. HTML Semântico",
-                    description: "Aprenda a usar tags HTML semânticas para melhorar a acessibilidade e SEO.",
-                    interactiveContent: [
-                        {
-                            step: 1,
-                            instruction: "Crie uma estrutura HTML semântica usando <header>, <nav>, <main> e <footer>.",
-                            exampleCode: "<header>\n  <h1>Título do Site</h1>\n</header>\n<nav>\n  <ul>\n    <li>Home</li>\n   </ul>\n</nav>\n<main></main>\n<footer></footer>",
-                            hint: "Use tags semânticas para estruturar o conteúdo de forma clara.",
-                            userResponse: "code",
-                        },
-                    ],
-                },
-                {
-                    id: 2,
-                    title: "2. Flexbox e Grid Layout",
-                    description: "Domine técnicas de layout modernas usando Flexbox e CSS Grid.",
-                    interactiveContent: [
-                        {
-                            step: 1,
-                            instruction: "Utilize Flexbox para criar um layout de card simples.",
-                            exampleCode: ".container {\n  display: flex;\n  justify-content: space-around;\n}\n.card {\n  width: 200px;\n  height: 300px;\n}",
-                            hint: "Use 'display: flex' para habilitar o Flexbox.",
-                            userResponse: "code",
-                        },
-                    ],
-                },
-                {
-                    id: 3,
-                    title: "3. Manipulação de DOM com JavaScript",
-                    description: "Aprenda a manipular o DOM usando JavaScript para criar interatividade dinâmica.",
-                    interactiveContent: [
-                        {
-                            step: 1,
-                            instruction: "Escreva um código JavaScript para adicionar um novo item a uma lista quando um botão for clicado.",
-                            exampleCode: "function addItem() {\n    const li = document.createElement('li');\n    li.textContent = 'Novo Item';\n    document.getElementById('minhaLista').appendChild(li);\n  }",
-                            hint: "Use 'document.createElement' para criar novos elementos.",
-                            userResponse: "code",
-                        },
-                    ],
-                },
-                {
-                    id: 4,
-                    title: "4. Transições e Animações CSS",
-                    description: "Aprenda a aplicar transições e animações para tornar suas páginas mais dinâmicas.",
-                    interactiveContent: [
-                        {
-                            step: 1,
-                            instruction: "Adicione uma transição suave a um botão ao passar o mouse.",
-                            exampleCode: ".botao {\n  transition: background-color 0.3s;\n}\n.botao:hover {\n  background-color: #4CAF50;\n}",
-                            hint: "Use a propriedade 'transition' para definir a animação.",
-                            userResponse: "code",
-                        },
-                    ],
-                },
-                {
-                    id: 5,
-                    quiz: [
-                        {
-                            question: "1. Quais tags HTML semânticas melhoram a acessibilidade?",
-                            answerType: "multipleChoice",
-                            options: [
-                                "<div>, <span>",
-                                "<header>, <footer>",
-                                "<b>, <i>",
-                            ],
-                            expectedAnswer: "<header>, <footer>",
-                        },
-                        {
-                            question: "2. Qual propriedade CSS é usada para criar um layout flexível?",
-                            answerType: "multipleChoice",
-                            options: [
-                                "display: flex;",
-                                "layout: grid;",
-                                "flex: true;",
-                            ],
-                            expectedAnswer: "display: flex;",
-                        },
-                        {
-                            question: "3. Como você pode adicionar um item à lista em JavaScript?",
-                            answerType: "code",
-                            expectedAnswer: "document.getElementById('minhaLista').appendChild(novoItem);",
-                        },
-                        {
-                            question: "4. O que a propriedade 'transition' faz no CSS?",
-                            answerType: "multipleChoice",
-                            options: [
-                                "Altera a cor do texto.",
-                                "Cria animações suaves entre estados.",
-                                "Altera o layout do elemento.",
-                            ],
-                            expectedAnswer: "Cria animações suaves entre estados.",
-                        },
-                        {
-                            question: "5. Para que serve a propriedade 'grid-template-columns'?",
-                            answerType: "multipleChoice",
-                            options: [
-                                "Define a cor de fundo da grade.",
-                                "Define o número e o tamanho das colunas na grade.",
-                                "Define a altura da grade.",
-                            ],
-                            expectedAnswer: "Define o número e o tamanho das colunas na grade.",
-                        },
-                    ],
-                },
-            ]
+            {
+                id: 1,
+                title: "1. HTML: Estruturas de Texto",
+                description: "Aprenda a usar as tags HTML para formatar texto.",
+                interactiveContent: [
+                    {
+                        step: 1,
+                        instruction: "Crie um parágrafo com um link.",
+                        exampleCode: "<p>Visite <a href='https://www.exemplo.com'>nosso site</a> para mais informações.</p>",
+                        hint: "Use a tag <a> para criar links.",
+                        userResponse: "code",
+                    },
+                ],
+            },
+            {
+                id: 2,
+                title: "2. CSS: Estilizando Listas",
+                description: "Descubra como aplicar estilos às listas em CSS.",
+                interactiveContent: [
+                    {
+                        step: 1,
+                        instruction: "Estilize uma lista ordenada.",
+                        exampleCode: "ol {\n  list-style-type: square;\n  color: darkblue;\n}",
+                        hint: "Use 'list-style-type' para mudar a aparência da lista.",
+                        userResponse: "code",
+                    },
+                ],
+            },
+            {
+                id: 3,
+                title: "3. JavaScript: Funções Simples",
+                description: "Aprenda a criar e usar funções básicas em JavaScript.",
+                interactiveContent: [
+                    {
+                        step: 1,
+                        instruction: "Crie uma função que retorna a saudação de uma pessoa.",
+                        exampleCode: "function saudacao(nome) {\n  return 'Olá, ' + nome + '!';\n}",
+                        hint: "Funções podem ter parâmetros que são passados ao chamá-las.",
+                        userResponse: "code",
+                    },
+                ],
+            },
+            {
+                id: 4,
+                title: "4. CSS: Flexbox para Layouts",
+                description: "Utilize Flexbox para criar layouts flexíveis.",
+                interactiveContent: [
+                    {
+                        step: 1,
+                        instruction: "Crie um layout horizontal com três itens usando Flexbox.",
+                        exampleCode: ".container {\n  display: flex;\n}\n.item {\n  flex: 1;\n  padding: 10px;\n  background-color: lightgray;\n}",
+                        hint: "Use 'display: flex' na div pai para alinhar os itens.",
+                        userResponse: "code",
+                    },
+                ],
+            },
+            {
+                id: 5,
+                quiz: [
+                    {
+                        question: "1. Qual tag HTML é usada para definir um parágrafo?",
+                        answerType: "multipleChoice",
+                        options: [
+                            "<p>",
+                            "<paragraph>",
+                            "<text>",
+                        ],
+                        expectedAnswer: "<p>",
+                    },
+                    {
+                        question: "2. Como você altera o tipo de marcador de uma lista não ordenada?",
+                        answerType: "multipleChoice",
+                        options: [
+                            "list-style-type: circle;",
+                            "marker-type: circle;",
+                            "list-type: circle;",
+                        ],
+                        expectedAnswer: "list-style-type: circle;",
+                    },
+                    {
+                        question: "3. O que faz a palavra-chave 'return' em uma função JavaScript?",
+                        answerType: "multipleChoice",
+                        options: [
+                            "Retorna um valor da função.",
+                            "Finaliza o script.",
+                            "Imprime um valor no console.",
+                        ],
+                        expectedAnswer: "Retorna um valor da função.",
+                    },
+                    {
+                        question: "4. Qual propriedade CSS é usada para alinhar itens no centro em Flexbox?",
+                        answerType: "multipleChoice",
+                        options: [
+                            "align-items: center;",
+                            "justify-content: center;",
+                            "flex-align: center;",
+                        ],
+                        expectedAnswer: "align-items: center;",
+                    },
+                    {
+                        question: "5. Como você cria um comentário em CSS?",
+                        answerType: "multipleChoice",
+                        options: [
+                            "// Este é um comentário",
+                            "<!-- Este é um comentário -->",
+                            "/* Este é um comentário */",
+                        ],
+                        expectedAnswer: "/* Este é um comentário */",
+                    },
+                ],
+            },
+        ],
         };
 
         let currentModuleIndex = 0;
@@ -261,6 +252,7 @@
                     });
                 }
 
+                // Renderizando o quiz (se houver)
                 if (module.quiz) {
                     module.quiz.forEach(q => {
                         const question = document.createElement('h3');
@@ -321,7 +313,7 @@
         }
 
         document.getElementById('nextButton').addEventListener('click', () => {
-            checkQuizAnswers();
+            checkQuizAnswers(); 
 
             currentModuleIndex++;
             if (currentModuleIndex < learningPathData.modules.length) {

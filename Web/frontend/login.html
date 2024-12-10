@@ -2,13 +2,11 @@
 <html lang="pt-br">
 
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leka</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    /* Novo estilo */
     body {
       background-color: #333;
       display: flex;
@@ -19,7 +17,6 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Container do formulário */
     .login-container {
       background-color: #7950a083;
       padding: 30px;
@@ -30,14 +27,12 @@
       text-align: center;
     }
 
-    /* Logo */
     .logo {
       width: 130px;
       height: 130px;
       margin-bottom: 20px;
     }
 
-    /* Título */
     h1 {
       font-size: 28px;
       color: #f7e1c9;
@@ -45,7 +40,6 @@
       margin-bottom: 20px;
     }
 
-    /* Estilo do input */
     .form-control {
       width: 100%;
       padding: 10px;
@@ -57,7 +51,6 @@
       color: #4d1948;
     }
 
-    /* Estilo do label */
     label {
       font-size: 16px;
       color: #f7e1c9;
@@ -66,7 +59,6 @@
       display: block;
     }
 
-    /* Estilo do botão */
     .btn-primary {
       background-color: #a469aa;
       color: #fff;
@@ -84,14 +76,12 @@
       border-color: #a469aa;
     }
 
-    /* Link */
     .link {
       color: #f7e1c9;
       margin-top: 10px;
       display: block;
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -120,7 +110,6 @@
       margin-bottom: 20px;
     }
 
-    /* Tamanho da mensagem de boas-vindas */
     .welcome-message {
       margin-bottom: 20px;
       text-align: center;
@@ -129,60 +118,42 @@
     }
 
     .link {
-            color: #f7e1c9;
-            margin-top: 10px;
-            display: block;
-            text-decoration: none;
-        }
-
+      color: #f7e1c9;
+      margin-top: 10px;
+      display: block;
+      text-decoration: none;
+    }
   </style>
-
 </head>
 
 <body>
-
   <div class="login-container">
-
     <img src="./image/logo.png" alt="Finance Manager Logo" class="logo">
-
     <h1>Faça seu login</h1>
-
     <form id="loginForm">
-
       <div class="form-group">
-
         <label for="email">Email:</label>
         <input type="email" class="form-control" id="email" required />
-
       </div>
-
       <div class="form-group">
-
         <label for="password">Senha:</label>
         <input type="password" class="form-control" id="password" required />
-
       </div>
-
       <div class="button-container">
         <button type="submit" class="btn btn-primary">Entrar</button>
         <a href="signup.html" class="link" onclick="showModal()">Não tem uma conta? Cadastre-se</a>
       </div>
-
     </form>
-
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const loginForm = document.getElementById('loginForm');
-
       loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-
         try {
           const response = await fetch('http://localhost:3000/api/login', {
             method: 'POST',
@@ -196,11 +167,14 @@
           });
 
           const data = await response.json();
-
           if (response.ok) {
             localStorage.setItem('authToken', data.token);
-            localStorage.setItem('userKey', data.chave); // Armazena a chave
-            window.location.href = 'jogo.html'; // Redireciona para a página de amigos
+            localStorage.setItem('userKey', data.chave);
+            if (data.userId) {
+              localStorage.setItem('userId', data.userId);
+              localStorage.setItem('currentUser', email);
+            }
+            window.location.href = 'jogo.html';
           } else {
             alert(`Erro: ${data.message}`);
           }
@@ -211,8 +185,6 @@
       });
     });
   </script>
-
-
 </body>
 
 </html>

@@ -106,63 +106,75 @@
         <h1 class="title">Módulos de Aprendizado</h1>
         <div id="moduleContainer"></div>
         <button id="nextButton" class="button">Próximo Módulo</button>
-        <div id="result"></div>
     </div>
     <script>
         const learningPathData = {
             modules: [
                 {
                     id: 1,
-                    title: "1. HTML Semântico",
-                    description: "Aprenda a usar tags HTML semânticas para melhorar a acessibilidade e SEO.",
+                    title: "1. Introdução à Web Responsiva",
+                    description: "Entenda os conceitos básicos de responsividade e design adaptativo.",
                     interactiveContent: [
                         {
                             step: 1,
-                            instruction: "Crie uma estrutura HTML semântica usando <header>, <nav>, <main> e <footer>.",
-                            exampleCode: "<header>\n  <h1>Título do Site</h1>\n</header>\n<nav>\n  <ul>\n    <li>Home</li>\n   </ul>\n</nav>\n<main></main>\n<footer></footer>",
-                            hint: "Use tags semânticas para estruturar o conteúdo de forma clara.",
+                            instruction: "Adicione uma meta tag para tornar a página responsiva.",
+                            exampleCode: '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+                            hint: "Use a meta tag 'viewport' no cabeçalho do HTML.",
                             userResponse: "code",
                         },
                     ],
                 },
                 {
                     id: 2,
-                    title: "2. Flexbox e Grid Layout",
-                    description: "Domine técnicas de layout modernas usando Flexbox e CSS Grid.",
+                    title: "2. Flexbox e Layout Moderno",
+                    description: "Aprenda a usar o Flexbox para criar layouts flexíveis.",
                     interactiveContent: [
                         {
                             step: 1,
-                            instruction: "Utilize Flexbox para criar um layout de card simples.",
-                            exampleCode: ".container {\n  display: flex;\n  justify-content: space-around;\n}\n.card {\n  width: 200px;\n  height: 300px;\n}",
-                            hint: "Use 'display: flex' para habilitar o Flexbox.",
+                            instruction: "Centralize um elemento vertical e horizontalmente usando Flexbox.",
+                            exampleCode: `
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}`,
+                            hint: "Combine 'justify-content' e 'align-items' para centralizar.",
                             userResponse: "code",
                         },
                     ],
                 },
                 {
                     id: 3,
-                    title: "3. Manipulação de DOM com JavaScript",
-                    description: "Aprenda a manipular o DOM usando JavaScript para criar interatividade dinâmica.",
+                    title: "3. APIs e Requisições HTTP",
+                    description: "Explore como usar APIs para buscar dados.",
                     interactiveContent: [
                         {
                             step: 1,
-                            instruction: "Escreva um código JavaScript para adicionar um novo item a uma lista quando um botão for clicado.",
-                            exampleCode: "function addItem() {\n    const li = document.createElement('li');\n    li.textContent = 'Novo Item';\n    document.getElementById('minhaLista').appendChild(li);\n  }",
-                            hint: "Use 'document.createElement' para criar novos elementos.",
+                            instruction: "Faça uma requisição GET usando fetch() para obter dados de uma API.",
+                            exampleCode: `
+fetch('https://api.exemplo.com/dados')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Erro:', error));`,
+                            hint: "Use o método 'fetch()' para acessar APIs.",
                             userResponse: "code",
                         },
                     ],
                 },
                 {
                     id: 4,
-                    title: "4. Transições e Animações CSS",
-                    description: "Aprenda a aplicar transições e animações para tornar suas páginas mais dinâmicas.",
+                    title: "4. Introdução a React",
+                    description: "Entenda os fundamentos do React para criar interfaces dinâmicas.",
                     interactiveContent: [
                         {
                             step: 1,
-                            instruction: "Adicione uma transição suave a um botão ao passar o mouse.",
-                            exampleCode: ".botao {\n  transition: background-color 0.3s;\n}\n.botao:hover {\n  background-color: #4CAF50;\n}",
-                            hint: "Use a propriedade 'transition' para definir a animação.",
+                            instruction: "Crie um componente funcional básico no React.",
+                            exampleCode: `
+function MeuComponente() {
+  return <h1>Olá, React!</h1>;
+}`,
+                            hint: "Os componentes funcionais retornam JSX.",
                             userResponse: "code",
                         },
                     ],
@@ -171,57 +183,63 @@
                     id: 5,
                     quiz: [
                         {
-                            question: "1. Quais tags HTML semânticas melhoram a acessibilidade?",
+                            question: "1. O que é uma API?",
                             answerType: "multipleChoice",
                             options: [
-                                "<div>, <span>",
-                                "<header>, <footer>",
-                                "<b>, <i>",
+                                "Uma biblioteca para estilizar páginas.",
+                                "Um conjunto de regras para comunicação entre sistemas.",
+                                "Um tipo de banco de dados.",
                             ],
-                            expectedAnswer: "<header>, <footer>",
+                            expectedAnswer: "Um conjunto de regras para comunicação entre sistemas.",
                         },
                         {
-                            question: "2. Qual propriedade CSS é usada para criar um layout flexível?",
+                            question: "2. Para que serve o Flexbox?",
                             answerType: "multipleChoice",
                             options: [
-                                "display: flex;",
-                                "layout: grid;",
-                                "flex: true;",
+                                "Para criar animações.",
+                                "Para construir layouts responsivos.",
+                                "Para adicionar interatividade.",
                             ],
-                            expectedAnswer: "display: flex;",
+                            expectedAnswer: "Para construir layouts responsivos.",
                         },
                         {
-                            question: "3. Como você pode adicionar um item à lista em JavaScript?",
-                            answerType: "code",
-                            expectedAnswer: "document.getElementById('minhaLista').appendChild(novoItem);",
-                        },
-                        {
-                            question: "4. O que a propriedade 'transition' faz no CSS?",
+                            question: "3. Qual é a vantagem do React?",
                             answerType: "multipleChoice",
                             options: [
-                                "Altera a cor do texto.",
-                                "Cria animações suaves entre estados.",
-                                "Altera o layout do elemento.",
+                                "Permite criar componentes reutilizáveis.",
+                                "É usado apenas para estilização.",
+                                "Substitui o HTML completamente.",
                             ],
-                            expectedAnswer: "Cria animações suaves entre estados.",
+                            expectedAnswer: "Permite criar componentes reutilizáveis.",
                         },
                         {
-                            question: "5. Para que serve a propriedade 'grid-template-columns'?",
+                            question: "4. O que significa JSON?",
                             answerType: "multipleChoice",
                             options: [
-                                "Define a cor de fundo da grade.",
-                                "Define o número e o tamanho das colunas na grade.",
-                                "Define a altura da grade.",
+                                "JavaScript Object Navigation.",
+                                "JavaScript Object Notation.",
+                                "Java Syntax for Objects.",
                             ],
-                            expectedAnswer: "Define o número e o tamanho das colunas na grade.",
+                            expectedAnswer: "JavaScript Object Notation.",
+                        },
+                        {
+                            question: "5. Qual é a função de 'justify-content' no Flexbox?",
+                            answerType: "multipleChoice",
+                            options: [
+                                "Define a largura do conteúdo.",
+                                "Alinha itens ao longo do eixo principal.",
+                                "Centraliza itens no eixo cruzado.",
+                            ],
+                            expectedAnswer: "Alinha itens ao longo do eixo principal.",
                         },
                     ],
                 },
             ]
+
         };
 
         let currentModuleIndex = 0;
-        let score = 0; 
+        let score = 0;
 
         function renderModule() {
             const moduleContainer = document.getElementById('moduleContainer');
@@ -261,6 +279,7 @@
                     });
                 }
 
+                // Renderizando o quiz (se houver)
                 if (module.quiz) {
                     module.quiz.forEach(q => {
                         const question = document.createElement('h3');
@@ -321,7 +340,7 @@
         }
 
         document.getElementById('nextButton').addEventListener('click', () => {
-            checkQuizAnswers();
+            checkQuizAnswers(); 
 
             currentModuleIndex++;
             if (currentModuleIndex < learningPathData.modules.length) {

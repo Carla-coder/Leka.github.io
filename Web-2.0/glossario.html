@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glossário</title>
   <style>
- body {
+    body {
       margin: 0;
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
       height: 100vh;
-      background-color: #1c1c1c; /* Fundo preto */
-      color: white; /* Texto branco */
+      background-color: #1c1c1c;
+      color: white;
     }
 
     header {
-            background-color: #f7e1c9;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            position: fixed;
-            height: 3%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
+      background-color: #f7e1c9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      position: fixed;
+      height: 3%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
 
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-            align-items: center;
-        }
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
 
-        nav ul li {
-            margin: 0 10px;
-            margin-right: 60px;
-        }
+    nav ul li {
+      margin: 0 10px;
+      margin-right: 60px;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #a469aa;
-            font-size: 18px;
-        }
+    nav ul li a {
+      text-decoration: none;
+      color: #a469aa;
+      font-size: 18px;
+    }
 
-        nav ul li a:hover {
-            color: #ca75d3;
-            transform: scale(1.1);
-        }
+    nav ul li a:hover {
+      color: #ca75d3;
+      transform: scale(1.1);
+    }
 
-        /* Estilo para o título */
-        header h3 {
-            margin: 0;
-            font-size: 24px;
-            color: #a469aa;
-        }
+    header h3 {
+      margin: 0;
+      font-size: 24px;
+      color: #a469aa;
+    }
 
     .content {
       flex: 1;
-      margin-top: 68px; /* Altura do header */
-      margin-bottom: 50px; /* Altura do footer */
+      margin-top: 68px;
+      margin-bottom: 50px;
       overflow-y: auto;
-      background-color: #2e2e2e; /* Cor de fundo do conteúdo */
+      background-color: #2e2e2e
     }
 
     .header {
@@ -113,22 +113,24 @@
       font-size: 1.1em;
     }
 
-    .text{
+    .text {
       text-align: center;
       color: #f7e1c9;
       font-size: 30px;
     }
 
-    hr{
+    hr {
       width: 1700px;
       margin-right: 110px;
     }
-    .sub{
+
+    .sub {
       margin-left: 60px;
       font-size: 25px;
       color: #ca75d3;
     }
-    .p{
+
+    .p {
       margin-left: 60px;
       font-size: 20px;
       color: #e0e0e0;
@@ -154,160 +156,169 @@
     footer a:hover {
       text-decoration: underline;
     }
+
     .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            justify-content: space-between;
-        }
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      justify-content: space-between;
+    }
 
-        .hamburger div {
-            height: 4px;
-            width: 100%;
-            background-color: #a469aa;
-        }
+    .hamburger div {
+      height: 4px;
+      width: 100%;
+      background-color: #a469aa;
+    }
 
-        nav ul {
-            display: flex;
-            align-items: center;
-        }
+    nav ul {
+      display: flex;
+      align-items: center;
+    }
 
-        nav ul li {
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #f7e1c9;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        @media (max-width: 768px) {
-            .logo {
-                width: 80%;
-                max-width: 200px;
-            }
-
-            .title {
-                font-size: 6vw;
-            }
-
-            .code-block {
-      background: #6a1b9a;
-      color: #f4f4f4;
-      padding: 15px;
-      margin-left: 10px;
-      width: 290px;
+    nav ul li {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #f7e1c9;
       border-radius: 5px;
-      margin-top: 10px;
-      font-size: 1em;
+      transition: background-color 0.3s ease;
     }
 
-    .text{
-      text-align: center;
-      color: #f7e1c9;
-      font-size: 30px;
+    @media (max-width: 768px) {
+      .logo {
+        width: 80%;
+        max-width: 200px;
+      }
+
+      .title {
+        font-size: 6vw;
+      }
+
+      .code-block {
+        background: #6a1b9a;
+        color: #f4f4f4;
+        padding: 15px;
+        margin-left: 10px;
+        width: 290px;
+        border-radius: 5px;
+        margin-top: 10px;
+        font-size: 1em;
+      }
+
+      .text {
+        text-align: center;
+        color: #f7e1c9;
+        font-size: 30px;
+      }
+
+      hr {
+        width: 330px;
+        margin-right: 180px;
+      }
+
+      .sub {
+        margin-left: 20px;
+        font-size: 20px;
+        color: #ca75d3;
+      }
+
+      .p {
+        margin-left: 20px;
+        font-size: 18px;
+        color: #e0e0e0;
+      }
+
+      .subtitle {
+        font-size: 4vw;
+      }
+
+      .button {
+        padding: 15px 80px;
+        font-size: 4vw;
+      }
+
+      .content {
+        flex: 1;
+        margin-top: 50px;
+        /* Altura do header */
+        margin-bottom: 50px;
+        /* Altura do footer */
+        overflow-y: auto;
+        background-color: #2e2e2e;
+        /* Cor de fundo do conteúdo */
+      }
+
+      header {
+        padding: 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px 0;
+        z-index: 999;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      nav ul li {
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
     }
 
-    hr{
-      width: 330px;
-      margin-right: 180px;
+    @media (max-width: 480px) {
+      .title {
+        font-size: 7vw;
+      }
+
+      .subtitle {
+        font-size: 5vw;
+      }
+
+      .button {
+        padding: 10px 60px;
+        font-size: 5vw;
+      }
     }
-    .sub{
-      margin-left: 20px;
-      font-size: 20px;
-      color: #ca75d3;
-    }
-    .p{
-      margin-left: 20px;
-      font-size: 18px;
-      color: #e0e0e0;
-    }
-
-            .subtitle {
-                font-size: 4vw;
-            }
-
-            .button {
-                padding: 15px 80px;
-                font-size: 4vw;
-            }
-            .content {
-      flex: 1;
-      margin-top: 50px; /* Altura do header */
-      margin-bottom: 50px; /* Altura do footer */
-      overflow-y: auto;
-      background-color: #2e2e2e; /* Cor de fundo do conteúdo */
-    }
-
-            header {
-                padding: 15px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                display: none; 
-                width: 100%;
-                background-color: #333; 
-                position: absolute;
-                top: 60px;
-                left: 0;
-                padding: 20px 0;
-                z-index: 999;
-                transition: max-height 0.3s ease-in-out;
-            }
-
-            nav ul li {
-                margin-bottom: 10px;
-                width: 100%; 
-                text-align: center;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .title {
-                font-size: 7vw;
-            }
-
-            .subtitle {
-                font-size: 5vw;
-            }
-
-            .button {
-                padding: 10px 60px;
-                font-size: 5vw;
-            }
-        }
   </style>
 </head>
+
 <body>
 
   <div class="content">
 
     <header>
-        <h3>Leka Aprenda Jogando!</h3>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="welcome.html">Home</a></li>
-                <li><a href="sobre.html">Sobre Nós</a></li>
-                <li><a href="glossario.html">Glossário</a></li>
-                <li><a href="depoimento.html">Depoimentos</a></li>
-                <li><a href="contato.html">Entre em Contato</a></li>
-            </ul>
-        </nav>
+      <h3>Leka Aprenda Jogando!</h3>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="welcome.html">Home</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="glossario.html">Glossário</a></li>
+          <li><a href="depoimento.html">Depoimentos</a></li>
+          <li><a href="contato.html">Entre em Contato</a></li>
+        </ul>
+      </nav>
     </header>
     <div class="header">
       <button data-section="html">HTML</button>
@@ -315,319 +326,319 @@
       <button data-section="javascript">JavaScript</button>
     </div>
     <div id="html" class="section active">
-        <h2 class="text">HTML</h2>
-        <hr>
+      <h2 class="text">HTML</h2>
+      <hr>
 
-        <h3 class="sub">Atributos</h3>
-        <p class="p">Fornecem informações adicionais sobre elementos HTML, como identificadores e classes.</p>
-        <div class="code-block">
-          <code>&lt;a href="https://example.com" title="Exemplo"&gt;Clique aqui&lt;/a&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Formulários</h3>
-        <p class="p">Permitem entrada de dados pelo usuário.</p>
-        <div class="code-block">
-          <code>&lt;form action="/submit"&gt;&lt;input type="text" name="nome"&gt;&lt;/form&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Tabelas</h3>
-        <p class="p">Estruturam dados em formato tabular.</p>
-        <div class="code-block">
-          <code>&lt;table&gt;&lt;tr&gt;&lt;td&gt;Dado&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Elementos Semânticos</h3>
-        <p class="p">Proporcionam significado ao conteúdo, melhorando a acessibilidade e SEO.</p>
-        <div class="code-block">
-          <code>&lt;header&gt;Cabeçalho&lt;/header&gt;&lt;footer&gt;Rodapé&lt;/footer&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Imagens</h3>
-        <p class="p">Permitem a exibição de elementos gráficos.</p>
-        <div class="code-block">
-          <code>&lt;img src="imagem.jpg" alt="Descrição da imagem"&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Links</h3>
-        <p class="p">Conectam páginas ou seções da mesma página.</p>
-        <div class="code-block">
-          <code>&lt;a href="#seção"&gt;Ir para a seção&lt;/a&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Listas</h3>
-        <p class="p">Estruturam itens em listas ordenadas ou não ordenadas.</p>
-        <div class="code-block">
-          <code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Multimídia</h3>
-        <p class="p">Elementos para incorporar áudio e vídeo.</p>
-        <div class="code-block">
-          <code>&lt;video controls&gt;&lt;source src="video.mp4"&gt;&lt;/video&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Botões</h3>
-        <p class="p">Permitem a interação do usuário com a página.</p>
-        <div class="code-block">
-          <code>&lt;button type="submit"&gt;Enviar&lt;/button&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Div e Span</h3>
-        <p class="p">Usados para agrupar e estilizar elementos HTML.</p>
-        <div class="code-block">
-          <code>&lt;div&gt;Conteúdo&lt;/div&gt;&lt;span&gt;Texto&lt;/span&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Meta Tags</h3>
-        <p class="p">Fornecem metadados sobre a página, como descrição e palavras-chave.</p>
-        <div class="code-block">
-          <code>&lt;meta name="description" content="Descrição da página"&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Iframes</h3>
-        <p class="p">Incorporam outra página HTML dentro de uma página.</p>
-        <div class="code-block">
-          <code>&lt;iframe src="https://example.com"&gt;&lt;/iframe&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Estilos Inline</h3>
-        <p class="p">Aplicam estilos diretamente em elementos.</p>
-        <div class="code-block">
-          <code>&lt;h1 style="color: blue;"&gt;Título Azul&lt;/h1&gt;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Classes e IDs</h3>
-        <p class="p">Usados para identificar e estilizar elementos de forma única ou em grupo.</p>
-        <div class="code-block">
-          <code>&lt;div id="unico" class="grupo"&gt;Exemplo&lt;/div&gt;</code>
-        </div><br>
+      <h3 class="sub">Atributos</h3>
+      <p class="p">Fornecem informações adicionais sobre elementos HTML, como identificadores e classes.</p>
+      <div class="code-block">
+        <code>&lt;a href="https://example.com" title="Exemplo"&gt;Clique aqui&lt;/a&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Formulários</h3>
+      <p class="p">Permitem entrada de dados pelo usuário.</p>
+      <div class="code-block">
+        <code>&lt;form action="/submit"&gt;&lt;input type="text" name="nome"&gt;&lt;/form&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Tabelas</h3>
+      <p class="p">Estruturam dados em formato tabular.</p>
+      <div class="code-block">
+        <code>&lt;table&gt;&lt;tr&gt;&lt;td&gt;Dado&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Elementos Semânticos</h3>
+      <p class="p">Proporcionam significado ao conteúdo, melhorando a acessibilidade e SEO.</p>
+      <div class="code-block">
+        <code>&lt;header&gt;Cabeçalho&lt;/header&gt;&lt;footer&gt;Rodapé&lt;/footer&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Imagens</h3>
+      <p class="p">Permitem a exibição de elementos gráficos.</p>
+      <div class="code-block">
+        <code>&lt;img src="imagem.jpg" alt="Descrição da imagem"&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Links</h3>
+      <p class="p">Conectam páginas ou seções da mesma página.</p>
+      <div class="code-block">
+        <code>&lt;a href="#seção"&gt;Ir para a seção&lt;/a&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Listas</h3>
+      <p class="p">Estruturam itens em listas ordenadas ou não ordenadas.</p>
+      <div class="code-block">
+        <code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Multimídia</h3>
+      <p class="p">Elementos para incorporar áudio e vídeo.</p>
+      <div class="code-block">
+        <code>&lt;video controls&gt;&lt;source src="video.mp4"&gt;&lt;/video&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Botões</h3>
+      <p class="p">Permitem a interação do usuário com a página.</p>
+      <div class="code-block">
+        <code>&lt;button type="submit"&gt;Enviar&lt;/button&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Div e Span</h3>
+      <p class="p">Usados para agrupar e estilizar elementos HTML.</p>
+      <div class="code-block">
+        <code>&lt;div&gt;Conteúdo&lt;/div&gt;&lt;span&gt;Texto&lt;/span&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Meta Tags</h3>
+      <p class="p">Fornecem metadados sobre a página, como descrição e palavras-chave.</p>
+      <div class="code-block">
+        <code>&lt;meta name="description" content="Descrição da página"&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Iframes</h3>
+      <p class="p">Incorporam outra página HTML dentro de uma página.</p>
+      <div class="code-block">
+        <code>&lt;iframe src="https://example.com"&gt;&lt;/iframe&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Estilos Inline</h3>
+      <p class="p">Aplicam estilos diretamente em elementos.</p>
+      <div class="code-block">
+        <code>&lt;h1 style="color: blue;"&gt;Título Azul&lt;/h1&gt;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Classes e IDs</h3>
+      <p class="p">Usados para identificar e estilizar elementos de forma única ou em grupo.</p>
+      <div class="code-block">
+        <code>&lt;div id="unico" class="grupo"&gt;Exemplo&lt;/div&gt;</code>
+      </div><br>
     </div>
     <div id="css" class="section">
-        <h2 class="text">CSS</h2>
-        <hr>
-        <h3 class="sub">Estilos Básicos</h3>
-        <p class="p">Define aparência e layout dos elementos.</p>
-        <div class="code-block">
-          <code>body { background-color: #f0f0f0; }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Flexbox</h3>
-        <p class="p">Facilita o alinhamento de elementos em contêineres flexíveis.</p>
-        <div class="code-block">
-          <code>display: flex; justify-content: center;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Grid Layout</h3>
-        <p class="p">Cria layouts em grades para organizar conteúdos.</p>
-        <div class="code-block">
-          <code>display: grid; grid-template-columns: 1fr 1fr;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Seletores</h3>
-        <p class="p">Permitem aplicar estilos a elementos específicos.</p>
-        <div class="code-block">
-          <code>p { color: blue; }</code>
-        </div>
-        <br>
-        <hr class="sub">
-        <h3>Media Queries</h3>
-        <p class="p">Adaptam estilos com base no tamanho da tela ou dispositivo.</p>
-        <div class="code-block">
-          <code>@media (max-width: 600px) { body { font-size: 14px; } }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Posicionamento</h3>
-        <p class="p">Controla a posição de elementos na página.</p>
-        <div class="code-block">
-          <code>position: absolute; top: 50px; left: 100px;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Transições</h3>
-        <p class="p">Adicionam animações suaves entre mudanças de estilo.</p>
-        <div class="code-block">
-          <code>button { transition: background-color 0.3s ease; }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Transformações</h3>
-        <p class="p">Aplicam transformações como rotação e escala.</p>
-        <div class="code-block">
-          <code>div { transform: rotate(45deg); }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Sombras</h3>
-        <p class="p">Adicionam sombras a elementos para profundidade.</p>
-        <div class="code-block">
-          <code>box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Gradientes</h3>
-        <p class="p">Criam transições de cores suaves.</p>
-        <div class="code-block">
-          <code>background: linear-gradient(to right, red, blue);</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Variáveis CSS</h3>
-        <p class="p">Permitem reutilizar valores de estilo.</p>
-        <div class="code-block">
-          <code>:root { --main-color: #3498db; } body { color: var(--main-color); }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Pseudo-classes</h3>
-        <p class="p">Estilizam elementos com base em estados ou interações.</p>
-        <div class="code-block">
-          <code>a:hover { text-decoration: underline; }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Pseudo-elementos</h3>
-        <p class="p">Estilizam partes específicas de elementos.</p>
-        <div class="code-block">
-          <code>p::first-letter { font-size: 2em; }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Fontes Personalizadas</h3>
-        <p class="p">Define fontes customizadas com @font-face ou Google Fonts.</p>
-        <div class="code-block">
-          <code>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');</code>
-        </div>
-        <br>
+      <h2 class="text">CSS</h2>
+      <hr>
+      <h3 class="sub">Estilos Básicos</h3>
+      <p class="p">Define aparência e layout dos elementos.</p>
+      <div class="code-block">
+        <code>body { background-color: #f0f0f0; }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Flexbox</h3>
+      <p class="p">Facilita o alinhamento de elementos em contêineres flexíveis.</p>
+      <div class="code-block">
+        <code>display: flex; justify-content: center;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Grid Layout</h3>
+      <p class="p">Cria layouts em grades para organizar conteúdos.</p>
+      <div class="code-block">
+        <code>display: grid; grid-template-columns: 1fr 1fr;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Seletores</h3>
+      <p class="p">Permitem aplicar estilos a elementos específicos.</p>
+      <div class="code-block">
+        <code>p { color: blue; }</code>
+      </div>
+      <br>
+      <hr class="sub">
+      <h3>Media Queries</h3>
+      <p class="p">Adaptam estilos com base no tamanho da tela ou dispositivo.</p>
+      <div class="code-block">
+        <code>@media (max-width: 600px) { body { font-size: 14px; } }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Posicionamento</h3>
+      <p class="p">Controla a posição de elementos na página.</p>
+      <div class="code-block">
+        <code>position: absolute; top: 50px; left: 100px;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Transições</h3>
+      <p class="p">Adicionam animações suaves entre mudanças de estilo.</p>
+      <div class="code-block">
+        <code>button { transition: background-color 0.3s ease; }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Transformações</h3>
+      <p class="p">Aplicam transformações como rotação e escala.</p>
+      <div class="code-block">
+        <code>div { transform: rotate(45deg); }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Sombras</h3>
+      <p class="p">Adicionam sombras a elementos para profundidade.</p>
+      <div class="code-block">
+        <code>box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Gradientes</h3>
+      <p class="p">Criam transições de cores suaves.</p>
+      <div class="code-block">
+        <code>background: linear-gradient(to right, red, blue);</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Variáveis CSS</h3>
+      <p class="p">Permitem reutilizar valores de estilo.</p>
+      <div class="code-block">
+        <code>:root { --main-color: #3498db; } body { color: var(--main-color); }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Pseudo-classes</h3>
+      <p class="p">Estilizam elementos com base em estados ou interações.</p>
+      <div class="code-block">
+        <code>a:hover { text-decoration: underline; }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Pseudo-elementos</h3>
+      <p class="p">Estilizam partes específicas de elementos.</p>
+      <div class="code-block">
+        <code>p::first-letter { font-size: 2em; }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Fontes Personalizadas</h3>
+      <p class="p">Define fontes customizadas com @font-face ou Google Fonts.</p>
+      <div class="code-block">
+        <code>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');</code>
+      </div>
+      <br>
     </div>
     <div id="javascript" class="section">
-        <h2 class="text">JavaScript</h2>
-        <hr>
-        <h3 class="sub">Funções</h3>
-        <p class="p">Blocos reutilizáveis de código que realizam tarefas.</p>
-        <div class="code-block">
-          <code>function saudacao() { alert('Olá!'); }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">DOM</h3>
-        <p class="p">Manipula elementos HTML dinamicamente.</p>
-        <div class="code-block">
-          <code>document.querySelector('h1').textContent = 'Novo Título';</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Eventos do Mouse</h3>
-        <p class="p">Responde a interações do usuário, como cliques e movimentos.</p>
-        <div class="code-block">
-          <code>element.addEventListener('click', () => alert('Clicado!'));</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Variáveis</h3>
-        <p class="p">Armazenam dados em memória.</p>
-        <div class="code-block">
-          <code>let nome = 'João'; const idade = 25;</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Laços</h3>
-        <p class="p">Executam código repetidamente até que uma condição seja atendida.</p>
-        <div class="code-block">
-          <code>for (let i = 0; i < 5; i++) { console.log(i); }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Condicionais</h3>
-        <p class="p">Executam código baseado em condições.</p>
-        <div class="code-block">
-          <code>if (idade > 18) { console.log('Maior de idade'); }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Objetos</h3>
-        <p class="p">Armazenam coleções de pares chave-valor.</p>
-        <div class="code-block">
-          <code>let carro = { marca: 'Toyota', modelo: 'Corolla' };</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Arrays</h3>
-        <p class="p">Armazenam listas de dados.</p>
-        <div class="code-block">
-          <code>let frutas = ['Maçã', 'Banana', 'Laranja'];</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Promises</h3>
-        <p class="p">Gerenciam operações assíncronas.</p>
-        <div class="code-block">
-          <code>fetch('https://api.example.com') .then(response =&gt; response.json()) .then(data =&gt; console.log(data));</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Async/Await</h3>
-        <p class="p">Facilitam o trabalho com código assíncrono.</p>
-        <div class="code-block">
-          <code>async function fetchData() { const data = await fetch(url); }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Classes</h3>
-        <p class="p">Definem modelos para criar objetos.</p>
-        <div class="code-block">
-          <code>class Pessoa { constructor(nome) { this.nome = nome; } }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Módulos</h3>
-        <p class="p">Organizam código em arquivos separados.</p>
-        <div class="code-block">
-          <code>export function saudacao() { return 'Olá!'; }</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Operadores Ternários</h3>
-        <p class="p">Uma forma concisa de escrever condicionais.</p>
-        <div class="code-block">
-          <code>let status = idade &gt; 18 ? 'Adulto' : 'Menor';</code>
-        </div>
-        <br>
-        <hr>
-        <h3 class="sub">Local Storage</h3>
-        <p class="p">Armazena dados no navegador.</p>
-        <div class="code-block">
-          <code>localStorage.setItem('chave', 'valor');</code>
-        </div>
-        <br>
+      <h2 class="text">JavaScript</h2>
+      <hr>
+      <h3 class="sub">Funções</h3>
+      <p class="p">Blocos reutilizáveis de código que realizam tarefas.</p>
+      <div class="code-block">
+        <code>function saudacao() { alert('Olá!'); }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">DOM</h3>
+      <p class="p">Manipula elementos HTML dinamicamente.</p>
+      <div class="code-block">
+        <code>document.querySelector('h1').textContent = 'Novo Título';</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Eventos do Mouse</h3>
+      <p class="p">Responde a interações do usuário, como cliques e movimentos.</p>
+      <div class="code-block">
+        <code>element.addEventListener('click', () => alert('Clicado!'));</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Variáveis</h3>
+      <p class="p">Armazenam dados em memória.</p>
+      <div class="code-block">
+        <code>let nome = 'João'; const idade = 25;</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Laços</h3>
+      <p class="p">Executam código repetidamente até que uma condição seja atendida.</p>
+      <div class="code-block">
+        <code>for (let i = 0; i < 5; i++) { console.log(i); }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Condicionais</h3>
+      <p class="p">Executam código baseado em condições.</p>
+      <div class="code-block">
+        <code>if (idade > 18) { console.log('Maior de idade'); }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Objetos</h3>
+      <p class="p">Armazenam coleções de pares chave-valor.</p>
+      <div class="code-block">
+        <code>let carro = { marca: 'Toyota', modelo: 'Corolla' };</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Arrays</h3>
+      <p class="p">Armazenam listas de dados.</p>
+      <div class="code-block">
+        <code>let frutas = ['Maçã', 'Banana', 'Laranja'];</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Promises</h3>
+      <p class="p">Gerenciam operações assíncronas.</p>
+      <div class="code-block">
+        <code>fetch('https://api.example.com') .then(response =&gt; response.json()) .then(data =&gt; console.log(data));</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Async/Await</h3>
+      <p class="p">Facilitam o trabalho com código assíncrono.</p>
+      <div class="code-block">
+        <code>async function fetchData() { const data = await fetch(url); }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Classes</h3>
+      <p class="p">Definem modelos para criar objetos.</p>
+      <div class="code-block">
+        <code>class Pessoa { constructor(nome) { this.nome = nome; } }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Módulos</h3>
+      <p class="p">Organizam código em arquivos separados.</p>
+      <div class="code-block">
+        <code>export function saudacao() { return 'Olá!'; }</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Operadores Ternários</h3>
+      <p class="p">Uma forma concisa de escrever condicionais.</p>
+      <div class="code-block">
+        <code>let status = idade &gt; 18 ? 'Adulto' : 'Menor';</code>
+      </div>
+      <br>
+      <hr>
+      <h3 class="sub">Local Storage</h3>
+      <p class="p">Armazena dados no navegador.</p>
+      <div class="code-block">
+        <code>localStorage.setItem('chave', 'valor');</code>
+      </div>
+      <br>
     </div>
-    
+
     <footer>
-        <p>&copy; 2024 Leka. Todos os direitos reservados.</p>
+      <p>&copy; 2024 Leka. Todos os direitos reservados.</p>
     </footer>
   </div>
 
   <script>
-        function toggleMenu() {
-            const menu = document.querySelector('nav ul');
-            menu.classList.toggle('active');
-        }
+    function toggleMenu() {
+      const menu = document.querySelector('nav ul');
+      menu.classList.toggle('active');
+    }
     const sections = document.querySelectorAll('.section');
     const headerButtons = document.querySelectorAll('.header button');
     const menu = document.getElementById('menu');
@@ -656,4 +667,5 @@
     updateMenu('html'); 
   </script>
 </body>
+
 </html>

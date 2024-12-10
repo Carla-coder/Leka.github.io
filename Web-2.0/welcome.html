@@ -321,7 +321,6 @@
 
         let currentPage = 0;
 
-        // Função para criar as bolinhas de navegação
         function createDots() {
             for (let i = 0; i < pages.length; i++) {
                 const dot = document.createElement('div');
@@ -330,13 +329,12 @@
                     dot.classList.add('active-dot');
                 }
                 dot.addEventListener('click', () => {
-                    scrollToPage(i); // Quando a bolinha for clicada, vai para a página correspondente
+                    scrollToPage(i); 
                 });
                 dotsContainer.appendChild(dot);
             }
         }
 
-        // Função para atualizar as bolinhas de navegação com base na página ativa
         function updateDots() {
             const dots = document.querySelectorAll('.dot');
             dots.forEach((dot, index) => {
@@ -348,10 +346,9 @@
             });
         }
 
-        // Função para rolar até a página correspondente
         function scrollToPage(pageIndex) {
             currentPage = pageIndex;
-            // Atualiza a classe 'active' para a página correspondente
+
             pages.forEach((page, index) => {
                 if (index === pageIndex) {
                     page.classList.add('active');
@@ -362,21 +359,17 @@
             updateDots();
         }
 
-        // Navegação através de cliques no carrossel
         carousel.addEventListener('click', () => {
             const nextPage = (currentPage + 1) % pages.length;
             scrollToPage(nextPage);
         });
 
-        // Navegar para a página de login
         function navigateToLogin() {
             window.location.href = "contato.html";
         }
 
-        // Criar as bolinhas de navegação ao carregar a página
         createDots();
-
-        // Função para alternar a visibilidade do menu hamburguer
+        
         function toggleMenu() {
             const menu = document.querySelector('nav ul');
             menu.classList.toggle('active');

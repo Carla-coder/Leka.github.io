@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aprendizado de Desenvolvimento Web</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #333;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #444;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .module-title {
+      font-size: 22px;
+      color: #fff3db;
+      margin-bottom: 10px;
+    }
+
+    .module-description {
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .example-code {
+      background-color: #f7e1c9;
+      color: #4d1948;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #666;
+      border-radius: 5px;
+      background-color: #f7e1c9;
+      color: #000;
+    }
+
+    .hint {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      background-color: #b03892;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #a02684;
+    }
+
+    .quiz-question {
+      background-color: #cb9fc6;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .quiz-title {
+      font-size: 26px;
+      color: #f7e1c9;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .option {
+      display: block;
+      background-color: #f7e1c9;
+      color: #4d1948;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .option.selected {
+      background-color: #b03892;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">Aprendizado de Desenvolvimento Web</h1>
+    <div id="moduleContainer"></div>
+    <button id="nextButton" class="button">Próximo Módulo</button>
+  </div>
+  <script>
+    const learningPathData = {
+      modules: [
+        {
+          id: 1,
+          title: "1. Introdução ao HTML",
+          description:
+            "O HTML (HyperText Markup Language) é a linguagem que estrutura páginas da web.",
+          interactiveContent: [
+            {
+              step: 1,
+              instruction:
+                "📝 Digite o código para criar uma página com título 'Meu Primeiro Site':",
+              exampleCode: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Meu Primeiro Site</title>
+</head>
+<body>
+</body>
+</html>`,
+              hint: "Use <html>, <head> e <title> para começar a estruturar a página.",
+            },
+          ],
+        },
+        {
+          id: 2,
+          title: "2. Introdução ao CSS",
+          description:
+            "O CSS é uma linguagem de estilo utilizada para definir a apresentação visual de documentos HTML.",
+          interactiveContent: [
+            {
+              step: 1,
+              instruction:
+                "Adicione uma cor de fundo azul claro ao corpo da página.",
+              exampleCode: `body {
+  background-color: lightblue;
+}`,
+              hint: "No CSS, use 'background-color' para definir a cor de fundo.",
+            },
+          ],
+        },
+        {
+          id: 3,
+          title: "3. Introdução ao JavaScript",
+          description:
+            "O JavaScript é uma linguagem de programação que possibilita a adição de interatividade em páginas web.",
+          interactiveContent: [
+            {
+              step: 1,
+              instruction:
+                "Crie uma função JavaScript para exibir um alerta com a mensagem 'Olá, Mundo!' quando o botão for clicado.",
+              exampleCode: `function showMessage() {
+  alert('Olá, Mundo!');
+}`,
+              hint: "Quando criar o botão, use 'onclick' para chamar a função.",
+            },
+          ],
+        },
+        {
+          id: 4,
+          title: "4. Prática de CSS",
+          description:
+            "Vamos consolidar seu conhecimento de CSS com exercícios práticos.",
+          interactiveContent: [
+            {
+              step: 1,
+              instruction:
+                "Escreva o código CSS para centralizar um texto dentro de um elemento.",
+              exampleCode: `h1 {
+  text-align: center;
+}`,
+              hint: "Use 'text-align: center' no CSS para centralizar.",
+            },
+          ],
+        },
+        {
+          id: 5,
+          title: "✏ Quiz Final",
+          quiz: [
+            {
+              question: "1. Qual é a estrutura básica de um documento HTML?",
+              answerType: "code",
+              expectedAnswer: `<!DOCTYPE html>
+<html>
+<head>
+<title>Título</title>
+</head>
+<body>
+</body>
+</html>`,
+            },
+            {
+              question: "2. Como aplicar uma cor de fundo azul usando CSS?",
+              answerType: "multipleChoice",
+              options: [
+                "body { color: blue; }",
+                "body { background-color: blue; }",
+                "body { background: blue; }",
+              ],
+              expectedAnswer: "body { background-color: blue; }",
+            },
+          ],
+        },
+      ],
+    };
+
+    let currentModuleIndex = 0;
+
+    function renderModule() {
+      const moduleContainer = document.getElementById("moduleContainer");
+      moduleContainer.innerHTML = "";
+
+      const module = learningPathData.modules[currentModuleIndex];
+      if (module) {
+        const title = document.createElement("h2");
+        title.className = "module-title";
+        title.textContent = module.title;
+
+        const description = document.createElement("p");
+        description.className = "module-description";
+        description.textContent = module.description;
+
+        moduleContainer.appendChild(title);
+        moduleContainer.appendChild(description);
+
+        if (module.interactiveContent) {
+          module.interactiveContent.forEach((step) => {
+            const instruction = document.createElement("p");
+            instruction.textContent = step.instruction;
+
+            const codeBlock = document.createElement("pre");
+            codeBlock.className = "example-code";
+            codeBlock.textContent = step.exampleCode;
+
+            const hint = document.createElement("p");
+            hint.className = "hint";
+            hint.innerHTML = `Dica: ${step.hint.replace(/\n/g, "<br>")}`;
+
+            const input = document.createElement("textarea");
+            input.className = "text-input";
+            input.placeholder = "Digite seu código aqui";
+
+            moduleContainer.appendChild(instruction);
+            moduleContainer.appendChild(codeBlock);
+            moduleContainer.appendChild(input);
+            moduleContainer.appendChild(hint);
+          });
+        }
+
+        if (module.quiz) {
+          renderQuiz(module.quiz);
+        }
+      }
+    }
+
+    function renderQuiz(quiz) {
+      const moduleContainer = document.getElementById("moduleContainer");
+
+      const quizTitle = document.createElement("h2");
+      quizTitle.className = "quiz-title";
+      quizTitle.textContent = "Quiz Final";
+      moduleContainer.appendChild(quizTitle);
+
+      quiz.forEach((question, index) => {
+        const questionContainer = document.createElement("div");
+        questionContainer.className = "quiz-question";
+
+        const questionText = document.createElement("p");
+        questionText.textContent = question.question;
+        questionContainer.appendChild(questionText);
+
+        if (question.answerType === "multipleChoice") {
+          question.options.forEach((option) => {
+            const optionButton = document.createElement("button");
+            optionButton.className = "option";
+            optionButton.textContent = option;
+            optionButton.onclick = () =>
+              handleOptionSelect(
+                optionButton,
+                question.expectedAnswer,
+                option
+              );
+            questionContainer.appendChild(optionButton);
+          });
+        } else {
+          const input = document.createElement("textarea");
+          input.className = "text-input";
+          input.placeholder = "Digite sua resposta aqui";
+          questionContainer.appendChild(input);
+        }
+
+        moduleContainer.appendChild(questionContainer);
+      });
+    }
+
+    function handleOptionSelect(button, expectedAnswer, selectedAnswer) {
+      console.log("Resposta esperada:", expectedAnswer);
+      console.log("Resposta selecionada:", selectedAnswer);
+
+      if (selectedAnswer === expectedAnswer) {
+        button.classList.add("selected");
+        alert("Resposta correta!");
+      } else {
+        alert("Resposta incorreta.");
+      }
+
+      currentModuleIndex++;
+      if (currentModuleIndex < learningPathData.modules.length) {
+        renderModule();
+      } else {
+        alert("Você completou todos os módulos!");
+      }
+    }
+
+    renderModule();
+  </script>
+</body>
+
+</html>

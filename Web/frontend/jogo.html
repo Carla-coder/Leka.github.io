@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela de Jogo</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #333;
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .header .score,
+    .header .lives {
+      background-color: #f7e1c9;
+      padding: 1%;
+      width: 110px;
+      height: 30px;
+      border-radius: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .headerText {
+      color: #4d1948;
+      font-size: 18px;
+    }
+
+    .coursePath {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-bottom: 70px;
+    }
+
+    .courseTitle {
+      background-color: #f7e1c9;
+      color: #4d1948;
+      height: 30px;
+      padding: 1%;
+      margin-top: 70px;
+      width: 210px;
+      border-radius: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .phaseScroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .phaseWrapper {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin: 70px 0;
+    }
+
+    .phaseCircle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #a469aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .phaseCircle.right {
+      right: 10%;
+    }
+
+    .phaseCircle.left {
+      left: 10%;
+    }
+
+    .diagonalLine {
+      position: absolute;
+      width: 136px;
+      height: 3px;
+      background-color: white;
+      z-index: 1;
+    }
+
+    .diagonalLine.left {
+      top: -12px;
+      left: 30%;
+      transform: rotate(-45deg);
+    }
+
+    .diagonalLine.right {
+      top: -15px;
+      left: 26%;
+      transform: rotate(45deg);
+    }
+
+    .phaseWrapper:first-child .diagonalLine {
+      display: none;
+    }
+
+    .bottom-menu {
+      display: flex;
+      justify-content: space-around;
+      background-color: #f7e1c9;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .menu-text {
+      color: #4d1948;
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .menu-item i {
+      font-size: 30px;
+      color: #4d1948;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="lives"><span class="headerText" id="lives">❤️ 5</span></div>
+      <div class="courseTitle">🏆 Progresso <span id="progress">0%</span></div>
+      <div class="score"><span class="headerText" id="score">🎯 100</span></div>
+    </div>
+    <div class="coursePath">
+      <div class="phaseScroll" id="phaseScroll"></div>
+    </div>
+    <div class="bottom-menu">
+      <a href="jogo.html" class="menu-item">
+        <i class="material-icons">games</i>
+        <span class="menu-text">Jogo</span>
+      </a>
+      <a href="resumo.html" class="menu-item">
+        <i class="material-icons">description</i>
+        <span class="menu-text">Resumo</span>
+      </a>
+      <a href="amigos.html" class="menu-item">
+        <i class="material-icons">group</i>
+        <span class="menu-text">Amigos</span>
+      </a>
+      <a href="perfil.html" class="menu-item">
+        <i class="material-icons">person</i>
+        <span class="menu-text">Perfil</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const phaseScroll = document.getElementById('phaseScroll');
+    let currentUser = localStorage.getItem('currentUser');
+
+    if (!currentUser) {
+      window.location.href = 'login.html';
+    }
+
+    const storageKeys = {
+      lives: `${currentUser}_lives`,
+      score: `${currentUser}_score`,
+      progress: `${currentUser}_progress`,
+    };
+
+    window.onload = () => {
+      loadUserData();
+      createPhases();
+    };
+
+    function loadUserData() {
+      const savedLives = localStorage.getItem(storageKeys.lives);
+      const savedScore = localStorage.getItem(storageKeys.score);
+      const savedProgress = localStorage.getItem(storageKeys.progress);
+
+      lives = savedLives !== null ? parseInt(savedLives) : 5;
+      score = savedScore !== null ? parseInt(savedScore) : 100;
+      progress = savedProgress !== null ? parseInt(savedProgress) : 0;
+
+      document.getElementById('lives').textContent = `❤️ ${lives}`;
+      document.getElementById('score').textContent = `🎯 ${score}`;
+      document.getElementById('progress').textContent = `${progress}%`;
+    }
+
+    function saveUserData() {
+      localStorage.setItem(storageKeys.lives, lives);
+      localStorage.setItem(storageKeys.score, score);
+      localStorage.setItem(storageKeys.progress, progress);
+    }
+
+    function createPhases() {
+      for (let i = 1; i <= 10; i++) {
+        const isRight = i % 2 === 0;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'phaseWrapper';
+
+        const line = document.createElement('div');
+        line.className = `diagonalLine ${isRight ? 'right' : 'left'}`;
+        wrapper.appendChild(line);
+
+        const circle = document.createElement('div');
+        circle.className = `phaseCircle ${isRight ? 'right' : 'left'}`;
+        circle.textContent = i;
+        circle.addEventListener('click', () => goToGame(i));
+        wrapper.appendChild(circle);
+
+        phaseScroll.appendChild(wrapper);
+      }
+    }
+
+    function goToGame(phase) {
+      const screenMap = {
+        1: 'jogo1.html',
+        2: 'jogo2.html',
+        3: 'jogo3.html',
+        4: 'jogo4.html',
+        5: 'jogo5.html',
+        6: 'jogo6.html',
+        7: 'jogo7.html',
+        8: 'jogo8.html',
+        9: 'jogo9.html',
+        10: 'jogo10.html',
+      };
+
+      const targetScreen = screenMap[phase];
+      if (targetScreen) {
+        progress = Math.min(progress + 10, 100);
+        lives += 1; 
+        score += 100;
+
+        document.getElementById('lives').textContent = `❤️ ${lives}`;
+        document.getElementById('score').textContent = `🎯 ${score}`;
+        document.getElementById('progress').textContent = `${progress}%`;
+
+        saveUserData();
+
+         Redirecionar
+        window.location.href = targetScreen;
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

@@ -11,31 +11,29 @@
     <style>
         body {
             font-family: "Arial", sans-serif;
-            background-color: #333; /* Fundo escuro */
+            background-color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            color: #f7e1c9; /* Cor de texto clara */
+            color: #f7e1c9;
         }
 
-        /* Estilo do modal */
         .modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(51, 51, 51, 0.8); /* Fundo escuro com opacidade */
+            background-color: rgba(51, 51, 51, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* Container do formulário */
         .register-container {
-            background-color: #7950a083; /* Fundo suave e escuro */
+            background-color: #7950a083;
             padding: 30px;
             border-radius: 15px;
             width: 90%;
@@ -43,7 +41,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Logo */
         .logo {
             width: 150px;
             height: 150px;
@@ -53,16 +50,14 @@
             margin-right: auto;
         }
 
-        /* Título */
         h1 {
             font-size: 28px;
-            color: #f7e1c9; /* Cor do título */
+            color: #f7e1c9;
             font-weight: bold;
             margin-bottom: 20px;
             text-align: center;
         }
 
-        /* Estilo do input */
         .form-control {
             width: 100%;
             padding: 10px;
@@ -70,11 +65,10 @@
             border-radius: 5px;
             border: none;
             outline: none;
-            background-color: #f7e1c9e0; /* Cor suave de fundo no input */
-            color: #4d1948; /* Texto escuro no input */
+            background-color: #f7e1c9e0;
+            color: #4d1948;
         }
 
-        /* Estilo do label */
         label {
             font-size: 16px;
             color: #f7e1c9;
@@ -82,7 +76,6 @@
             display: block;
         }
 
-        /* Estilo do botão */
         .btn-primary {
             background-color: #a469aa;
             color: #fff;
@@ -96,10 +89,9 @@
         }
 
         .btn-primary:hover {
-            background-color: #7d449a; /* Cor mais escura ao passar o mouse */
+            background-color: #7d449a;
         }
 
-        /* Estilo do grupo de input com senha */
         .input-group-text {
             cursor: pointer;
             background-color: #c2be99;
@@ -108,19 +100,17 @@
             height: 44px;
         }
 
-        /* Container do botão */
         .button-container {
             display: flex;
             justify-content: center;
             margin-top: 20px;
         }
 
-        /* Estilo da mensagem de boas-vindas */
         .welcome-message {
             margin-bottom: 20px;
             text-align: center;
             font-size: 16px;
-            color: #f7e1c9; /* Cor do título */
+            color: #f7e1c9;
         }
     </style>
 
@@ -186,11 +176,9 @@
         const confirmarSenha = document.getElementById('confirmarSenha');
         const telefone = document.getElementById('telefone');
 
-        // Função para formatar o telefone enquanto o usuário digita
         telefone.addEventListener('input', function (e) {
-            let valor = e.target.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+            let valor = e.target.value.replace(/\D/g, '');
 
-            // Formatar o telefone como (XX) XXXXX-XXXX
             if (valor.length <= 2) {
                 e.target.value = `(${valor}`;
             } else if (valor.length <= 7) {
@@ -199,7 +187,6 @@
                 e.target.value = `(${valor.slice(0, 2)}) ${valor.slice(2, 7)}-${valor.slice(7, 11)}`;
             }
         });
-
 
         togglePassword.addEventListener('click', () => {
             const type = senha.type === 'password' ? 'text' : 'password';
@@ -244,7 +231,7 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    window.location.href = 'motivo.html'; // Redireciona para outra página após o cadastro
+                    window.location.href = 'motivo.html';
                 } else {
                     alert(`Erro: ${data.message}`);
                 }
