@@ -133,6 +133,29 @@ const ProfileScreen = () => {
         <Text style={styles.editButtonText}>ALTERAR PERFIL</Text>
       </TouchableOpacity>
 
+      {/* Modal de Seleção de Imagem */}
+      <Modal visible={isModalVisible} transparent={true} animationType="slide">
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Selecione uma imagem de perfil</Text>
+            <FlatList
+              data={profileImages}
+              horizontal
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({ item }) => (
+                <TouchableOpacity style={styles.imageItem} onPress={() => handleImageSelect(item)}>
+                  <Image source={{ uri: item }} style={styles.modalImage} />
+                </TouchableOpacity>
+              )}
+              contentContainerStyle={styles.imageListContainer}
+            />
+            <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.closeButton}>
+              <Text style={styles.closeButtonText}>Fechar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
       {/* Modal de Progresso */}
       <Modal visible={isProgressModalVisible} transparent={true} animationType="slide">
         <View style={styles.modalContainer}>
