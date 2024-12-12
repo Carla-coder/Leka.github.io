@@ -84,10 +84,10 @@ https://Carla-coder.github.io/Leka/Web-2.0/welcome.html
     - [x] Manual do Administrador se houver
 
 ## Apresentação
-- [ ] Apresentação do Projeto
-    - [ ] Apresentação do Projeto Web
-    - [ ] Apresentação do Projeto Mobile
-    - [ ] Documento do Projeto
+- [x] Apresentação do Projeto
+    - [x] Apresentação do Projeto Web
+    - [x] Apresentação do Projeto Mobile
+    - [x] Documento do Projeto
 
 ## Autores
 
